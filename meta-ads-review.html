@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pomad Meta Ads Review</title>
+<style>html{color-scheme:light dark}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: Pomad's own look. White paper, black ink, lime as the one accent (fills and highlights, never lime text on white). Sticky section nav, one reading column, tables full width. */
+:root{
+  --paper:#ffffff; --ink:#000000; --mist:#f9f9f9; --pack:#eaeaea; --line:#e2e2e2; --muted:#6b6b6b;
+  --lime:#ccff00; --lime-soft:#ddf56a; --green-50:#f2fbdf; --ok:#2e7d32; --bad:#c62828; --warn:#a15c00; --bad-50:#fdecec; --warn-50:#fff4e0;
+  --on-lime:#000000; --bar:#d6d6d6;
+  --f-head:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --f-body:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0c0c0c; --ink:#f4f4f4; --mist:#161616; --pack:#222; --line:#2c2c2c; --muted:#a3a3a3;
+  --green-50:#1a2410; --ok:#7bd389; --bad:#ff8a80; --warn:#f2b45c; --bad-50:#2a1414; --warn-50:#2a2010; --bar:#3a3a3a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0c0c0c; --ink:#f4f4f4; --mist:#161616; --pack:#222; --line:#2c2c2c; --muted:#a3a3a3;
+  --green-50:#1a2410; --ok:#7bd389; --bad:#ff8a80; --warn:#f2b45c; --bad-50:#2a1414; --warn-50:#2a2010; --bar:#3a3a3a; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--f-body);margin:0}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.top{background:var(--lime);color:var(--on-lime);font:600 13px/1.4 var(--f-body);text-align:center;padding-block:8px}
+nav.sec{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav.sec .in{max-width:980px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav.sec a{flex:none;font:500 14px/1 var(--f-body);color:var(--ink);text-decoration:none;padding:9px 14px;border-radius:999px;background:var(--mist);border:1px solid var(--line)}
+nav.sec a:hover{background:var(--lime);color:var(--on-lime);border-color:var(--lime)}
+main{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:64px;padding-block:40px 96px}
+.hero{display:flex;flex-direction:column;gap:18px}
+.logo{height:58px;width:auto;align-self:flex-start}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo{filter:invert(1)}}
+:root[data-theme="dark"] .logo{filter:invert(1)}
+.kicker{font:600 12px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font:700 clamp(34px,6vw,56px)/1.02 var(--f-head);letter-spacing:-2px;margin:0;text-wrap:balance;max-width:16ch}
+h2{font:700 clamp(26px,4vw,36px)/1.08 var(--f-head);letter-spacing:-1px;margin:0;text-wrap:balance}
+h3{font:700 19px/1.25 var(--f-head);letter-spacing:-.3px;margin:0}
+p{margin:0;max-width:72ch}
+.lead{font-size:18px;max-width:64ch}
+.meta{font-size:14px;color:var(--muted)}
+.mono{font-family:var(--f-mono);font-size:.88em}
+.hl{background:var(--lime);color:var(--on-lime);padding:0 .2em;border-radius:3px}
+section{display:flex;flex-direction:column;gap:20px;scroll-margin-top:72px}
+.say{font:600 17px/1.45 var(--f-body);border-left:4px solid var(--lime);padding:2px 0 2px 14px;max-width:70ch}
+ul,ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px;max-width:74ch}
+.grid3{display:flex;flex-wrap:wrap;gap:12px}.grid3>*{flex:1 1 220px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.grid2>*,.grid3>*{min-width:0}
+.card{background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.card.lime{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
+.card .big{font:700 clamp(28px,4.2vw,34px)/1 var(--f-head);letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.card .lbl{font-size:13px;color:inherit;opacity:.75}
+.ladder{display:flex;flex-direction:column;gap:12px;background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:20px}
+.rung{display:grid;grid-template-columns:minmax(150px,220px) 1fr 150px;gap:14px;align-items:center}
+.rung .n{font-weight:600;font-size:15px}
+.rung .n small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.track{height:34px;background:var(--pack);border-radius:999px;overflow:hidden}
+.fill{height:100%;border-radius:999px;background:var(--ink);display:flex;align-items:center;justify-content:flex-end;padding-right:12px;color:var(--paper);font:700 15px/1 var(--f-head);font-variant-numeric:tabular-nums}
+.fill.lime{background:var(--lime);color:var(--on-lime)}
+.rung .r{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.rung .r b{color:var(--ink);font-size:15px}
+@media (max-width:640px){.rung{grid-template-columns:1fr}.rung .r{order:3}}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:640px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font:600 11.5px/1.3 var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--mist)}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+tr.tot td{font-weight:600;background:var(--mist)}
+.sh{display:flex;align-items:center;gap:8px;min-width:120px}
+.sh i{display:block;height:8px;border-radius:99px;background:var(--ink)}
+.good{background:var(--green-50);font-weight:600}
+.poor{color:var(--bad);font-weight:600}
+.pill{display:inline-block;font:600 11px/1 var(--f-body);letter-spacing:.03em;padding:5px 9px;border-radius:999px;white-space:nowrap;border:1px solid var(--line);background:var(--mist);color:var(--ink)}
+.pill.we{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
+.pill.team{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.pill.ver{background:var(--warn-50);border-color:var(--warn);color:var(--warn)}
+.pill.live{background:var(--green-50);border-color:var(--ok);color:var(--ok)}
+.check{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.check .L{width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:700 18px/1 var(--f-head)}
+.check.hot .L{background:var(--lime);color:var(--on-lime)}
+.check .b{display:flex;flex-direction:column;gap:8px;min-width:0}
+.check .t{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.check .s{font-weight:600}
+pre{font:12.5px/1.6 var(--f-mono);background:var(--mist);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;margin:0;white-space:pre}
+.note{font-size:13.5px;color:var(--muted);max-width:78ch}
+.callout{border-radius:14px;padding:16px 18px;background:var(--green-50);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.callout.warn{background:var(--warn-50)}
+.chart-box{background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:16px;overflow-x:auto}
+.chart{width:100%;min-width:560px;height:auto;display:block}
+.chart .grid{stroke:var(--line);stroke-width:1}
+.chart .ax{fill:var(--muted);font:11px var(--f-body)}
+.chart .bar{fill:var(--bar)} .chart .bar.hi{fill:var(--lime)}
+.chart .l-all{fill:none;stroke:var(--ink);stroke-width:2.2}
+.chart .l-all-dot{fill:var(--ink)}
+.chart .l-click{fill:none;stroke:var(--bad);stroke-width:2.2;stroke-dasharray:6 4}
+.chart .l-click-dot{fill:var(--bad)}
+.chart .floor{stroke:var(--warn);stroke-width:1.5;stroke-dasharray:2 3}
+.chart .floor-t{fill:var(--warn)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:18px;height:3px;display:inline-block;background:var(--ink)}
+.sw.click{background:repeating-linear-gradient(90deg,var(--bad) 0 6px,transparent 6px 10px)}
+.sw.bar{height:10px;background:var(--bar)} .sw.hi{height:10px;background:var(--lime)}
+.sw.floor{background:repeating-linear-gradient(90deg,var(--warn) 0 2px,transparent 2px 5px)}
+.week{display:grid;grid-template-columns:120px 1fr;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.week>div{padding:12px 14px;border-bottom:1px solid var(--line)}
+.week>div:nth-last-child(-n+2){border-bottom:0}
+.week .d{font:700 14px/1.4 var(--f-head);background:var(--mist)}
+@media (max-width:560px){.week{grid-template-columns:1fr}.week .d{border-bottom:0}}
+.name{font-family:var(--f-mono);font-size:12.5px;word-break:break-word}
+footer{border-top:1px solid var(--line);padding-top:20px;font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<style>
+details.more{border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+details.more>summary{cursor:pointer;list-style:none;padding:13px 16px;font:600 14px/1.3 var(--f-body);display:flex;justify-content:space-between;align-items:center;gap:12px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"+";font:700 20px/1 var(--f-head);width:28px;height:28px;border-radius:50%;background:var(--mist);display:grid;place-items:center;flex:none}
+details.more[open]>summary::after{content:"–";background:var(--lime);color:var(--on-lime)}
+details.more>.in{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
+.vs{display:grid;grid-template-columns:110px 1fr 1fr;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.vs>div{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px;min-width:0}
+.vs>div:nth-last-child(-n+3){border-bottom:0}
+.vs .h{background:var(--mist);font:600 12px/1.3 var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);justify-content:center}
+.vs .k{font:700 16px/1.2 var(--f-head);background:var(--mist);justify-content:center}
+.vs .bad{background:var(--paper)}
+.vs .win{background:var(--green-50)}
+.vs .v{font:700 26px/1 var(--f-head);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+.vs .d{font-size:13px;color:var(--muted)}
+@media (max-width:620px){.vs{grid-template-columns:1fr 1fr}.vs .k,.vs .h:first-child{grid-column:1/-1}.vs>div:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.vs>div:nth-last-child(-n+2){border-bottom:0}}
+.steps{display:flex;flex-wrap:wrap;gap:12px}.steps>*{flex:1 1 200px}
+.steps .card h3{display:flex;gap:10px;align-items:center}
+.steps .card h3 b{width:28px;height:28px;border-radius:50%;background:var(--lime);color:var(--on-lime);display:grid;place-items:center;font-size:14px;flex:none}
+.iss td:first-child{width:34px}
+.iss .L{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:700 13px/1 var(--f-head)}
+</style>
+
+<style>
+.seg{display:grid;grid-template-columns:1fr;gap:16px}
+.seg>*{min-width:0}
+.segbox{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--mist)}
+table.sm{min-width:480px;font-size:13.5px}
+.take{font-size:14.5px;font-weight:500}
+@media (max-width:520px){.seg{grid-template-columns:1fr}}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.flow .st{background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.flow .st .n{font:700 clamp(30px,5vw,46px)/1 var(--f-head);letter-spacing:-1px}
+.flow .st small{font-size:12.5px;color:var(--bad);font-weight:600}
+.flow .st.loss{border-color:var(--bad);background:var(--bad-50)}
+.flow .st.win{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
+@media (max-width:620px){.flow{grid-template-columns:1fr 1fr}}
+table.chk td{font-size:14px}
+.st-no,.st-part,.st-ok{display:inline-block;font:600 11px/1 var(--f-body);padding:5px 9px;border-radius:999px;white-space:nowrap}
+.st-no{background:var(--bad-50);color:var(--bad);border:1px solid var(--bad)}
+.st-part{background:var(--warn-50);color:var(--warn);border:1px solid var(--warn)}
+.st-ok{background:var(--green-50);color:var(--ok);border:1px solid var(--ok)}
+</style><style>
+.waffle{display:grid;grid-template-columns:repeat(20,1fr);gap:4px;max-width:520px}
+.waffle i{aspect-ratio:1;border-radius:4px;background:var(--pack);display:block}
+.waffle i.c{background:var(--lime)}
+.key{display:flex;flex-wrap:wrap;gap:16px;font-size:14px}
+.key span{display:inline-flex;gap:8px;align-items:center}
+.key i{width:14px;height:14px;border-radius:4px;display:inline-block;background:var(--pack)}
+.key i.c{background:var(--lime)}
+.words{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.words .card b{font:700 17px/1.2 var(--f-head)}
+.story{background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.story ol{gap:6px}
+.minibars{display:flex;align-items:flex-end;gap:8px;height:160px;padding:12px 4px 0;border-bottom:1px solid var(--line)}
+.minibars div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;min-width:0}
+.minibars b{font:600 11.5px/1 var(--f-body);font-variant-numeric:tabular-nums}
+.minibars i{display:block;width:100%;max-width:44px;border-radius:6px 6px 0 0;background:var(--bar)}
+.minibars i.hi{background:var(--ink)} .minibars i.lo{background:var(--lime)}
+.minilabels{display:flex;gap:8px;padding:6px 4px 0}
+.minilabels span{flex:1;text-align:center;font-size:11.5px;color:var(--muted)}
+.hours{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;align-items:end;height:110px;border-bottom:1px solid var(--line)}
+.hours i{display:block;background:var(--bar);border-radius:3px 3px 0 0}
+.hours i.pk{background:var(--lime)}
+.hlab{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;font-size:10.5px;color:var(--muted);text-align:center;padding-top:4px}
+.big-stat{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.big-stat .n{font:700 clamp(40px,7vw,64px)/1 var(--f-head);letter-spacing:-2px}
+.share{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.share .card{gap:6px}
+.share .card .why{font-size:13.5px;color:var(--muted)}
+</style><style>
+.dup{display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--mist)}
+.dupflow{display:flex;flex-direction:column;gap:10px}
+.dsplit{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dn{display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--paper);min-width:0}
+.dn b{font:700 15px/1.3 var(--f-head)}
+.dn span{font-size:14px;line-height:1.5}
+.dn em{font-style:normal;font:600 11.5px/1 var(--f-body);padding:5px 8px;border-radius:999px;align-self:flex-start;margin-top:4px}
+.dn em.ok{background:var(--green-50);color:var(--ok);border:1px solid var(--ok)}
+.dn em.q{background:var(--warn-50);color:var(--warn);border:1px solid var(--warn)}
+.dn.order{background:var(--ink);color:var(--paper);border-color:var(--ink);align-items:center;text-align:center}
+.dn.good{background:var(--green-50)}
+.dn.bad{background:var(--bad-50)}
+.steps2{display:flex;flex-direction:column;gap:10px;padding-left:1.3em;max-width:85ch}
+@media (max-width:620px){.dsplit{grid-template-columns:1fr}}
+</style>
+<style>
+.cats{display:flex;flex-wrap:wrap;gap:12px}.cats>.cat{flex:1 1 220px}
+.cat{display:flex;flex-direction:column;gap:8px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--mist);text-decoration:none;color:var(--ink);min-width:0}
+.cat:hover{border-color:var(--ink)}
+.cat .top2{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.cat .lt{width:34px;height:34px;border-radius:10px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:700 16px/1 var(--f-head)}
+.cat .cn{font:600 12px/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cat .hd{font:700 17px/1.25 var(--f-head);letter-spacing:-.2px}
+.cat .ct{font-size:12.5px;color:var(--muted)}
+.catsec{display:flex;flex-direction:column;gap:18px;scroll-margin-top:72px}
+.cathead{display:flex;gap:14px;align-items:flex-start}
+.cathead .lt{flex:none;width:48px;height:48px;border-radius:14px;background:var(--lime);color:var(--on-lime);display:grid;place-items:center;font:700 22px/1 var(--f-head)}
+.cathead .cn{font:600 12px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.fl{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.fr{display:grid;grid-template-columns:52px 1fr minmax(120px,170px);gap:14px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--paper)}
+.fr:last-child{border-bottom:0}
+.fr .id{font:700 13px/1 var(--f-head);background:var(--mist);border:1px solid var(--line);border-radius:999px;padding:7px 0;text-align:center}
+.fr .tx{display:flex;flex-direction:column;gap:3px;min-width:0}
+.fr .tx b{font-weight:600;font-size:15.5px;line-height:1.4}
+.fr .tx span{font-size:13.5px;color:var(--muted);line-height:1.5}
+.fr .m{font:700 20px/1.1 var(--f-head);text-align:right;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+.fr .m small{display:block;font:500 11.5px/1.3 var(--f-body);color:var(--muted);letter-spacing:0}
+@media (max-width:600px){.fr{grid-template-columns:44px 1fr}.fr .m{grid-column:2;text-align:left}}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.verdict .card h3{font-size:16px}
+.wk{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.wk .card .from{font-size:12.5px;color:var(--muted)}
+.terms{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.terms b{color:var(--ink)}
+.means{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--mist);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.means span{font:700 12px/1.6 var(--f-body);letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.means p{margin:0;font-weight:500;max-width:80ch}
+@media (max-width:560px){.means{grid-template-columns:1fr}}
+.hpq{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.hpq .card .big{font-size:30px}
+</style>
+</head>
+<body>
+<div class="top gut">Pomad Paris · Meta ads review · 26 October 2026</div>
+<nav class="sec gut" aria-label="Sections"><div class="in">
+  <a href="#summary">Summary</a><a href="#A">A Attribution</a><a href="#B">B Tracking</a><a href="#C">C Campaign setup</a><a href="#D">D Audience</a><a href="#E">E Creative</a><a href="#F">F Landing page</a><a href="#G">G Costs</a><a href="#week1">First week</a>
+</div></nav>
+
+<main class="gut">
+<section class="hero" id="summary">
+  <img class="logo" alt="Pomad Paris" src="data:image/png;base64,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">
+  <div class="kicker">Meta ads review · POMAD PARIS 2024 · 26 Sep–25 Oct 2026</div>
+  <h1>Meta Ads Account Review</h1>
+  <p class="lead">What the account shows today, grouped into seven areas. Every number comes from Meta's own data or the live site.</p>
+  <div class="say">The short version: Ads Manager shows a ROAS of 2.36. Counting only people who clicked, it's 1.28. That's about half. The setup counts and rewards ads that are seen rather than clicked, so budget drifts to what gets seen.</div>
+  <div class="cats">
+    <a class="cat" href="#A"><div class="top2"><span class="lt">A</span><span class="cn">Attribution · 4</span></div><span class="hd">Ads Manager shows about twice what Meta can tie to a click</span><span class="ct">ROAS shown 2.36 · ROAS 7-day click 1.28</span></a>
+    <a class="cat" href="#B"><div class="top2"><span class="lt">B</span><span class="cn">Tracking · 6</span></div><span class="hd">The site sends Meta purchase data that can't be fully trusted yet</span><span class="ct">Orders can arrive twice · merging unconfirmed</span></a>
+    <a class="cat" href="#C"><div class="top2"><span class="lt">C</span><span class="cn">Campaign setup · 5</span></div><span class="hd">Settings reward views, and budget is spread thin</span><span class="ct">93 ad sets · Retention reaches 730k</span></a>
+    <a class="cat" href="#D"><div class="top2"><span class="lt">D</span><span class="cn">Audience · 3</span></div><span class="hd">Budget goes younger. Click buyers are older and in France</span><span class="ct">ROAS 7-day click: 55–64 at 1.54 · Switzerland 0.58</span></a>
+    <a class="cat" href="#E"><div class="top2"><span class="lt">E</span><span class="cn">Creative · 4</span></div><span class="hd">Images sell better per euro. The top spenders don't</span><span class="ct">Video: 61% of spend, ROAS 7-day click 0.92</span></a>
+    <a class="cat" href="#F"><div class="top2"><span class="lt">F</span><span class="cn">Landing page · 5</span></div><span class="hd">All ads go to the homepage, the best of the pages tried so far</span><span class="ct">221 of 222 ads</span></a>
+    <a class="cat" href="#G"><div class="top2"><span class="lt">G</span><span class="cn">Costs · 2</span></div><span class="hd">Showing an ad costs 56% more than in February</span><span class="ct">€4.19 → €6.55 per 1,000</span></a>
+  </div>
+  <div class="terms"><span><b>ROAS</b> = purchase value ÷ ad spend. 1.28 means €1.28 of purchases for every €1 spent.</span><span><b>ROAS shown</b> = what Ads Manager shows (7-day click + 1-day view)</span><span><b>ROAS 7-day click</b> = only people who clicked an ad and bought within 7 days</span><span><b>Cost per purchase</b> = ad spend ÷ purchases (7-day click)</span><span><b>View-through purchase</b> = bought within 1 day of seeing an ad, without clicking</span><span><b>Prospecting</b> = all campaigns except Retention</span></div>
+</section>
+
+<!-- A -->
+<section class="catsec" id="A">
+  <div class="cathead"><span class="lt">A</span><div><div class="cn">Attribution · how Meta counts a purchase</div><h2>Ads Manager shows about twice what Meta can tie to a click.</h2></div></div>
+  <div class="ladder" role="img" aria-label="ROAS by counting rule, last 30 days">
+    <div class="rung" tabindex="0" data-tip="ROAS shown: 2.36|4,835 purchases worth €405,180|Spend €171,596 · €35 per purchase"><div class="n">ROAS shown<small>Clicks + views</small></div><div class="track"><div class="fill" style="width:94.4%">2.36</div></div><div class="r"><b>4,835</b> purchases · €35 per purchase</div></div>
+    <div class="rung" tabindex="0" data-tip="ROAS 7-day click: 1.28|2,574 purchases worth €219,143|Spend €171,596 · €67 per purchase"><div class="n">ROAS 7-day click<small>Clicked, bought within 7 days</small></div><div class="track"><div class="fill lime" style="width:51.2%">1.28</div></div><div class="r"><b>2,574</b> purchases · €67 per purchase</div></div>
+  </div>
+  <div class="fl">
+    <div class="fr"><span class="id">A1</span><div class="tx"><b>Same 30 days, same €171,596: two different returns.</b><span>ROAS shown 2.36. ROAS 7-day click 1.28.</span></div><div class="m">2.36 → 1.28<small>ROAS shown → 7-day click</small></div></div>
+    <div class="fr"><span class="id">A2</span><div class="tx"><b>47% of reported purchases came from people who never clicked.</b><span>It was 29% in February and has been 44–60% every month since April.</span></div><div class="m">47%<small>view-through purchases</small></div></div>
+    <div class="fr"><span class="id">A3</span><div class="tx"><b>Your finance rule and Meta's click count point to the same place.</b><span>"2.4 shown ≈ 1.3 real" puts the real figure at 54% of Meta's. ROAS 7-day click is 54% of ROAS shown.</span></div><div class="m">54%<small>real return vs shown</small></div></div>
+    <div class="fr"><span class="id">A4</span><div class="tx"><b>Meta claims 69% of all purchase events on the site.</b><span>The pixel records about 234 purchases a day from every channel. Ads Manager credits Meta with 161 a day (86 on 7-day click).</span></div><div class="m">161 of 234<small>purchases a day claimed by Meta</small></div></div>
+  </div>
+  <h3>Month by month in 2026 <span class="note" style="font-weight:400">(hover a month for details)</span></h3>
+  <div class="chart-box"><svg viewBox="0 0 720 300" role="img" aria-label="Spend per day, ROAS shown and ROAS 7-day click by month, 2026" class="chart">
+<line x1="56" x2="664" y1="260.0" y2="260.0" class="grid"/>
+<text x="48" y="264.0" class="ax" text-anchor="end">€0k</text>
+<line x1="56" x2="664" y1="200.0" y2="200.0" class="grid"/>
+<text x="48" y="204.0" class="ax" text-anchor="end">€4k</text>
+<line x1="56" x2="664" y1="140.0" y2="140.0" class="grid"/>
+<text x="48" y="144.0" class="ax" text-anchor="end">€8k</text>
+<line x1="56" x2="664" y1="80.0" y2="80.0" class="grid"/>
+<text x="48" y="84.0" class="ax" text-anchor="end">€12k</text>
+<line x1="56" x2="664" y1="20.0" y2="20.0" class="grid"/>
+<text x="48" y="24.0" class="ax" text-anchor="end">€16k</text>
+<text x="672" y="264.0" class="ax">0.0</text>
+<text x="672" y="204.0" class="ax">1.0</text>
+<text x="672" y="144.0" class="ax">2.0</text>
+<text x="672" y="84.0" class="ax">3.0</text>
+<text x="672" y="24.0" class="ax">4.0</text>
+<text x="6" y="12" class="ax">Spend/day</text>
+<text x="668" y="12" class="ax">ROAS</text>
+<rect x="68.2" y="105.2" width="36.5" height="154.8" class="bar" data-col="0"/>
+<text x="86.4" y="278" class="ax" text-anchor="middle">Jan</text>
+<rect x="129.0" y="33.0" width="36.5" height="227.0" class="bar hi" data-col="1"/>
+<text x="147.2" y="278" class="ax" text-anchor="middle">Feb</text>
+<rect x="189.8" y="131.7" width="36.5" height="128.3" class="bar" data-col="2"/>
+<text x="208.0" y="278" class="ax" text-anchor="middle">Mar</text>
+<rect x="250.6" y="146.3" width="36.5" height="113.7" class="bar" data-col="3"/>
+<text x="268.8" y="278" class="ax" text-anchor="middle">Apr</text>
+<rect x="311.4" y="156.9" width="36.5" height="103.1" class="bar" data-col="4"/>
+<text x="329.6" y="278" class="ax" text-anchor="middle">May</text>
+<rect x="372.2" y="170.7" width="36.5" height="89.3" class="bar" data-col="5"/>
+<text x="390.4" y="278" class="ax" text-anchor="middle">Jun</text>
+<rect x="433.0" y="184.8" width="36.5" height="75.2" class="bar" data-col="6"/>
+<text x="451.2" y="278" class="ax" text-anchor="middle">Jul</text>
+<rect x="493.8" y="186.3" width="36.5" height="73.7" class="bar" data-col="7"/>
+<text x="512.0" y="278" class="ax" text-anchor="middle">Aug</text>
+<rect x="554.6" y="142.9" width="36.5" height="117.1" class="bar" data-col="8"/>
+<text x="572.8" y="278" class="ax" text-anchor="middle">Sep</text>
+<rect x="615.4" y="181.4" width="36.5" height="78.6" class="bar" data-col="9"/>
+<text x="633.6" y="278" class="ax" text-anchor="middle">Oct*</text>
+<polyline points="86.4,41.0 147.2,132.8 208.0,134.6 268.8,137.6 329.6,134.0 390.4,152.6 451.2,149.6 512.0,104.6 572.8,133.4 633.6,110.6" class="l-all"/>
+<circle cx="86.4" cy="41.0" r="3.4" class="l-all-dot" data-col="0"/>
+<circle cx="147.2" cy="132.8" r="3.4" class="l-all-dot" data-col="1"/>
+<circle cx="208.0" cy="134.6" r="3.4" class="l-all-dot" data-col="2"/>
+<circle cx="268.8" cy="137.6" r="3.4" class="l-all-dot" data-col="3"/>
+<circle cx="329.6" cy="134.0" r="3.4" class="l-all-dot" data-col="4"/>
+<circle cx="390.4" cy="152.6" r="3.4" class="l-all-dot" data-col="5"/>
+<circle cx="451.2" cy="149.6" r="3.4" class="l-all-dot" data-col="6"/>
+<circle cx="512.0" cy="104.6" r="3.4" class="l-all-dot" data-col="7"/>
+<circle cx="572.8" cy="133.4" r="3.4" class="l-all-dot" data-col="8"/>
+<circle cx="633.6" cy="110.6" r="3.4" class="l-all-dot" data-col="9"/>
+<polyline points="86.4,104.0 147.2,168.8 208.0,179.6 268.8,198.2 329.6,203.0 390.4,216.2 451.2,210.2 512.0,170.6 572.8,187.4 633.6,180.2" class="l-click"/>
+<circle cx="86.4" cy="104.0" r="3.4" class="l-click-dot" data-col="0"/>
+<circle cx="147.2" cy="168.8" r="3.4" class="l-click-dot" data-col="1"/>
+<circle cx="208.0" cy="179.6" r="3.4" class="l-click-dot" data-col="2"/>
+<circle cx="268.8" cy="198.2" r="3.4" class="l-click-dot" data-col="3"/>
+<circle cx="329.6" cy="203.0" r="3.4" class="l-click-dot" data-col="4"/>
+<circle cx="390.4" cy="216.2" r="3.4" class="l-click-dot" data-col="5"/>
+<circle cx="451.2" cy="210.2" r="3.4" class="l-click-dot" data-col="6"/>
+<circle cx="512.0" cy="170.6" r="3.4" class="l-click-dot" data-col="7"/>
+<circle cx="572.8" cy="187.4" r="3.4" class="l-click-dot" data-col="8"/>
+<circle cx="633.6" cy="180.2" r="3.4" class="l-click-dot" data-col="9"/>
+<line x1="56" x2="664" y1="116.0" y2="116.0" class="floor"/>
+<text x="660" y="110.0" class="ax floor-t" text-anchor="end">2.4 floor</text>
+<rect class="hit" x="56.0" y="20" width="60.8" height="240" data-tip="January 2026|Spend: €10,319 a day|ROAS shown: 3.65|ROAS 7-day click: 2.60|View-through: 31% of purchases" data-col="0" tabindex="0"/>
+<rect class="hit" x="116.8" y="20" width="60.8" height="240" data-tip="February 2026|Spend: €15,135 a day|ROAS shown: 2.12|ROAS 7-day click: 1.52|View-through: 29% of purchases" data-col="1" tabindex="0"/>
+<rect class="hit" x="177.6" y="20" width="60.8" height="240" data-tip="March 2026|Spend: €8,553 a day|ROAS shown: 2.09|ROAS 7-day click: 1.34|View-through: 38% of purchases" data-col="2" tabindex="0"/>
+<rect class="hit" x="238.4" y="20" width="60.8" height="240" data-tip="April 2026|Spend: €7,580 a day|ROAS shown: 2.04|ROAS 7-day click: 1.03|View-through: 50% of purchases" data-col="3" tabindex="0"/>
+<rect class="hit" x="299.2" y="20" width="60.8" height="240" data-tip="May 2026|Spend: €6,870 a day|ROAS shown: 2.10|ROAS 7-day click: 0.95|View-through: 55% of purchases" data-col="4" tabindex="0"/>
+<rect class="hit" x="360.0" y="20" width="60.8" height="240" data-tip="June 2026|Spend: €5,951 a day|ROAS shown: 1.79|ROAS 7-day click: 0.73|View-through: 60% of purchases" data-col="5" tabindex="0"/>
+<rect class="hit" x="420.8" y="20" width="60.8" height="240" data-tip="July 2026|Spend: €5,015 a day|ROAS shown: 1.84|ROAS 7-day click: 0.83|View-through: 56% of purchases" data-col="6" tabindex="0"/>
+<rect class="hit" x="481.6" y="20" width="60.8" height="240" data-tip="August 2026|Spend: €4,913 a day|ROAS shown: 2.59|ROAS 7-day click: 1.49|View-through: 44% of purchases" data-col="7" tabindex="0"/>
+<rect class="hit" x="542.4" y="20" width="60.8" height="240" data-tip="September 2026|Spend: €7,810 a day|ROAS shown: 2.11|ROAS 7-day click: 1.21|View-through: 44% of purchases" data-col="8" tabindex="0"/>
+<rect class="hit" x="603.2" y="20" width="60.8" height="240" data-tip="October (1–25) 2026|Spend: €5,239 a day|ROAS shown: 2.49|ROAS 7-day click: 1.33|View-through: 48% of purchases" data-col="9" tabindex="0"/>
+</svg>
+      <div class="legend"><span><i class="sw bar"></i>Spend per day</span><span><i class="sw hi"></i>Feb benchmark</span><span><i class="sw"></i>ROAS shown</span><span><i class="sw click"></i>ROAS 7-day click</span><span><i class="sw floor"></i>2.4 floor</span></div></div>
+  <details class="more"><summary>Why one order can be counted twice (example)</summary><div class="in">
+    <div class="story"><ol>
+      <li>Claire already knows Pomad. In the morning she scrolls past a Pomad ad on Instagram without clicking.</li>
+      <li>In the evening she opens a Pomad email and orders her next Cure.</li>
+      <li>Meta counts the order as its own purchase (a view-through purchase). The email tool counts it too.</li>
+    </ol></div>
+    <div class="waffle" role="img" aria-label="53 of 100 purchases came after a click, 47 after only a view"><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i class="c" data-tip="Purchase after a click|53 of every 100 reported purchases"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i><i data-tip="View-through purchase|47 of every 100 reported purchases: seen, not clicked"></i></div>
+    <div class="key"><span><i class="c"></i><b>53</b> of 100 reported purchases came after a click</span><span><i></i><b>47</b> after only seeing an ad</span></div>
+    
+  </div></details>
+  <div class="means"><span>What it means</span><p>ROAS shown is the most Meta could claim, not the result. ROAS 7-day click is the closest Meta-side number to your finance view until Shopify confirms it.</p></div>
+</section>
+
+<!-- B -->
+<section class="catsec" id="B">
+  <div class="cathead"><span class="lt">B</span><div><div class="cn">Tracking · what the site sends to Meta</div><h2>The site sends Meta purchase data that can't be fully trusted yet.</h2></div></div>
+
+  <div class="dup">
+    <h3>How one order reaches Meta</h3>
+    <div class="dupflow">
+      <div class="dn order"><b>1 order</b><span>placed on pomad.paris</span></div>
+      <div class="dsplit">
+        <div class="dn"><b>Browser copy</b><span>Sent by the <b>Simprosys</b> app's pixel on the thank-you page. Its ID is the Shopify order's ID.</span><em class="ok">Seen in the site code</em></div>
+        <div class="dn"><b>Server copy</b><span>Sent server-to-server (Meta's "Conversions API"). Two tools on the site could send it: <b>Simprosys</b> or <b>Addingwell</b>.</span><em class="q">Sender and ID not visible from outside</em></div>
+      </div>
+      <div class="dsplit">
+        <div class="dn good"><b>Same ID on both</b><span>Meta merges them: 1 order = 1 purchase.</span></div>
+        <div class="dn bad"><b>Different or missing ID</b><span>Meta keeps both: 1 order can show as 2 purchases.</span></div>
+      </div>
+    </div>
+    <p class="note">This merging is called deduplication. Over 28 days, Meta received 6,325 browser and 3,984 server Purchase events. The server count is 63% of the browser count, which tells us the two copies don't always arrive together. It doesn't tell us whether Meta merges them.</p>
+  </div>
+
+  <div class="fl">
+    <div class="fr"><span class="id">B1</span><div class="tx"><b>A purchase can reach Meta twice, and it isn't confirmed that Meta merges the two copies.</b><span>Browser copy from Simprosys (confirmed in the code). Server copy from Simprosys or Addingwell (can't be seen from outside). 6,325 browser vs 3,984 server Purchase events in 28 days.</span></div><div class="m">To check<small>in Events Manager</small></div></div>
+    <div class="fr"><span class="id">B2</span><div class="tx"><b>The Purchase event leaves out Meta's click ID.</b><span>In the Simprosys code, the line meant to attach the click ID to a purchase has its condition reversed, so it never attaches it. Add-to-cart and checkout events attach it correctly. Separately, Meta sees a click ID on only 13% of page views.</span></div><div class="m">13%<small>of page views carry a click ID</small></div></div>
+    <div class="fr"><span class="id">B3</span><div class="tx"><b>The Meta pixel doesn't wait for consent.</b><span>The Simprosys consent check is written to always answer "yes", and Shopify runs this app's pixel without a privacy category.</span></div><div class="m">Always on<small>whatever the visitor chooses</small></div></div>
+    <div class="fr"><span class="id">B4</span><div class="tx"><b>Some purchase and checkout events look unusual.</b><span>1,541 of 10,309 Purchase events (15%) are recorded on the PayPlug payment page rather than pomad.paris. Checkout starts (35,320) outnumber add-to-carts (20,209) over 28 days. That can come from express checkout buttons that skip the cart, or from an event firing twice.</span></div><div class="m">15%<small>of purchases on PayPlug</small></div></div>
+    <div class="fr"><span class="id">B5</span><div class="tx"><b>Meta can't tell which product was sold.</b><span>The live ads aren't catalog ads, and only 52–56% of the product IDs the pixel sends match a product in Meta's catalogs (62% for purchases).</span></div><div class="m">56%<small>of product IDs matched</small></div></div>
+    <div class="fr"><span class="id">B6</span><div class="tx"><b>Triple Whale is installed, but not on every ad.</b><span>87 of the 222 live ads don't carry its tags (<span class="mono">tw_source</span>, <span class="mono">tw_adid</span>), so it can't link those ads to orders.</span></div><div class="m">87 of 222<small>ads without its tags</small></div></div>
+  </div>
+
+  <div class="dup">
+    <h3>How to check B1, step by step</h3>
+    <ol class="steps2">
+      <li><b>See who sends the server copy.</b> Events Manager → PIXELS POMAD → Settings. Under "Conversions API" the connected partner is named (Simprosys, Addingwell or another).</li>
+      <li><b>See whether Meta merges them.</b> Events Manager → Overview → click <i>Purchase</i>. The detail view shows events received from "Browser" and "Server" and how many were deduplicated. The Diagnostics tab flags server events that can't be merged.</li>
+      <li><b>Follow one real order.</b> Open Events Manager → Test events, place one test order on the site and note its order number. The browser Purchase appears with its event ID. The server copy should arrive with the same ID and be marked "Deduplicated".</li>
+      <li><b>Compare with Shopify for one week.</b> Shopify orders per day next to Meta's browser and server Purchase events per day. If browser events ≈ orders, the browser side is clean. Whatever the server side adds without merging is double counting.</li>
+    </ol>
+    <p class="note">Steps 1–3 need access to the pixel in Events Manager, which is being granted. Step 4 needs Shopify's daily order count.</p>
+  </div>
+
+  <details class="more"><summary>Technical detail for the developer</summary><div class="in">
+    <p>The browser Meta pixel is loaded by the Simprosys (Google Shopping Feed) app's web pixel (<span class="mono">storage.googleapis.com/gsf-scripts/custom-pixels/pomadparis.js</span>), not by Meta's Shopify app. It also posts each purchase, with the event ID, to <span class="mono">conversions-gsf.simpshopifyapps.com</span>. Addingwell runs as a Shopify custom pixel that loads GTM-PQKW2PKK from <span class="mono">tagging.pomad.paris</span> and pushes the order to a server container.</p>
+<pre>// Purchase (reversed):
+if (fbc == '') { gsf_facebook_purchase_event_data.fbc = fbc; }     // should be: if (fbc)
+fbq('track', 'Purchase', data, { eventID: gsf_shopify_order_id });
+
+// Add to cart / checkout (correct):
+if (gsf_fbc) { gsf_facebook_add_to_cart_event_data.fbc = gsf_fbc; }
+
+// Consent:
+function handleFacebookConsent(global_consent_json) { return true; }</pre>
+    <p>Page-view match quality is 5.3/10, and Meta returns no match-quality score for Purchase.</p>
+  </div></details>
+
+  <div class="means"><span>What it means</span><p>Until B1 is checked, Meta's purchase count can't be read as a count of orders. Shopify is the reference.</p></div>
+</section>
+
+<!-- C -->
+<section class="catsec" id="C">
+  <div class="cathead"><span class="lt">C</span><div><div class="cn">Campaign setup · how the account is organised</div><h2>Settings reward views, and budget is spread thin.</h2></div></div>
+  <div class="fl">
+    <div class="fr"><span class="id">C1</span><div class="tx"><b>All three live campaigns count view-through and video-view purchases, and optimise on them.</b><span>Setting: 7-day click + 1-day view + 1-day engaged view. Meta learns to find people likely to buy after only seeing an ad.</span></div><div class="m">3 of 3<small>live campaigns count views</small></div></div>
+    <div class="fr"><span class="id">C2</span><div class="tx"><b>Retention takes 17.5% of spend and reaches far beyond customers.</b><span>It's set up for the customer list (38,000–44,700 people), but Advantage+ audience is on and lets Meta go wider. 730,100 people reached in 30 days. ROAS shown 4.91, ROAS 7-day click 2.27, and 55% of its purchases are view-through.</span></div><div class="m">730k<small>people reached vs ~41k on the list</small></div></div>
+    <div class="fr"><span class="id">C3</span><div class="tx"><b>Website buyer lists show about 20 people.</b><span>"Purchase 30j", "180j" and "730J" should hold thousands. So "exclude recent buyers" barely excludes. The uploaded customer lists update daily and work.</span></div><div class="m">~20<small>people per buyer list</small></div></div>
+    <div class="fr"><span class="id">C4</span><div class="tx"><b>€3,000 a day is shared by 93 ad sets.</b><span>About €32 each on average. 16 have minimum spends (€740 a day locked in). 166 of 357 ads got under €50 in 30 days. Meta says an ad set learns best with about 50 purchases a week.</span></div><div class="m">93<small>ad sets, ~€32 a day each</small></div></div>
+    <div class="fr"><span class="id">C5</span><div class="tx"><b>The Testing campaign does most of the scaling.</b><span>It carries 55% of spend, and 67% of that goes to ads older than 30 days. No scaling campaign is live (Cost Cap paused 19 Oct, ASC 14 Oct). Spend is €4.2k a day vs €15.1k in February.</span></div><div class="m">€4.2k<small>a day now vs €15.1k in Feb</small></div></div>
+  </div>
+  <div class="means"><span>What it means</span><p>The setup rewards ads that are seen, mixes testing with scaling, and gives most new ads too little budget to judge.</p></div>
+</section>
+
+<!-- D -->
+<section class="catsec" id="D">
+  <div class="cathead"><span class="lt">D</span><div><div class="cn">Audience · who buys (prospecting, last 30 days)</div><h2>Budget goes younger. Click buyers are older and in France.</h2></div></div>
+  <div class="fl">
+    <div class="fr"><span class="id">D1</span><div class="tx"><b>Age: the older the buyer, the better the return.</b><span>People aged 18–34 get 39% of the budget at a ROAS 7-day click of 0.93. People 45+ get 30% at 1.28. Ages 55–64 do best, at 1.54, on just 8% of the budget.</span></div><div class="m">0.93 vs 1.28<small>ROAS 7-day click, 18–34 vs 45+</small></div></div>
+    <div class="fr"><span class="id">D2</span><div class="tx"><b>Country: Switzerland's cost per purchase is twice France's.</b><span>ROAS 7-day click: France 1.11, Belgium 0.85, Switzerland 0.58. Cost per purchase: €73 in France, €105 in Belgium, €170 in Switzerland. All three share the same ads and budget. Free delivery is from €49 in France and €69 in the rest of Europe.</span></div><div class="m">€170 vs €73<small>cost per purchase, Switzerland vs France</small></div></div>
+    <div class="fr"><span class="id">D3</span><div class="tx"><b>Gender: same return, different cost.</b><span>Women get 73% of the budget. Women and men both have a ROAS 7-day click of 1.07. Cost per purchase is €74 for women and €87 for men, because men spend more per order.</span></div><div class="m">1.07 = 1.07<small>ROAS 7-day click, women = men</small></div></div>
+  </div>
+  <details class="more"><summary>Age, country and gender tables</summary><div class="in">
+    <div class="tbl"><table class="sm">
+      <thead><tr><th>Age</th><th>Share of spend</th><th class="r">ROAS shown</th><th class="r">ROAS 7-day click</th><th class="r">Cost per purchase</th><th class="r">View-through</th></tr></thead>
+      <tbody>
+        <tr><td>18–24</td><td><div class="sh" tabindex="0" data-tip="Age 18–24|6.5% of prospecting spend (€9.2k)"><i style="width:13px"></i>6.5%</div></td><td class="r">1.53</td><td class="r poor">0.78</td><td class="r poor">€105</td><td class="r">53%</td></tr>
+        <tr><td>25–34</td><td><div class="sh" tabindex="0" data-tip="Age 25–34|32.8% of prospecting spend (€46.4k)"><i style="width:66px"></i>32.8%</div></td><td class="r">1.88</td><td class="r">0.96</td><td class="r">€81</td><td class="r">49%</td></tr>
+        <tr><td>35–44</td><td><div class="sh" tabindex="0" data-tip="Age 35–44|30.9% of prospecting spend (€43.8k)"><i style="width:62px"></i>30.9%</div></td><td class="r">1.73</td><td class="r">1.03</td><td class="r">€80</td><td class="r">42%</td></tr>
+        <tr><td>45–54</td><td><div class="sh" tabindex="0" data-tip="Age 45–54|17.4% of prospecting spend (€24.6k)"><i style="width:35px"></i>17.4%</div></td><td class="r">1.78</td><td class="r">1.15</td><td class="r">€70</td><td class="r">34%</td></tr>
+        <tr><td>55–64</td><td><div class="sh" tabindex="0" data-tip="Age 55–64|8.4% of prospecting spend (€11.8k)"><i style="width:17px"></i>8.4%</div></td><td class="r">2.11</td><td class="r good">1.54</td><td class="r good">€61</td><td class="r">30%</td></tr>
+        <tr><td>65+</td><td><div class="sh" tabindex="0" data-tip="Age 65+|4.1% of prospecting spend (€5.8k)"><i style="width:8px"></i>4.1%</div></td><td class="r">1.97</td><td class="r">1.30</td><td class="r">€69</td><td class="r">38%</td></tr>
+      </tbody></table></div>
+    <div class="tbl"><table class="sm">
+      <thead><tr><th></th><th class="r">Spend</th><th class="r">Share</th><th class="r">ROAS shown</th><th class="r">ROAS 7-day click</th><th class="r">Cost per purchase</th><th class="r">View-through</th></tr></thead>
+      <tbody>
+        <tr><td>France</td><td class="r">€124.6k</td><td class="r">88.0%</td><td class="r">1.86</td><td class="r good">1.11</td><td class="r good">€73</td><td class="r">42%</td></tr>
+        <tr><td>Belgium</td><td class="r">€9.1k</td><td class="r">6.4%</td><td class="r">1.69</td><td class="r">0.85</td><td class="r">€105</td><td class="r">50%</td></tr>
+        <tr><td>Switzerland</td><td class="r">€7.8k</td><td class="r">5.5%</td><td class="r">1.24</td><td class="r poor">0.58</td><td class="r poor">€170</td><td class="r">51%</td></tr>
+        <tr><td>Women</td><td class="r">€102.9k</td><td class="r">72.7%</td><td class="r">1.81</td><td class="r">1.07</td><td class="r good">€74</td><td class="r">41%</td></tr>
+        <tr><td>Men</td><td class="r">€36.1k</td><td class="r">25.5%</td><td class="r">1.89</td><td class="r">1.07</td><td class="r">€87</td><td class="r">46%</td></tr>
+      </tbody></table></div>
+    <p class="note">Placement shows the same pattern (Instagram 66% of spend at a ROAS 7-day click of 0.89, Facebook 1.29), but it overlaps with format and age. We don't treat it as a separate lever until Feed, Reels and Stories can be split.</p>
+  </div></details>
+  <div class="means"><span>What it means</span><p>The audience that buys after a click is older and French. Because the setup counts view-through purchases, budget drifts to younger people, where views are cheaper.</p></div>
+</section>
+
+<!-- E -->
+<section class="catsec" id="E">
+  <div class="cathead"><span class="lt">E</span><div><div class="cn">Creative · which ads work (prospecting, last 30 days)</div><h2>Images sell better per euro. The top spenders don't.</h2></div></div>
+  <div class="fl">
+    <div class="fr"><span class="id">E1</span><div class="tx"><b>Video gets 61% of the budget but brings back 30% less than images.</b><span>ROAS 7-day click: video 0.92 (cost per purchase €90), images 1.31 (cost per purchase €62). Video purchases are also more often view-through (48% vs 36%).</span></div><div class="m">0.92 vs 1.31<small>ROAS 7-day click, video vs images</small></div></div>
+    <div class="fr"><span class="id">E2</span><div class="tx"><b>The two biggest-spending ads are among the weakest on clicks.</b><span>FGC_Médecine Fonctionnelle and [CL]_3RY_Cortisone took €21.6k at a ROAS 7-day click of 0.76. Three images (Lettre Saskia, Le meilleur produit pour, BOFU) took €15.2k at 1.93.</span></div><div class="m">0.76 vs 1.93<small>ROAS 7-day click, top 2 ads vs best 3 images</small></div></div>
+    <div class="fr"><span class="id">E3</span><div class="tx"><b>Ads use a narrow set of topics.</b><span>By ad name: cortisone gets 12% of the budget, parents 1.4%, psoriasis 0.4%, men 0.2%. ROAS 7-day click: psoriasis ads 1.57, parents ads 1.10, cortisone ads 0.92. The children's pack is the second most-reviewed product on the site (2,074 reviews).</span></div><div class="m">0.4%<small>of budget on psoriasis ads</small></div></div>
+    <div class="fr"><span class="id">E4</span><div class="tx"><b>A good ad runs about 4 to 6 weeks.</b><span>Ads that spent over €1,215 ran a median of 30 days (Creative Lab), 36 days (creators) and 45 days (in-house).</span></div><div class="m">30–45 days<small>typical run of a good ad</small></div></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Ad</th><th>Type</th><th class="r">Spend</th><th class="r">ROAS shown</th><th class="r">ROAS 7-day click</th><th class="r">Cost per purchase</th></tr></thead>
+    <tbody>
+      <tr><td class="name">FGC_Médecine Fonctionnelle</td><td>Video</td><td class="r">€12.2k</td><td class="r">1.34</td><td class="r poor">0.72</td><td class="r">€97</td></tr>
+      <tr><td class="name">[CL]_3RY_Cortisone</td><td>Video</td><td class="r">€9.4k</td><td class="r">1.51</td><td class="r poor">0.80</td><td class="r">€93</td></tr>
+      <tr><td class="name">Statique Offre</td><td>Image</td><td class="r">€8.2k</td><td class="r">2.14</td><td class="r">1.34</td><td class="r">€61</td></tr>
+      <tr><td class="name">Statique_Lettre Saskia</td><td>Image</td><td class="r">€7.2k</td><td class="r">2.81</td><td class="r good">2.01</td><td class="r">€55</td></tr>
+      <tr><td class="name">Statique_Le meilleur produit pour</td><td>Image</td><td class="r">€7.0k</td><td class="r">2.51</td><td class="r good">1.83</td><td class="r">€49</td></tr>
+      <tr><td class="name">marine_boostacom (creator)</td><td>Video</td><td class="r">€2.0k</td><td class="r">2.79</td><td class="r">1.13</td><td class="r">€86</td></tr>
+    </tbody>
+  </table></div>
+  <details class="more"><summary>By creative source</summary><div class="in">
+    <div class="tbl"><table>
+      <thead><tr><th>Source</th><th class="r">Spend</th><th class="r">ROAS shown</th><th class="r">ROAS 7-day click</th><th class="r">Cost per purchase</th><th class="r">View-through</th></tr></thead>
+      <tbody>
+        <tr><td>In-house</td><td class="r">€73.6k</td><td class="r">1.87</td><td class="r good">1.19</td><td class="r">€73</td><td class="r">38%</td></tr>
+        <tr><td>Creator whitelisting</td><td class="r">€20.6k</td><td class="r">2.04</td><td class="r">1.02</td><td class="r">€83</td><td class="r">52%</td></tr>
+        <tr><td>Creative Lab</td><td class="r">€15.8k</td><td class="r">1.65</td><td class="r">0.95</td><td class="r">€83</td><td class="r">41%</td></tr>
+        <tr><td>Adtitude</td><td class="r">€23.0k</td><td class="r">1.70</td><td class="r">0.88</td><td class="r">€75</td><td class="r">46%</td></tr>
+        <tr><td>C## UGC series</td><td class="r">€8.5k</td><td class="r">1.45</td><td class="r">0.79</td><td class="r">€111</td><td class="r">47%</td></tr>
+      </tbody></table></div>
+    <p class="note">Most Adtitude and C## ads started in October and have had less time and budget. A creator video can look strong in Ads Manager (marine_boostacom, 2.79) while 64% of its purchases are view-through.</p>
+  </div></details>
+  <div class="means"><span>What it means</span><p>Read on clicks, the ranking of ads changes. The best images and the less-used topics deserve more of the budget than they get today.</p></div>
+</section>
+
+<!-- F -->
+<section class="catsec" id="F">
+  <div class="cathead"><span class="lt">F</span><div><div class="cn">Landing page · from click to purchase</div><h2>All ads go to the homepage, which has done best of the pages tried so far.</h2></div></div>
+  <div class="fl">
+    <div class="fr"><span class="id">F1</span><div class="tx"><b>221 of 222 live ads land on the homepage.</b><span>One goes to the diagnostic. None go to a product page. Meta's average order is €84, about one 1-month Cure (€79).</span></div><div class="m">221 of 222<small>ads to the homepage</small></div></div>
+    <div class="fr"><span class="id">F2</span><div class="tx"><b>The homepage has done better than the offer pages.</b><span>Last 30 days, same ads, ROAS 7-day click: 1.24 when sent to the homepage (54 purchases), 0.95 when sent to offer pages (17 purchases). This holds on clicks too, not only on Meta's default count. The two ran in different campaigns and budgets, so a side-by-side test would confirm it.</span></div><div class="m">54 vs 17<small>purchases (7-day click), homepage vs offer pages</small></div></div>
+    <div class="fr"><span class="id">F3</span><div class="tx"><b>57 of 100 clicks are recorded as a page view.</b><span>48 for images, 61 for videos. Some people leave before the page loads, and some visits aren't recorded because the Meta pixel loads after the page. The homepage loads about 300 files and 52 scripts.</span></div><div class="m">57 of 100<small>clicks recorded as a page view</small></div></div>
+    <div class="fr"><span class="id">F4</span><div class="tx"><b>The Cure page has strong proof but isn't used by ads.</b><span>About 2,950 reviews at 4.4/5, a price bar that stays on screen, and the 3-month Cure at €179 instead of €270. It opens on the 1-month pack.</span></div><div class="m">0 ads<small>send people there</small></div></div>
+    <div class="fr"><span class="id">F5</span><div class="tx"><b>Most people browse on phones, buy the same day, and often finish on a computer.</b><span>88% of page views are on phones, but computers bring 20% of purchases (2.3× more per page). 3 in 4 click buyers buy the same day. Purchases peak 9–11 am and 9–11 pm.</span></div><div class="m">76%<small>of click buyers buy the same day</small></div></div>
+  </div>
+  <div class="hpq">
+    <div class="card"><h3>What the data shows</h3><p>Of the pages tried so far, the homepage performs best, on Meta's default count and on 7-day click.</p></div>
+    <div class="card"><h3>Not tried yet</h3><p>The Cure page and pages that continue a specific ad's message. They may add to the homepage, or confirm it.</p></div>
+    <div class="card lime"><h3>To confirm it</h3><p>A side-by-side test: same ad, audience and dates, split between pages, read on 7-day click purchases and Shopify orders.</p></div>
+  </div>
+  <p class="note">Device, hour and same-day figures come from the Meta pixel (all visitors, every channel, 28 Sep–25 Oct) and from Meta's click windows.</p>
+</section>
+
+<!-- G -->
+<section class="catsec" id="G">
+  <div class="cathead"><span class="lt">G</span><div><div class="cn">Costs · the price of reaching people</div><h2>Showing an ad costs 56% more than in February.</h2></div></div>
+  <div class="chart-box">
+    <div class="minibars" role="img" aria-label="Cost per 1,000 views by month, January to October 2026"><div tabindex="0" data-tip="January 2026|CPM €4.53|Cost to show ads 1,000 times · +8% vs Feb"><b>€4.53</b><i class="" style="height:68px"></i></div><div tabindex="0" data-tip="February 2026|CPM €4.19|Cost to show ads 1,000 times · lowest of the year"><b>€4.19</b><i class="lo" style="height:63px"></i></div><div tabindex="0" data-tip="March 2026|CPM €5.14|Cost to show ads 1,000 times · +23% vs Feb"><b>€5.14</b><i class="" style="height:77px"></i></div><div tabindex="0" data-tip="April 2026|CPM €6.67|Cost to show ads 1,000 times · +59% vs Feb"><b>€6.67</b><i class="" style="height:100px"></i></div><div tabindex="0" data-tip="May 2026|CPM €6.11|Cost to show ads 1,000 times · +46% vs Feb"><b>€6.11</b><i class="" style="height:92px"></i></div><div tabindex="0" data-tip="June 2026|CPM €5.37|Cost to show ads 1,000 times · +28% vs Feb"><b>€5.37</b><i class="" style="height:81px"></i></div><div tabindex="0" data-tip="July 2026|CPM €5.67|Cost to show ads 1,000 times · +35% vs Feb"><b>€5.67</b><i class="" style="height:85px"></i></div><div tabindex="0" data-tip="August 2026|CPM €5.92|Cost to show ads 1,000 times · +41% vs Feb"><b>€5.92</b><i class="" style="height:89px"></i></div><div tabindex="0" data-tip="September 2026|CPM €7.33|Cost to show ads 1,000 times · +75% vs Feb"><b>€7.33</b><i class="" style="height:110px"></i></div><div tabindex="0" data-tip="October (1–25) 2026|CPM €6.55|Cost to show ads 1,000 times · +56% vs Feb"><b>€6.55</b><i class="hi" style="height:98px"></i></div></div>
+    <div class="minilabels"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div>
+  </div>
+  <div class="fl">
+    <div class="fr"><span class="id">G1</span><div class="tx"><b>The benchmark month had the cheapest views of the year.</b><span>CPM (the cost to show an ad 1,000 times) was €4.19 in February and is €6.55 in October. Last year it rose another 11% from October to November.</span></div><div class="m">+56%<small>cost to show ads, Feb → Oct</small></div></div>
+    <div class="fr"><span class="id">G2</span><div class="tx"><b>The same person sees Pomad ads about 6 times a month.</b><span>3.3 million people reached in October so far, at an average of 6.1 views each.</span></div><div class="m">6.1×<small>times each person sees an ad</small></div></div>
+  </div>
+  <div class="means"><span>What it means</span><p>Getting back to February's €15,135 a day at the same return takes ads that sell better per view, not only more budget.</p></div>
+</section>
+
+<section class="catsec" id="week1">
+  <div class="cathead"><span class="lt">→</span><div><div class="cn">Where this points</div><h2>What the first week would focus on.</h2></div></div>
+  <p>If we take over the account, these findings set the priorities for week one.</p>
+  <div class="wk">
+    <div class="card"><h3>Read the real number</h3><p>Report ROAS 7-day click next to ROAS shown, line Meta up with Shopify, and check the tracking points.</p><span class="from">From A and B</span></div>
+    <div class="card"><h3>Give new ads a fair read</h3><p>Separate testing from scaling, with enough budget per test to judge it.</p><span class="from">From C and E</span></div>
+    <div class="card"><h3>Point budget at buyers</h3><p>More weight on what sells on clicks: images, 45+, France, psoriasis and parents topics.</p><span class="from">From D and E</span></div>
+    <div class="card"><h3>Confirm the best landing page</h3><p>Homepage vs Cure page side by side, read on 7-day click purchases and Shopify orders.</p><span class="from">From F</span></div>
+  </div>
+  <div class="callout"><b>To complete the picture</b><p>Shopify orders by day (new vs returning, by product), read access to Triple Whale, how often customers reorder, margin per Cure pack, and the contact for the Simprosys and Addingwell setup.</p></div>
+</section>
+
+<footer>
+  <div>Sources: Meta Ads data (account, campaign and ad level; age, gender, country and placement; 1-day click, 7-day click and 1-day view), Meta Events Manager for pixel PIXELS POMAD, Meta catalogs and custom audiences, and the live site and its tracking code. Period 26 Sep–25 Oct 2026 unless noted. Every ratio uses Meta spend and Meta purchases. No number mixes Meta with Shopify.</div>
+  <div>Prepared 26 October 2026.</div>
+</footer>
+</main>
+<div id="tip" role="tooltip" hidden></div>
+<style>
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--paper);border-radius:10px;padding:9px 12px;font:500 13px/1.45 var(--f-body);box-shadow:0 6px 24px rgba(0,0,0,.25);max-width:260px}
+#tip b{display:block;font-weight:700;margin-bottom:2px}
+[data-tip]{cursor:default}
+[data-tip]:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+.chart .hit{fill:transparent;cursor:crosshair}
+.chart .col-on{opacity:1}
+.chart rect.bar.on{fill:var(--lime)}
+.chart circle.on{r:5.5}
+.chart .hit.on{fill:var(--ink);fill-opacity:.05}
+.rung{border-radius:12px;padding:4px 6px;margin:-4px -6px;transition:background .15s}
+.rung:hover,.rung:focus-visible{background:var(--pack)}
+.minibars div[data-tip]:hover i,.minibars div[data-tip]:focus-visible i{outline:2px solid var(--lime);outline-offset:2px}
+.waffle i:hover{transform:scale(1.15)}
+.sh[data-tip]:hover i{background:var(--lime)}
+tbody tr:hover td{background:var(--mist)}
+@media (prefers-reduced-motion:reduce){.waffle i:hover{transform:none}}
+</style>
+<script>
+(function(){
+  var tip=document.getElementById('tip'), cur=null;
+  function show(el,x,y){
+    var t=el.getAttribute('data-tip'); if(!t) return;
+    var p=t.split('|'); tip.innerHTML='<b>'+p[0]+'</b>'+p.slice(1).join('<br>'); tip.hidden=false;
+    place(x,y); mark(el,true); cur=el;
+  }
+  function place(x,y){
+    var r=tip.getBoundingClientRect(), vw=window.innerWidth, vh=window.innerHeight;
+    var left=Math.min(Math.max(8,x+14),vw-r.width-8), top=y+16;
+    if(top+r.height>vh-8) top=y-r.height-12;
+    tip.style.left=left+'px'; tip.style.top=Math.max(8,top)+'px';
+  }
+  function mark(el,on){
+    var c=el.getAttribute('data-col'); if(c===null) return;
+    var svg=el.ownerSVGElement||el.closest('svg'); if(!svg) return;
+    svg.querySelectorAll('[data-col="'+c+'"]').forEach(function(n){n.classList.toggle('on',on)});
+  }
+  function hide(){ if(cur) mark(cur,false); cur=null; tip.hidden=true; }
+  document.addEventListener('pointermove',function(e){
+    var el=e.target.closest&&e.target.closest('[data-tip]');
+    if(!el){ if(cur&&e.pointerType==='mouse') hide(); return; }
+    if(el!==cur){ if(cur) mark(cur,false); show(el,e.clientX,e.clientY); } else place(e.clientX,e.clientY);
+  });
+  document.addEventListener('pointerdown',function(e){
+    var el=e.target.closest&&e.target.closest('[data-tip]');
+    if(el){ if(cur) mark(cur,false); show(el,e.clientX,e.clientY); } else hide();
+  });
+  document.addEventListener('focusin',function(e){
+    var el=e.target.closest&&e.target.closest('[data-tip]'); if(!el) return;
+    var r=el.getBoundingClientRect(); if(cur) mark(cur,false); show(el,r.left+r.width/2,r.bottom);
+  });
+  document.addEventListener('focusout',hide);
+  window.addEventListener('scroll',function(){ if(cur && document.activeElement!==cur) hide(); },{passive:true});
+})();
+</script>
+</body>
+</html>
