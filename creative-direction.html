@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pomad Creative Direction</title>
+<style>html{color-scheme:light dark}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one reading column, wide tables scroll in their own frame; Pomad brand (paper, ink, lime pill) */
+:root{--paper:#ffffff;--ink:#0b0b0a;--mute:#5d6157;--line:#e3e6dc;--mist:#f6f7f2;--lime:#ccff00;--lime-soft:#eef9c2;--good:#2f7d1f;--mid:#9a6a00;--low:#b3261e;--shade:rgba(10,11,8,.86);
+--display:"Helvetica Neue",Helvetica,Arial,sans-serif;--body:"Inter",system-ui,-apple-system,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0f100d;--ink:#f1f3ec;--mute:#a3a89a;--line:#2a2d25;--mist:#171913;--lime:#ccff00;--lime-soft:#2a3310;--good:#8fd36f;--mid:#e3b04b;--low:#ff8a80;--shade:rgba(0,0,0,.9);color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0f100d;--ink:#f1f3ec;--mute:#a3a89a;--line:#2a2d25;--mist:#171913;--lime:#ccff00;--lime-soft:#2a3310;--good:#8fd36f;--mid:#e3b04b;--low:#ff8a80;--shade:rgba(0,0,0,.9);color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.05} h2{font-size:26px;margin-top:8px} h3{font-size:18px}
+p{max-width:72ch;margin:0} a{color:inherit;text-decoration-color:var(--mute);text-underline-offset:2px}
+.kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.dek{font-size:18px;color:var(--mute);margin-top:10px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--mute);font-size:13px;margin-top:14px}
+.meta b{color:var(--ink);font-weight:600}
+section{margin-top:56px;display:grid;gap:16px}
+.lead{font-size:16px;color:var(--mute)}
+.five{list-style:none;padding:0;margin:28px 0 0;display:grid;border-top:1px solid var(--line)}
+.five li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.five .num{font-family:var(--display);font-weight:700;font-size:20px}
+.five b{font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--mute);align-items:center}
+.code{display:inline-block;font:700 11px/1 var(--body);letter-spacing:.04em;padding:3px 6px;border-radius:4px;border:1px solid var(--line);background:var(--mist);color:var(--ink);vertical-align:1px}
+.code.c-int{background:var(--lime);border-color:var(--lime);color:#0b0b0a}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{background:var(--mist);font-size:12px;font-weight:600;color:var(--mute);white-space:nowrap}
+tbody tr:last-child>*{border-bottom:0}
+tbody th{font-weight:600}
+.n{text-align:right;white-space:nowrap}
+table.ads{min-width:1000px}
+.adc{display:flex;gap:10px;min-width:290px;max-width:370px}
+.adc a{font-weight:600;word-break:break-word}
+.tb{position:relative;flex:none;width:52px;height:70px;padding:0;border:0;border-radius:6px;overflow:hidden;background:var(--mist);cursor:zoom-in}
+.tb img{width:100%;height:100%;object-fit:cover;display:block}
+.tb .ph{display:block;width:100%;height:100%}
+.tb:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tb .play{position:absolute;inset:auto 4px 4px auto;width:20px;height:20px;border-radius:50%;background:var(--lime)}
+.tb .play::after{content:"";position:absolute;left:8px;top:6px;border-left:7px solid #0b0b0a;border-top:4px solid transparent;border-bottom:4px solid transparent}
+.tb.big{width:100%;height:auto;aspect-ratio:9/16;border-radius:8px}
+.sub,.sub2{color:var(--mute);font-size:12.5px;line-height:1.4;margin-top:3px}
+.st{white-space:nowrap;font-size:13px}
+.act{min-width:250px;max-width:340px}
+.r{font-weight:600} .r.good{color:var(--good)} .r.mid{color:var(--mid)} .r.low{color:var(--low)}
+.chip{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:99px;border:1px solid var(--line);margin-left:4px}
+.chip.ai{background:var(--lime-soft)}
+.verdict{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;white-space:nowrap}
+.verdict.more{background:var(--lime);color:#0b0b0a} .verdict.keep{background:var(--lime-soft)} .verdict.less{border:1px solid var(--mid);color:var(--mid)} .verdict.stop{border:1px solid var(--low);color:var(--low)}
+.do{font-size:13px;margin-top:6px}
+table.ag{min-width:900px} table.ag td:last-child{min-width:340px}
+table.ang{min-width:720px}
+.grp{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:12px}
+.grp .pill{background:var(--lime);color:#0b0b0a;font-weight:700;border-radius:99px;padding:2px 12px;font-size:13px}
+.grp .pill.alt{background:var(--mist);color:var(--ink);border:1px solid var(--line)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:8px;align-content:start;min-width:0}
+.card ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.fc{margin:0;display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:start;min-width:0}
+.fc figcaption{display:grid;gap:6px;font-size:13.5px;min-width:0}
+.fc .fct{font-family:var(--display);font-weight:700;font-size:16px}
+.fc a{font-weight:600;word-break:break-word}
+.nums{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:12.5px;color:var(--mute);font-variant-numeric:tabular-nums}
+.briefs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.brief{border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:12px;align-content:start;min-width:0}
+.bh{display:grid;gap:4px}
+.bn{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.brief dl{margin:0;display:grid;grid-template-columns:96px 1fr;gap:8px 12px;font-size:14px}
+.brief dt{color:var(--mute);font-size:12.5px;font-weight:600;padding-top:2px}
+.brief dd{margin:0;min-width:0}
+.brief ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.rule{border:1px solid var(--line);background:var(--mist);border-radius:10px;padding:14px 18px;font-size:14px}
+.fn{font-size:13px;color:var(--mute);border-left:2px solid var(--line);padding:2px 0 2px 12px;max-width:90ch;margin-top:14px}
+section .fn{margin-top:0}
+.note{font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:16px}
+.note p{max-width:none;margin-top:6px}
+.lb[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:50;background:var(--shade);display:grid;place-items:center;padding:calc(48px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img,.lb video{max-width:min(92vw,560px);max-height:calc(100% - 8px);border-radius:8px;background:#000;display:block}
+.lb .x{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));border:0;border-radius:99px;background:var(--lime);color:#0b0b0a;font:700 14px var(--body);padding:8px 14px;cursor:pointer}
+@media (max-width:520px){.brief dl{grid-template-columns:1fr} .fc{grid-template-columns:90px 1fr}}
+@media (prefers-reduced-motion:no-preference){.tb img{transition:transform .2s} .tb:hover img{transform:scale(1.04)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="kicker">Pomad Paris · Meta ads</div>
+<h1>Pomad creative direction</h1>
+<p class="dek">Which switched-off ads to bring back, and what the team should make next.</p>
+<div class="meta"><span><b>Campaigns</b> new-customer campaigns only: Ventes_Testing, Ventes_Whitelisting and TestCrea_Mix_ABO_28Oct26, plus the ones that ran in the period and are now off (Ventes_Scaling_CostCap, Ventes_Zombie_CostCap, Ventes_Scaling_ASC, Ventes_PageOffre, ABO_Testing_Conversion). Ventes_Retention is not counted.</span><span><b>Period</b> 1 Aug – 29 Oct 2026</span><span><b>Target</b> ROAS (1-day click) of 1.3 or more</span><span><b>Data</b> Meta Ads Manager, 30 Oct</span></div>
+<p class="fn">This page is built only from Meta Ads Manager data for the POMAD PARIS 2024 account, counting purchases from clicks (1-day and 7-day click). Shopify orders are not included yet. Who made each ad, and what message it carries, is read from the ad name as written in Ads Manager. An ad whose name is missing its source, or carries the wrong one, is counted in the wrong group.</p>
+</header>
+
+<ol class="five">
+<li><span class="num">1</span><span><b>Three good ads were switched off last week. Turn them back on.</b> Le meilleur produit pour Img1 and Img2 (off 23 Oct) and Education_Eczema (off 26 Oct) were all above target. 12 more ads that hit the target earlier should be tested again. BOFU and the before/after GIF are already back in Test créa.</span></li>
+<li><span class="num">2</span><span><b>Images bring sales for less than video, but get only a third of the budget.</b> Cost per purchase (7-day click): €55 for images, €83 for video over 90 days. Last 7 days: images 2.23, video 0.98, with images on 27% of spend.</span></li>
+<li><span class="num">3</span><span><b>Two messages sell: the founder's letter and a clear price offer.</b> Together they get 9% of spend. The gut-and-skin "root cause" videos took 18% of spend at 0.78.</span></li>
+<li><span class="num">4</span><span><b>No new in-house image since August.</b> Every winning in-house image is from July or August. Section 3 has five ready-to-make briefs.</span></li>
+<li><span class="num">5</span><span><b>Adtitude and the creators are getting better. Creative Lab since August, the C## UGC series and V2W are below target.</b> Section 4 scores every source on the same rule.</span></li>
+</ol>
+
+<section id="paused">
+<div class="kicker">1 · Switched-off ads that were working</div>
+<h2>Ads that hit the target and are now off</h2>
+<p class="lead">An ad is listed if it is not running in prospecting and reached ROAS (1-day click) of 1.3 or more on at least €270 spent. Each one was checked against all 251 live ads by post, video and image, so nothing here is running in prospecting today. Click a picture to see it full size or play the video. Click the name to open the post.</p>
+<div class="legend"><span>Who made it:</span><span><span class="code c-int">INT</span> Pomad in-house</span><span><span class="code c-adt">ADT</span> Adtitude</span><span><span class="code c-cl">CL</span> Creative Lab</span><span><span class="code c-cr">CR</span> creator whitelisting</span><span><span class="code c-ugc">UGC</span> C## UGC series</span><span><span class="code c-v2w">V2W</span> maker not confirmed</span><span>Same codes as the naming standard. BV (Ben&amp;Vic) can't be read from old ad names.</span></div>
+<div class="grp"><span class="pill">Turn back on now</span><span class="sub">Switched off last week while above target, no other version running</span></div>
+<div class="tw"><table class="ads"><thead><tr><th>Ad</th><th>Status now</th><th class="n">Amount spent</th><th class="n">ROAS<br>1-day click</th><th class="n">ROAS<br>7-day click</th><th class="n">Purchases<br>7-day click</th><th class="n">Frequency</th><th>What to do</th></tr></thead><tbody>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245781744130138.jpg" data-kind="image" aria-label="Open Statique_Le meilleur produit pour_Img1"><img src="media/t/120245781744130138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122268040484254882" target="_blank" rel="noopener">Statique_Le meilleur produit pour_Img1</a>
+<div class="sub">Ventes_Testing · Image · numbers: Last 30 days</div></div></td>
+<td class="st">Ad off · last change 23 Oct</td><td class="n">€1,976</td><td class="n"><span class="r good">1.65</span></td><td class="n"><span class="r good">2.17</span></td><td class="n">52</td><td class="n">3.66</td>
+<td class="act"><b>Turn back on</b> <div class="sub">Turned off on 23 Oct while it was one of the best images in the account. No other version of it runs. The copy in the paused Cost Cap campaign did 1.32 on €2,151.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245781744150138.jpg" data-kind="image" aria-label="Open Statique_Le meilleur produit pour_Img2"><img src="media/t/120245781744150138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122268040502254882" target="_blank" rel="noopener">Statique_Le meilleur produit pour_Img2</a>
+<div class="sub">Ventes_Testing · Image · numbers: Last 30 days</div></div></td>
+<td class="st">Ad off · last change 23 Oct</td><td class="n">€1,364</td><td class="n"><span class="r good">1.49</span></td><td class="n"><span class="r good">2.07</span></td><td class="n">28</td><td class="n">3.12</td>
+<td class="act"><b>Turn back on</b> <div class="sub">Turned off on 23 Oct with Img1. No other version runs.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120246926156780138.mp4" data-kind="video" aria-label="Play Education_Eczema_H1_iteration_v3_musique_sous_titres"><img src="media/t/120246926156780138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122276999834254882" target="_blank" rel="noopener">Education_Eczema_H1_iteration_v3_musique_sous_titres</a>
+<div class="sub">Ventes_Testing · Video · numbers: Last 30 days</div></div></td>
+<td class="st">Ad off · last change 26 Oct</td><td class="n">€1,277</td><td class="n"><span class="r good">1.51</span></td><td class="n"><span class="r good">1.66</span></td><td class="n">15</td><td class="n">1.32</td>
+<td class="act"><b>Turn back on, from a second page</b> <span class="chip ai">AI look</span><div class="sub">Turned off on 26 Oct after one week. Frequency only 1.32, so the audience was not tired. The animation looks AI-made, so it goes back on from the new page that does not carry the Pomad name, as a new upload.</div></td></tr>
+</tbody></table></div>
+<div class="grp"><span class="pill alt">Test again in Test créa</span><span class="sub">Hit the target before October. Old results don't guarantee new ones, so each gets €50/day first</span></div>
+<div class="tw"><table class="ads"><thead><tr><th>Ad</th><th>Status now</th><th class="n">Amount spent</th><th class="n">ROAS<br>1-day click</th><th class="n">ROAS<br>7-day click</th><th class="n">Purchases<br>7-day click</th><th class="n">Frequency</th><th>What to do</th></tr></thead><tbody>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245622497070138.jpg" data-kind="image" aria-label="Open Statique_BOFU_Img5"><img src="media/t/120245622497070138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122271513968254882" target="_blank" rel="noopener">Statique_BOFU_Img5</a>
+<div class="sub">Ventes_Testing · Image · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad set off</td><td class="n">€9,817</td><td class="n"><span class="r good">2.16</span></td><td class="n"><span class="r good">2.57</span></td><td class="n">287</td><td class="n">5.59</td>
+<td class="act"><b>Back in Test créa (done 29 Oct)</b> <div class="sub">Now runs only in Retention, where it is the biggest ad (€13.5k in 30 days). Relaunched in prospecting through Test créa.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120246079468820138.mp4" data-kind="video" aria-label="Play V2W_240226_pomad_gif_story_before-after_full_0001 - Copie 2"><img src="media/t/120246079468820138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-v2w">V2W</span> <a href="https://www.facebook.com/289078714279365/posts/122270097530254882" target="_blank" rel="noopener">V2W_240226_pomad_gif_story_before-after_full_0001 - Copi…</a>
+<div class="sub">Ventes_PageOffre · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Campaign off</td><td class="n">€414</td><td class="n"><span class="r good">2.23</span></td><td class="n"><span class="r good">2.23</span></td><td class="n">8</td><td class="n">2.02</td>
+<td class="act"><b>Back in Test créa (done 29 Oct)</b> <div class="sub">Same video relaunched as INT_avant-apres-gif in Test créa. A copy also runs in Retention (3.64 there).</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245781685480138.jpg" data-kind="image" aria-label="Open Statique_Bienfaits cureVScreme_Img2"><img src="media/t/120245781685480138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122268033602254882" target="_blank" rel="noopener">Statique_Bienfaits cureVScreme_Img2</a>
+<div class="sub">Ventes_Testing · Image · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad set off</td><td class="n">€2,466</td><td class="n"><span class="r good">2.02</span></td><td class="n"><span class="r good">2.20</span></td><td class="n">61</td><td class="n">3.42</td>
+<td class="act"><b>Re-test</b> <div class="sub">Press proof (M6 &quot;Qui veut être mon associé ?&quot;) plus the four benefits. Its ad set was turned off in August.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120245363630370138.mp4" data-kind="video" aria-label="Play UGC4_YAPPER_Vid3"><img src="media/t/120245363630370138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122265719204254882" target="_blank" rel="noopener">UGC4_YAPPER_Vid3</a>
+<div class="sub">Ventes_Testing · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 17 Sep</td><td class="n">€645</td><td class="n"><span class="r good">1.58</span></td><td class="n"><span class="r good">1.58</span></td><td class="n">12</td><td class="n">1.56</td>
+<td class="act"><b>Re-test</b> <div class="sub">The same video ran as UGC_YAPPER_Vid3 in the Cost Cap test: €1,629 at 1.35. About €2.3k in total above the floor.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120244983919160138.mp4" data-kind="video" aria-label="Play V2W_040526_PMD_FGC_Sandrine_reaction_m40 - Copie"><img src="media/t/120244983919160138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-v2w">V2W</span> <a href="https://www.facebook.com/289078714279365/posts/122263746086254882" target="_blank" rel="noopener">V2W_040526_PMD_FGC_Sandrine_reaction_m40 - Copie</a>
+<div class="sub">Ventes_Scaling_CostCap · Video · numbers: Last 30 days</div></div></td>
+<td class="st">Campaign off</td><td class="n">€651</td><td class="n"><span class="r good">1.84</span></td><td class="n"><span class="r good">1.84</span></td><td class="n">13</td><td class="n">1.38</td>
+<td class="act"><b>Re-test in prospecting</b> <div class="sub">The prospecting copies are off. Two copies still run in Ventes_Retention (1.41 there).</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120246042120920138.mp4" data-kind="video" aria-label="Play [CL]_3RY_Negative marketing_20-08-2026_1_Court.mp4"><img src="media/t/120246042120920138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-cl">CL</span> <a href="https://www.facebook.com/289078714279365/posts/122269769906254882" target="_blank" rel="noopener">[CL]_3RY_Negative marketing_20-08-2026_1_Court</a>
+<div class="sub">Ventes_Testing · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 7 Sep</td><td class="n">€608</td><td class="n"><span class="r good">1.72</span></td><td class="n"><span class="r good">1.89</span></td><td class="n">15</td><td class="n">2.25</td>
+<td class="act"><b>Re-test</b> <div class="sub">Creative Lab. Turned off in early September with no other version live.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120246130708300138.mp4" data-kind="video" aria-label="Play woow.bloom_Vid3"><img src="media/t/120246130708300138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-cr">CR</span> <a href="https://www.facebook.com/289078714279365/posts/1369484058156582" target="_blank" rel="noopener">woow.bloom_Vid3</a>
+<div class="sub">Ventes_Whitelisting · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 19 Oct</td><td class="n">€720</td><td class="n"><span class="r good">1.92</span></td><td class="n"><span class="r good">2.14</span></td><td class="n">14</td><td class="n">1.73</td>
+<td class="act"><b>Add back next to Vid2</b> <div class="sub">Turned off on 19 Oct. Vid2 of the same creator is live at 2.00. It opens on &quot;100 % ont ressenti un soulagement immédiat&quot;, so check that claim before it goes back on.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120245585145230138.mp4" data-kind="video" aria-label="Play [CL] 221225_Coûte cher (Hook 3) - V3 - Copie 2"><img src="media/t/120245585145230138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-cl">CL</span> <a href="https://www.facebook.com/107684933989338/posts/892881787217235" target="_blank" rel="noopener">[CL] 221225_Coûte cher (Hook 3) - V3 - Copie 2</a>
+<div class="sub">Ventes_PageOffre · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 19 Aug</td><td class="n">€483</td><td class="n"><span class="r good">2.68</span></td><td class="n"><span class="r good">2.99</span></td><td class="n">16</td><td class="n">1.44</td>
+<td class="act"><b>Re-test from the founder page</b> <div class="sub">Ran from Saskia&#x27;s own page (Sask And The Cities) to an offer page. Small sample, 16 purchases.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120246079468810138.mp4" data-kind="video" aria-label="Play V2W_300326_PMD_Substance_taxe_financiere_eczema - Copie 2"><img src="media/t/120246079468810138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-v2w">V2W</span> <a href="https://www.facebook.com/289078714279365/posts/122270097596254882" target="_blank" rel="noopener">V2W_300326_PMD_Substance_taxe_financiere_eczema - Copie 2</a>
+<div class="sub">Ventes_PageOffre · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Campaign off</td><td class="n">€403</td><td class="n"><span class="r good">1.92</span></td><td class="n"><span class="r good">2.80</span></td><td class="n">8</td><td class="n">1.76</td>
+<td class="act"><b>Re-test in prospecting</b> <div class="sub">&quot;8,000 € of treatments&quot; angle. A copy still runs in Ventes_Retention.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120243736806890138.mp4" data-kind="video" aria-label="Play video_p-eczema-POD_Substance_huile_v1_2026-06-11"><img src="media/t/120243736806890138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/27659561873676523" target="_blank" rel="noopener">video_p-eczema-POD_Substance_huile_v1_2026-06-11</a>
+<div class="sub">ABO_Testing_Conversion · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Campaign off</td><td class="n">€429</td><td class="n"><span class="r good">1.90</span></td><td class="n"><span class="r good">2.44</span></td><td class="n">13</td><td class="n">1.58</td>
+<td class="act"><b>Re-test</b> <div class="sub">Podcast format from June. Small sample.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120245443516750138.mp4" data-kind="video" aria-label="Play Lucile _Vid1"><img src="media/t/120245443516750138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-cr">CR</span> <a href="https://www.facebook.com/289078714279365/posts/122265753554254882" target="_blank" rel="noopener">Lucile _Vid1</a>
+<div class="sub">Ventes_Whitelisting · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad set off</td><td class="n">€416</td><td class="n"><span class="r good">1.76</span></td><td class="n"><span class="r good">1.85</span></td><td class="n">9</td><td class="n">2.54</td>
+<td class="act"><b>Re-test if the creator&#x27;s permission is still active</b> <div class="sub">Creator whitelisting (Spark_Naturo). Small sample.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120245620388380138.mp4" data-kind="video" aria-label="Play IA Pixar_Vid1 - Copie"><img src="media/t/120245620388380138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122267159228254882" target="_blank" rel="noopener">IA Pixar_Vid1 - Copie</a>
+<div class="sub">Ventes_Zombie_CostCap · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 3 Aug</td><td class="n">€405</td><td class="n"><span class="r good">1.76</span></td><td class="n"><span class="r good">1.76</span></td><td class="n">7</td><td class="n">1.18</td>
+<td class="act"><b>Re-test from the new page</b> <span class="chip ai">AI look</span><div class="sub">Pixar-style AI animation, same family as Education_Eczema. New upload on the page that does not carry the Pomad name.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120244268745050138.mp4" data-kind="video" aria-label="Play p-eczema-UGC-Eva-avant/après_1"><img src="media/t/120244268745050138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/1845370519770280" target="_blank" rel="noopener">p-eczema-UGC-Eva-avant/après_1</a>
+<div class="sub">ABO_Testing_Conversion · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Campaign off</td><td class="n">€303</td><td class="n"><span class="r good">2.65</span></td><td class="n"><span class="r good">2.65</span></td><td class="n">10</td><td class="n">2.22</td>
+<td class="act"><b>Re-test</b> <div class="sub">UGC before/after from June. Small sample, 10 purchases.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120246079468920138.mp4" data-kind="video" aria-label="Play 090226_[O]_les-phrases-que-je-déteste-entendre-variation-00011 - Copie 2"><img src="media/t/120246079468920138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122270097500254882" target="_blank" rel="noopener">090226_[O]_les-phrases-que-je-déteste-entendre-variatio…</a>
+<div class="sub">Ventes_PageOffre · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Campaign off</td><td class="n">€305</td><td class="n"><span class="r good">2.11</span></td><td class="n"><span class="r good">2.11</span></td><td class="n">5</td><td class="n">2.00</td>
+<td class="act"><b>Re-test in prospecting</b> <div class="sub">Small sample, 5 purchases. A copy still runs in Ventes_Retention.</div></td></tr>
+</tbody></table></div>
+<div class="grp"><span class="pill alt">Leave off</span><span class="sub">Another version of the same ad is running, or the ad had already dropped below target</span></div>
+<div class="tw"><table class="ads"><thead><tr><th>Ad</th><th>Status now</th><th class="n">Amount spent</th><th class="n">ROAS<br>1-day click</th><th class="n">ROAS<br>7-day click</th><th class="n">Purchases<br>7-day click</th><th class="n">Frequency</th><th>What to do</th></tr></thead><tbody>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245527136200138.jpg" data-kind="image" aria-label="Open Statique Offre_Img1"><img src="media/t/120245527136200138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122271513866254882" target="_blank" rel="noopener">Statique Offre_Img1</a>
+<div class="sub">Ventes_Testing · Image · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 19 Oct</td><td class="n">€13,973</td><td class="n"><span class="r good">1.36</span></td><td class="n"><span class="r good">1.62</span></td><td class="n">263</td><td class="n">4.87</td>
+<td class="act"><b>Keep off</b> <div class="sub">It faded: 0.52 on €2,109 in the last 30 days. Img2, Img5 and Img6 still run.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245622306170138.jpg" data-kind="image" aria-label="Open Statique_Lettre Saskia_Img1"><img src="media/t/120245622306170138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122267172752254882" target="_blank" rel="noopener">Statique_Lettre Saskia_Img1</a>
+<div class="sub">Ventes_Testing · Image · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 28 Sep</td><td class="n">€2,335</td><td class="n"><span class="r good">1.37</span></td><td class="n"><span class="r good">2.05</span></td><td class="n">51</td><td class="n">2.31</td>
+<td class="act"><b>Keep off, fund Img2</b> <div class="sub">Img2 and Img3 of the same letter still run. Img2 made 3.67 in the last 7 days on only €749.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120246121811990138.jpg" data-kind="image" aria-label="Open Statique_Lettre Saskia_Img2 - Copie"><img src="media/t/120246121811990138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122270584880254882" target="_blank" rel="noopener">Statique_Lettre Saskia_Img2 - Copie</a>
+<div class="sub">Ventes_Scaling_CostCap · Image · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 8 Oct</td><td class="n">€3,674</td><td class="n"><span class="r mid">1.18</span></td><td class="n"><span class="r good">1.83</span></td><td class="n">66</td><td class="n">2.17</td>
+<td class="act"><b>Keep off, fund Img2</b> <div class="sub">Copy in the paused Cost Cap campaign. The original Img2 runs in Ventes_Testing.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245620388400138.jpg" data-kind="image" aria-label="Open Statics_Vu à la tv_Img1 - Copie"><img src="media/t/120245620388400138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122267158706254882" target="_blank" rel="noopener">Statics_Vu à la tv_Img1 - Copie</a>
+<div class="sub">Ventes_Zombie_CostCap · Image · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Campaign off</td><td class="n">€1,129</td><td class="n"><span class="r good">1.31</span></td><td class="n"><span class="r good">1.72</span></td><td class="n">18</td><td class="n">2.19</td>
+<td class="act"><b>Keep off</b> <div class="sub">Copy in a paused campaign. Img1 runs in Ventes_Testing at 2.43, on only €306 in 30 days.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/full/120245628268820138.jpg" data-kind="image" aria-label="Open Statique_Avant Après_Img2"><img src="media/t/120245628268820138.jpg" alt="" loading="lazy" decoding="async"></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122267220884254882" target="_blank" rel="noopener">Statique_Avant Après_Img2</a>
+<div class="sub">Ventes_Testing · Image · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad set off</td><td class="n">€667</td><td class="n"><span class="r good">1.49</span></td><td class="n"><span class="r good">1.82</span></td><td class="n">11</td><td class="n">2.32</td>
+<td class="act"><b>Keep off</b> <div class="sub">The same image runs to the diagnostic quiz page in &quot;Statique_Avant Après 2&quot;.</div></td></tr>
+<tr><td class="adc"><button class="tb" type="button" data-media="media/v/120245935297820138.mp4" data-kind="video" aria-label="Play [CL]_Timeline_Dépendance cortisone_14-08-2026_3_Court.mp4"><img src="media/t/120245935297820138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-cl">CL</span> <a href="https://www.facebook.com/289078714279365/posts/122268905090254882" target="_blank" rel="noopener">[CL]_Timeline_Dépendance cortisone_14-08-2026_3_Court</a>
+<div class="sub">Ventes_Testing · Video · numbers: 1 Aug – 29 Oct</div></div></td>
+<td class="st">Ad off · last change 4 Oct</td><td class="n">€2,321</td><td class="n"><span class="r mid">1.27</span></td><td class="n"><span class="r mid">1.29</span></td><td class="n">29</td><td class="n">1.36</td>
+<td class="act"><b>Keep off</b> <div class="sub">The _1_Court cut of the same video runs at 1.41.</div></td></tr>
+</tbody></table></div>
+<p class="sub2">Education_Eczema and IA Pixar are AI animations. Both hit the target. They go back on from the new page that does not carry the Pomad name, as new uploads, so any comments about AI stay off Pomad.Paris. The Pomad logo and packs are still visible inside both videos. All other videos on this list show real people.</p>
+</section>
+
+<section id="format">
+<div class="kicker">2 · Images or video</div>
+<h2>Video gets the click. Images get the sale.</h2>
+<div class="tw"><table style="min-width:640px"><thead><tr><th></th><th class="n">Images<br>share of spend</th><th class="n">Images<br>ROAS 1-day click</th><th class="n">Images<br>cost per purchase</th><th class="n">Video<br>share of spend</th><th class="n">Video<br>ROAS 1-day click</th><th class="n">Video<br>cost per purchase</th></tr></thead><tbody>
+<tr><th>1 Aug – 29 Oct</th><td class="n">36%</td><td class="n"><span class="r mid">1.23</span></td><td class="n">€55</td>
+<td class="n">64%</td><td class="n"><span class="r low">0.81</span></td><td class="n">€83</td></tr><tr><th>Last 30 days</th><td class="n">36%</td><td class="n"><span class="r mid">1.16</span></td><td class="n">€54</td>
+<td class="n">64%</td><td class="n"><span class="r low">0.74</span></td><td class="n">€86</td></tr><tr><th>Last 7 days</th><td class="n">27%</td><td class="n"><span class="r good">2.23</span></td><td class="n">€33</td>
+<td class="n">73%</td><td class="n"><span class="r low">0.98</span></td><td class="n">€77</td></tr>
+</tbody></table></div>
+<p class="sub2">Cost per purchase uses 7-day click.</p>
+<div class="cols">
+<div class="card"><h3>What the numbers show</h3><ul>
+<li>Video gets more clicks (1.21% vs 0.91%) and cheaper clicks (€0.57 vs €0.65).</li>
+<li>But fewer of those people buy: 0.66 purchases per 100 clicks for video, 1.19 for images.</li>
+<li>Half of video purchases are view-through (50%, vs 37% for images): people saw it, didn't click, bought later.</li>
+<li>So video works as the first touch and images close the sale.</li></ul><p class="sub">Last 30 days.</p></div>
+<div class="card"><h3>The message matters as much as the format</h3><ul>
+<li>Images with a price offer or the founder's letter: <b>1.55</b>.</li>
+<li>Images with other messages (education, product): <b>0.90</b>, close to video.</li>
+<li>The same price offer in a video: <b>0.50</b>.</li></ul><p class="sub">ROAS 1-day click, last 30 days.</p></div>
+<div class="card"><h3>What to change</h3><ul>
+<li>Half of new concepts are images. Today it's about a quarter.</li>
+<li>Images get their own budget in Test créa, so Meta can't move it all to video.</li>
+<li>Price, founder letter and press go in images. Video is for showing the product, texture, people and results.</li><li>When a winning image stops getting budget, make the same message in a new scene. A small edit of the same image looks the same to Meta.</li></ul></div>
+</div>
+</section>
+
+<section id="next">
+<div class="kicker">3 · What to make next</div>
+<h2>Formats that sold</h2>
+<p class="lead">The six images below did best since 1 August. Click to see them full size. Numbers are 1 Aug – 29 Oct, prospecting only.</p>
+<div class="gallery">
+<figure class="fc"><button class="tb big" type="button" data-media="media/full/120245622306200138.jpg" data-kind="image" aria-label="Open Statique_Lettre Saskia_Img2"><img src="media/t/120245622306200138.jpg" alt="" loading="lazy" decoding="async"></button>
+<figcaption><div class="fct">Founder letter</div><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122271514076254882" target="_blank" rel="noopener">Statique_Lettre Saskia_Img2</a></div>
+<div class="nums"><span>€14,989</span><span>ROAS 1-day click <span class="r good">1.99</span></span><span>7-day click <span class="r good">2.64</span></span><span>369 purchases</span></div>
+<p>Saskia writes as herself in a phone Notes screen: she explains why the Cure takes 3 months and what it costs per day. Reads like a personal message, not an ad.</p><div class="sub">Still live and still the best image, but Meta gave it only €749 in the last 7 days. Test 1 puts this message in new scenes so it gets fresh budget.</div></figcaption></figure>
+<figure class="fc"><button class="tb big" type="button" data-media="media/full/120245622497070138.jpg" data-kind="image" aria-label="Open Statique_BOFU_Img5"><img src="media/t/120245622497070138.jpg" alt="" loading="lazy" decoding="async"></button>
+<figcaption><div class="fct">Price offer on the pack</div><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122271513968254882" target="_blank" rel="noopener">Statique_BOFU_Img5</a></div>
+<div class="nums"><span>€9,817</span><span>ROAS 1-day click <span class="r good">2.16</span></span><span>7-day click <span class="r good">2.57</span></span><span>287 purchases</span></div>
+<p>The 3 products, the 3-month saving in big type (&quot;Jusqu&#x27;à -30%&quot;) and the price per day. One look tells you what you get and what it costs.</p><div class="sub">Back in Test créa since 29 Oct</div></figcaption></figure>
+<figure class="fc"><button class="tb big" type="button" data-media="media/full/120245527136200138.jpg" data-kind="image" aria-label="Open Statique Offre_Img1"><img src="media/t/120245527136200138.jpg" alt="" loading="lazy" decoding="async"></button>
+<figcaption><div class="fct">Price list like a receipt</div><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122271513866254882" target="_blank" rel="noopener">Statique Offre_Img1</a></div>
+<div class="nums"><span>€13,973</span><span>ROAS 1-day click <span class="r good">1.36</span></span><span>7-day click <span class="r good">1.62</span></span><span>263 purchases</span></div>
+<p>Each product with its own price, the total crossed out, then the Cure price in a lime circle. The saving is shown, not claimed.</p><div class="sub">Off since 19 Oct after it faded; Img2, Img5, Img6 still run</div></figcaption></figure>
+<figure class="fc"><button class="tb big" type="button" data-media="media/full/120245781744130138.jpg" data-kind="image" aria-label="Open Statique_Le meilleur produit pour_Img1"><img src="media/t/120245781744130138.jpg" alt="" loading="lazy" decoding="async"></button>
+<figcaption><div class="fct">Product in hand + Instagram question sticker</div><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122268040484254882" target="_blank" rel="noopener">Statique_Le meilleur produit pour_Img1</a></div>
+<div class="nums"><span>€6,528</span><span>ROAS 1-day click <span class="r good">1.46</span></span><span>7-day click <span class="r good">1.84</span></span><span>135 purchases</span></div>
+<p>A real hand holding the products with an Instagram question sticker (&quot;Le meilleur produit pour soulager mon psoriasis ?&quot;). Looks like a story from a friend.</p><div class="sub">Off since 23 Oct: turn back on</div></figcaption></figure>
+<figure class="fc"><button class="tb big" type="button" data-media="media/full/120245781685480138.jpg" data-kind="image" aria-label="Open Statique_Bienfaits cureVScreme_Img2"><img src="media/t/120245781685480138.jpg" alt="" loading="lazy" decoding="async"></button>
+<figcaption><div class="fct">Benefits + press proof</div><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122268033602254882" target="_blank" rel="noopener">Statique_Bienfaits cureVScreme_Img2</a></div>
+<div class="nums"><span>€2,466</span><span>ROAS 1-day click <span class="r good">2.02</span></span><span>7-day click <span class="r good">2.20</span></span><span>61 purchases</span></div>
+<p>Headline &quot;La cure pour l&#x27;eczéma et le psoriasis sans cortisone&quot;, four benefits, then the press logos and the M6 &quot;Qui veut être mon associé ?&quot; line.</p><div class="sub">Off since August: re-test</div></figcaption></figure>
+<figure class="fc"><button class="tb big" type="button" data-media="media/full/120246743509370138.jpg" data-kind="image" aria-label="Open Adtitude &quot;objection prix&quot; listicle"><img src="media/t/120246743509370138.jpg" alt="" loading="lazy" decoding="async"></button>
+<figcaption><div class="fct">Answering the price question</div><div><span class="code c-adt">ADT</span> <a href="https://www.facebook.com/289078714279365/posts/122275575014254882" target="_blank" rel="noopener">Adtitude &quot;objection prix&quot; listicle</a></div>
+<div class="nums"><span>€300</span><span>ROAS 1-day click <span class="r good">3.24</span></span><span>7-day click <span class="r good">3.24</span></span><span>7 purchases</span></div>
+<p>A list that answers &quot;is it worth the price?&quot; point by point. Early: only 7 purchases so far, but the best new concept from Adtitude.</p><div class="sub">Live in Ventes_Testing</div></figcaption></figure>
+</div>
+
+<h2 style="margin-top:24px">Messages, ranked by what they return</h2>
+<p>Read from ad names. Prospecting only.</p>
+<div class="tw"><table class="ang"><thead><tr><th>Message</th><th class="n">Share of spend<br>last 30 days</th><th class="n">ROAS 1-day click<br>last 30 days</th><th class="n">Share of spend<br>1 Aug – 29 Oct</th><th class="n">ROAS 1-day click<br>1 Aug – 29 Oct</th><th>Call</th><th>Examples</th></tr></thead><tbody>
+<tr><th>Founder story</th><td class="n">5.1%</td><td class="n"><span class="r good">1.65</span></td><td class="n">6.3%</td><td class="n"><span class="r good">1.69</span></td><td><span class="verdict more">Make more</span></td><td class="sub2">Lettre Saskia</td></tr>
+<tr><th>Offer and price</th><td class="n">4.3%</td><td class="n"><span class="r good">1.62</span></td><td class="n">11.2%</td><td class="n"><span class="r good">1.44</span></td><td><span class="verdict more">Make more</span></td><td class="sub2">BOFU, Statique Offre, Adtitude &quot;objection prix&quot;</td></tr>
+<tr><th>Proof: reviews, press, &quot;best product&quot;</th><td class="n">8.7%</td><td class="n"><span class="r mid">1.11</span></td><td class="n">11.0%</td><td class="n"><span class="r low">0.91</span></td><td><span class="verdict more">Make more</span></td><td class="sub2">Le meilleur produit pour, Bienfaits</td></tr>
+<tr><th>Education: triggers, types of eczema</th><td class="n">17.6%</td><td class="n"><span class="r low">0.96</span></td><td class="n">10.0%</td><td class="n"><span class="r low">0.93</span></td><td><span class="verdict keep">Keep, improve</span></td><td class="sub2">Education_Eczema, FGC_Chlore</td></tr>
+<tr><th>Product and texture</th><td class="n">9.7%</td><td class="n"><span class="r low">0.91</span></td><td class="n">3.3%</td><td class="n"><span class="r mid">1.10</span></td><td><span class="verdict keep">Keep, improve</span></td><td class="sub2">Adtitude Émollient texture image</td></tr>
+<tr><th>Before / after</th><td class="n">11.3%</td><td class="n"><span class="r low">0.75</span></td><td class="n">6.4%</td><td class="n"><span class="r low">0.85</span></td><td><span class="verdict keep">Keep, improve</span></td><td class="sub2">Avant Après, before/after GIF</td></tr>
+<tr><th>Cortisone</th><td class="n">11.4%</td><td class="n"><span class="r low">0.79</span></td><td class="n">8.9%</td><td class="n"><span class="r low">0.85</span></td><td><span class="verdict less">Make less</span></td><td class="sub2">3 reasons why cortisone, Timeline</td></tr>
+<tr><th>Root cause: gut and skin, stress</th><td class="n">7.6%</td><td class="n"><span class="r low">0.62</span></td><td class="n">17.9%</td><td class="n"><span class="r low">0.78</span></td><td><span class="verdict less">Make less</span></td><td class="sub2">FGC_Médecine Fonctionnelle</td></tr>
+<tr><th>Cost of treatments, &quot;tried everything&quot;</th><td class="n">2.1%</td><td class="n"><span class="r low">0.44</span></td><td class="n">0.6%</td><td class="n"><span class="r low">0.44</span></td><td><span class="verdict stop">Stop</span></td><td class="sub2">Fardeau invisible, taxe financière</td></tr>
+<tr><th>Street interviews, debate</th><td class="n">0.5%</td><td class="n"><span class="r low">0.23</span></td><td class="n">2.3%</td><td class="n"><span class="r low">0.94</span></td><td><span class="verdict stop">Stop</span></td><td class="sub2">Micro-trottoir, Débat Emma</td></tr>
+</tbody></table></div>
+
+<h2 style="margin-top:24px">Test briefs for next week</h2>
+<p class="lead">Each test keeps a message that already sold and puts it in a new layout or scene. Meta groups ads that look alike and gives the budget to one of them, so a near-copy of a winner gets little spend. A new look gets its own chance, and the message stays the one we know sells.</p>
+<div class="rule"><b>How every test is judged.</b> Each concept runs in Test créa at €50/day. Switch off if there is no add-to-cart after €150. Winner: ROAS (1-day click) of 1.3 or more after €270. Winners move to Ventes_Testing.</div>
+<div class="briefs">
+<article class="brief"><div class="bh"><span class="bn">Test 1</span><h3>Founder letter in three new scenes</h3></div>
+<dl><dt>What to make</dt><dd>Make 3 images. Keep what Lettre Saskia says: why the Cure takes 3 months, the 3-month price line, Saskia&#x27;s signature. Put it in a scene the account has not used yet, and write each one to a different reader.</dd><dt>Versions</dt><dd><ul><li>Handwritten letter on a kitchen table, to parents of a child with eczema</li><li>Email from Saskia in an inbox screenshot, to people with psoriasis</li><li>Card tucked inside an open Pomad box, to adults whose hands crack in winter</li></ul></dd><dt>Why</dt><dd>Lettre Saskia Img2 is the best image in the account: €15.0k spent, ROAS 1.99 (1-day click), 369 purchases. It is still live but got only €749 in the last 7 days. Parents and psoriasis get under 1% of spend today.</dd><dt>Made by</dt><dd>INT</dd></dl></article>
+<article class="brief"><div class="bh"><span class="bn">Test 2</span><h3>Price offer for the 3-month Cure, new layouts</h3></div>
+<dl><dt>What to make</dt><dd>Make 2 images that show what the 3-month Cure costs and what it includes, in layouts we have not run yet. Both end on the 3-month price and the 30-day money-back guarantee.</dd><dt>Versions</dt><dd><ul><li>A real paper till receipt photographed next to the three products, total crossed out, Cure price circled</li><li>The three products on a bathroom shelf, each with a price tag, and one tag for the Cure price</li></ul></dd><dt>Why</dt><dd>BOFU Img5: ROAS 2.16 on €9.8k. Statique Offre: 1.49 on €23.3k. The 3-month pack is the only one with the 30-day guarantee. Confirm the 3-month price with Charline before design.</dd><dt>Made by</dt><dd>INT or ADT</dd></dl></article>
+<article class="brief"><div class="bh"><span class="bn">Test 3</span><h3>&quot;What do you use?&quot; question, new scenes</h3></div>
+<dl><dt>What to make</dt><dd>Make 3 images on the idea behind Le meilleur produit pour: a question someone would ask a friend, answered by the products. Each version uses a different scene and a different question.</dd><dt>Versions</dt><dd><ul><li>Instagram question sticker over a bathroom-mirror photo: &quot;Le meilleur produit pour l&#x27;eczéma de mon enfant ?&quot;</li><li>WhatsApp chat: a friend asks &quot;Tu mets quoi sur tes mains ?&quot;, the reply is a photo of the products</li><li>Google search bar typed with &quot;meilleur produit démangeaisons nuit&quot;, the products underneath</li></ul></dd><dt>Why</dt><dd>Le meilleur produit pour Img1: ROAS 1.65 (1-day click) in the last 30 days before it was switched off on 23 Oct.</dd><dt>Made by</dt><dd>INT or ADT</dd></dl></article>
+<article class="brief"><div class="bh"><span class="bn">Test 4</span><h3>Benefits with press proof, new layouts</h3></div>
+<dl><dt>What to make</dt><dd>Make 2 images that pair the Cure&#x27;s benefits with the press and TV proof. Use only the benefit wording already approved in Bienfaits cureVScreme.</dd><dt>Versions</dt><dd><ul><li>Photo of a TV showing the M6 show &quot;Qui veut être mon associé ?&quot;, products in front</li><li>Magazine-page layout: press logos on top, four benefits, product photo</li></ul></dd><dt>Why</dt><dd>Bienfaits cureVScreme Img2: ROAS 2.02 (1-day click) on €2.5k, 61 purchases. Switched off in August with no replacement.</dd><dt>Made by</dt><dd>INT</dd></dl></article>
+<article class="brief"><div class="bh"><span class="bn">Test 5</span><h3>Answering the price question, three layouts</h3></div>
+<dl><dt>What to make</dt><dd>Ask Adtitude for 3 new versions of their &quot;objection prix&quot; ad. Each answers one doubt, and each uses a different layout so they don&#x27;t look alike.</dd><dt>Versions</dt><dd><ul><li>&quot;Pourquoi 3 mois ?&quot; shown as a 3-month calendar</li><li>&quot;Combien ça coûte par jour ?&quot; shown as a short list</li><li>&quot;Et si ça ne marche pas ?&quot; shown as a chat reply about the 30-day guarantee</li></ul></dd><dt>Why</dt><dd>Their listicle returned 3.24 on its first €300. Only 7 purchases, so it needs more versions before we call it.</dd><dt>Made by</dt><dd>ADT</dd></dl></article>
+</div>
+<div class="card"><h3>Stop making</h3><ul>
+<li>New gut-and-skin "root cause" videos. FGC_Médecine Fonctionnelle took €66.8k at 0.78.</li>
+<li>Street interviews and debates: 0.23 in the last 30 days.</li>
+<li>"Cost of treatments" and "I tried everything" ads: 0.44.</li>
+<li>Price offers in video: 0.50. Put the price in an image.</li></ul></div>
+</section>
+
+<section id="agencies">
+<div class="kicker">4 · Who makes what</div>
+<h2>Agency and team scorecard</h2>
+<p>One rule for everyone: a concept is judged after €270 spent and wins at ROAS (1-day click) of 1.3 or more. "Winners" counts concepts launched since 1 August.</p>
+<div class="tw"><table class="ag"><thead><tr><th>Source</th><th class="n">Amount spent<br>1 Aug – 29 Oct</th><th class="n">ROAS 1-day click<br>1 Aug – 29 Oct</th><th class="n">ROAS 1-day click<br>last 7 days</th><th class="n">Winners<br>of judged</th><th>Call</th></tr></thead><tbody>
+<tr><th><span class="code c-int">INT</span> In-house statics<div class="sub">Pomad team</div></th><td class="n">€139,342<div class="sub">30% of spend</div></td><td class="n"><span class="r good">1.30</span></td><td class="n"><span class="r good">3.04</span></td>
+<td class="n">3 of 17</td><td><span class="verdict more">Make more</span><div class="sub2">Every winning image is from July or August (Lettre Saskia, BOFU, Bienfaits, Le meilleur produit pour). No new in-house image since August.</div><div class="do"><b>Next:</b> Restart: 4 to 6 new images a week, using Tests 1 to 4 above.</div></td></tr>
+<tr><th><span class="code c-adt">ADT</span> Adtitude<div class="sub">Agency, since 30 Sep</div></th><td class="n">€29,298<div class="sub">6% of spend</div></td><td class="n"><span class="r low">0.83</span></td><td class="n"><span class="r mid">1.26</span></td>
+<td class="n">3 of 19</td><td><span class="verdict keep">Keep</span><div class="sub2">49 concepts in four weeks. 3 reached the target: &quot;objection prix&quot; listicle 3.24, &quot;nuits blanches parent&quot; 2.68, &quot;preuve dernier espoir&quot; 1.60. Their images (1.69 last 7 days) do better than their videos (0.92).</div><div class="do"><b>Next:</b> Fewer new ideas, more versions of those 3, and more images than videos.</div></td></tr>
+<tr><th><span class="code c-cr">CR</span> Creator whitelisting<div class="sub">Creators (Spark)</div></th><td class="n">€55,723<div class="sub">12% of spend</div></td><td class="n"><span class="r low">0.77</span></td><td class="n"><span class="r good">1.35</span></td>
+<td class="n">0 of 10</td><td><span class="verdict keep">Keep, cut faster</span><div class="sub2">Below target over 90 days, above it in the last 7 days (elsaa.ugc Vid3, woow.bloom Vid2). crazyalyy took €12.2k at about 0.9.</div><div class="do"><b>Next:</b> Switch a creator off after €270 below target.</div></td></tr>
+<tr><th><span class="code c-cl">CL</span> Creative Lab<div class="sub">Agency</div></th><td class="n">€54,997<div class="sub">12% of spend</div></td><td class="n"><span class="r low">0.93</span></td><td class="n"><span class="r low">0.98</span></td>
+<td class="n">1 of 8</td><td><span class="verdict less">Ask for new versions</span><div class="sub2">Strong from Nov 2025 to Jan 2026. Since August: €55k at 0.93. &quot;3 reasons why cortisone&quot; alone took €18k at 0.84.</div><div class="do"><b>Next:</b> Brief them on new versions of their own past winners (&quot;Coûte cher&quot; did 2.68) and judge the next batch on the same target.</div></td></tr>
+<tr><th><span class="code c-int">INT</span> FGC (founder video)<div class="sub">Pomad team</div></th><td class="n">€91,373<div class="sub">20% of spend</div></td><td class="n"><span class="r low">0.84</span></td><td class="n"><span class="r low">0.79</span></td>
+<td class="n">1 of 4</td><td><span class="verdict less">Spend less</span><div class="sub2">FGC_Médecine Fonctionnelle took €66.8k at 0.78, 14% of all prospecting spend in 90 days. FGC_Chlore (1.21) is the best of the series.</div><div class="do"><b>Next:</b> Cap Médecine Fonctionnelle. Put the founder&#x27;s voice into images (Test 1) instead.</div></td></tr>
+<tr><th><span class="code c-ugc">UGC</span> C## UGC series<div class="sub">Maker not confirmed</div></th><td class="n">€8,945<div class="sub">2% of spend</div></td><td class="n"><span class="r low">0.64</span></td><td class="n"><span class="r good">1.35</span></td>
+<td class="n">1 of 10</td><td><span class="verdict less">Fewer concepts</span><div class="sub2">41 concepts on €8.9k, so most never spent enough to judge. 1 reached the target: C5 &quot;Ce que ça prend&quot; at 1.41.</div><div class="do"><b>Next:</b> Ask for 4 to 5 concepts a week instead of 10, each with 3 hooks.</div></td></tr>
+<tr><th><span class="code c-v2w">V2W</span> V2W<div class="sub">Maker not confirmed</div></th><td class="n">€31,329<div class="sub">7% of spend</div></td><td class="n"><span class="r low">0.67</span></td><td class="n">–</td>
+<td class="n">3 of 4</td><td><span class="verdict stop">No new orders</span><div class="sub2">Videos made February to May, run mostly as copies in the Cost Cap test. €31.3k at 0.67.</div><div class="do"><b>Next:</b> Re-test only the 2 videos in section 1.</div></td></tr>
+<tr><th><span class="code c-int">INT</span> In-house video / other<div class="sub">Pomad team</div></th><td class="n">€50,102<div class="sub">11% of spend</div></td><td class="n"><span class="r low">0.81</span></td><td class="n"><span class="r low">0.96</span></td>
+<td class="n">3 of 15</td><td><span class="verdict keep">Keep the 3 winners</span><div class="sub2">UGC YAPPER, IA Pixar and Education_Eczema reached the target. Most other in-house videos did not.</div><div class="do"><b>Next:</b> Those 3 are in the re-test list in section 1.</div></td></tr>
+</tbody></table></div>
+<p class="fn">Ben&amp;Vic ads can't be picked out from the old ad names, so they sit inside the groups above. Every new ad since 29 Oct carries a source code (INT, CL, ADT, BV, UGC, CR) at the start of its name, so this table can be read per agency every week from now on.</p>
+</section>
+
+<div class="note"><b>How this was read</b>
+<p>Meta counts only clicks here (1-day and 7-day click). Meta can over-count, so a winner is confirmed in Shopify through utm_content before more budget goes on it. "Last change" is the last edit Meta shows on the ad, which for ads switched off one by one is the day they were paused. Sources and messages are read from ad names. Ventes_Retention is left out because it also reaches past buyers.</p></div>
+</div>
+<div class="lb" id="lb" hidden><button class="x" id="lbx" type="button">Close</button><div id="lbc"></div></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),box=document.getElementById('lbc'),last=null;
+  function close(){box.innerHTML='';lb.hidden=true;if(last)last.focus();}
+  document.addEventListener('click',function(ev){
+    var b=ev.target.closest('.tb');
+    if(b&&b.dataset.media){
+      last=b;box.innerHTML='';
+      var el;
+      if(b.dataset.kind==='video'){el=document.createElement('video');el.src=b.dataset.media;el.controls=true;el.autoplay=true;el.playsInline=true;el.preload='metadata';var t=b.querySelector('img');if(t)el.poster=t.src;}
+      else{el=document.createElement('img');el.src=b.dataset.media;el.alt='';}
+      box.appendChild(el);lb.hidden=false;document.getElementById('lbx').focus();return;
+    }
+    if(ev.target===lb)close();
+  });
+  document.getElementById('lbx').addEventListener('click',close);
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!lb.hidden)close();});
+})();
+</script>
+
+</body>
+</html>
