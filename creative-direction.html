@@ -89,7 +89,8 @@ section .fn{margin-top:0}
 .lb[hidden]{display:none}
 .lb{position:fixed;inset:0;z-index:50;background:var(--shade);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:calc(56px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));box-sizing:border-box}
 #lbc{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-width:0;min-height:0}
-.lb img,.lb video{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;background:#000}
+.lb img,.lb video{display:block;width:auto;height:auto;max-width:calc(100vw - 32px);max-height:calc(100vh - 88px);object-fit:contain;border-radius:8px;background:#000}
+@supports (height:100dvh){.lb img,.lb video{max-height:calc(100dvh - 88px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}}
 @supports (height:100dvh){.lb{height:100dvh}}
 .lb .x{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));border:0;border-radius:99px;background:var(--lime);color:#0b0b0a;font:700 14px var(--body);padding:8px 14px;cursor:pointer}
 @media (max-width:520px){.brief dl{grid-template-columns:1fr} .fc{grid-template-columns:90px 1fr}}
@@ -132,7 +133,7 @@ section .fn{margin-top:0}
 <tr><td class="adc"><button class="tb" type="button" data-media="media/v/120246926156780138.mp4" data-kind="video" aria-label="Play Education_Eczema_H1_iteration_v3_musique_sous_titres"><img src="media/t/120246926156780138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><span class="code c-int">INT</span> <a href="https://www.facebook.com/289078714279365/posts/122276999834254882" target="_blank" rel="noopener">Education_Eczema_H1_iteration_v3_musique_sous_titres</a>
 <div class="sub">Ventes_Testing · Video · numbers: Last 30 days</div></div></td>
 <td class="st">Ad off · last change 26 Oct</td><td class="n">€1,277</td><td class="n"><span class="r good">1.51</span></td><td class="n"><span class="r good">1.66</span></td><td class="n">15</td><td class="n">1.32</td>
-<td class="act"><b>Turn back on, from a second page</b> <span class="chip ai">AI look</span><div class="sub">Turned off on 26 Oct after one week. Frequency only 1.32, so the audience was not tired. The animation looks AI-made, so it goes back on from the new page that does not carry the Pomad name, as a new upload.</div></td></tr>
+<td class="act"><b>Turn back on, from the new page</b> <span class="chip ai">AI look</span><div class="sub">Turned off on 26 Oct after one week. Frequency only 1.32, so the audience was not tired. The animation looks AI-made, so it goes back on from the new page that does not carry the Pomad name, as a new upload.</div></td></tr>
 </tbody></table></div>
 <div class="grp"><span class="pill alt">Test again in Test créa</span><span class="sub">Hit the target before October. Old results don't guarantee new ones, so each gets €50/day first</span></div>
 <div class="tw"><table class="ads"><thead><tr><th>Ad</th><th>Status now</th><th class="n">Amount spent</th><th class="n">ROAS<br>1-day click</th><th class="n">ROAS<br>7-day click</th><th class="n">Purchases<br>7-day click</th><th class="n">Frequency</th><th>What to do</th></tr></thead><tbody>
