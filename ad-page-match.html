@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pomad Ad–Page Match</title>
+<style>html{color-scheme:light dark}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one reading column, wide tables scroll in their own frame; Pomad brand (paper, ink, lime pill) */
+:root{--paper:#ffffff;--ink:#0b0b0a;--mute:#5d6157;--line:#e3e6dc;--mist:#f6f7f2;--lime:#ccff00;--lime-soft:#eef9c2;--good:#2f7d1f;--mid:#9a6a00;--low:#b3261e;--shade:rgba(10,11,8,.86);
+--display:"Helvetica Neue",Helvetica,Arial,sans-serif;--body:"Inter",system-ui,-apple-system,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0f100d;--ink:#f1f3ec;--mute:#a3a89a;--line:#2a2d25;--mist:#171913;--lime:#ccff00;--lime-soft:#2a3310;--good:#8fd36f;--mid:#e3b04b;--low:#ff8a80;--shade:rgba(0,0,0,.9);color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#0f100d;--ink:#f1f3ec;--mute:#a3a89a;--line:#2a2d25;--mist:#171913;--lime:#ccff00;--lime-soft:#2a3310;--good:#8fd36f;--mid:#e3b04b;--low:#ff8a80;--shade:rgba(0,0,0,.9);color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.05} h2{font-size:26px;margin-top:8px} h3{font-size:18px}
+p{max-width:72ch;margin:0} a{color:inherit;text-decoration-color:var(--mute);text-underline-offset:2px}
+.kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.dek{font-size:18px;color:var(--mute);margin-top:10px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--mute);font-size:13px;margin-top:14px}
+.meta b{color:var(--ink);font-weight:600}
+section{margin-top:56px;display:grid;gap:16px}
+.lead{font-size:16px;color:var(--mute)}
+.five{list-style:none;padding:0;margin:28px 0 0;display:grid;border-top:1px solid var(--line)}
+.five li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.five .num{font-family:var(--display);font-weight:700;font-size:20px}
+.five b{font-weight:600}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--mute);align-items:center}
+.code{display:inline-block;font:700 11px/1 var(--body);letter-spacing:.04em;padding:3px 6px;border-radius:4px;border:1px solid var(--line);background:var(--mist);color:var(--ink);vertical-align:1px}
+.code.c-int{background:var(--lime);border-color:var(--lime);color:#0b0b0a}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+thead th{background:var(--mist);font-size:12px;font-weight:600;color:var(--mute);white-space:nowrap}
+tbody tr:last-child>*{border-bottom:0}
+tbody th{font-weight:600}
+.n{text-align:right;white-space:nowrap}
+table.ads{min-width:1000px}
+.adc{display:flex;gap:10px;min-width:290px;max-width:370px}
+.adc a{font-weight:600;word-break:break-word}
+.tb{position:relative;flex:none;width:52px;height:70px;padding:0;border:0;border-radius:6px;overflow:hidden;background:var(--mist);cursor:zoom-in}
+.tb img{width:100%;height:100%;object-fit:cover;display:block}
+.tb .ph{display:block;width:100%;height:100%}
+.tb:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tb .play{position:absolute;inset:auto 4px 4px auto;width:20px;height:20px;border-radius:50%;background:var(--lime)}
+.tb .play::after{content:"";position:absolute;left:8px;top:6px;border-left:7px solid #0b0b0a;border-top:4px solid transparent;border-bottom:4px solid transparent}
+.tb.big{width:100%;height:auto;aspect-ratio:9/16;border-radius:8px}
+.sub,.sub2{color:var(--mute);font-size:12.5px;line-height:1.4;margin-top:3px}
+.st{white-space:nowrap;font-size:13px}
+.act{min-width:250px;max-width:340px}
+.r{font-weight:600} .r.good{color:var(--good)} .r.mid{color:var(--mid)} .r.low{color:var(--low)}
+.chip{display:inline-block;font-size:11px;font-weight:600;padding:1px 8px;border-radius:99px;border:1px solid var(--line);margin-left:4px}
+.chip.ai{background:var(--lime-soft)}
+.verdict{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;white-space:nowrap}
+.verdict.more{background:var(--lime);color:#0b0b0a} .verdict.keep{background:var(--lime-soft)} .verdict.less{border:1px solid var(--mid);color:var(--mid)} .verdict.stop{border:1px solid var(--low);color:var(--low)}
+.do{font-size:13px;margin-top:6px}
+table.ag{min-width:900px} table.ag td:last-child{min-width:340px}
+table.ang{min-width:720px}
+.grp{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:12px}
+.grp .pill{background:var(--lime);color:#0b0b0a;font-weight:700;border-radius:99px;padding:2px 12px;font-size:13px}
+.grp .pill.alt{background:var(--mist);color:var(--ink);border:1px solid var(--line)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:8px;align-content:start;min-width:0}
+.card ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.fc{margin:0;display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:start;min-width:0}
+.fc figcaption{display:grid;gap:6px;font-size:13.5px;min-width:0}
+.fc .fct{font-family:var(--display);font-weight:700;font-size:16px}
+.fc a{font-weight:600;word-break:break-word}
+.nums{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:12.5px;color:var(--mute);font-variant-numeric:tabular-nums}
+.briefs{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.brief{border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:12px;align-content:start;min-width:0}
+.bh{display:grid;gap:4px}
+.bn{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.brief dl{margin:0;display:grid;grid-template-columns:96px 1fr;gap:8px 12px;font-size:14px}
+.brief dt{color:var(--mute);font-size:12.5px;font-weight:600;padding-top:2px}
+.brief dd{margin:0;min-width:0}
+.brief ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.rule{border:1px solid var(--line);background:var(--mist);border-radius:10px;padding:14px 18px;font-size:14px}
+.fn{font-size:13px;color:var(--mute);border-left:2px solid var(--line);padding:2px 0 2px 12px;max-width:90ch;margin-top:14px}
+section .fn{margin-top:0}
+.note{font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:16px}
+.note p{max-width:none;margin-top:6px}
+.lb[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:50;background:var(--shade);display:flex;align-items:center;justify-content:center;overflow:hidden;padding:calc(56px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));box-sizing:border-box}
+#lbc{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-width:0;min-height:0}
+.lb img,.lb video{display:block;width:auto;height:auto;max-width:calc(100vw - 32px);max-height:calc(100vh - 88px);object-fit:contain;border-radius:8px;background:#000}
+@supports (height:100dvh){.lb img,.lb video{max-height:calc(100dvh - 88px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))}}
+@supports (height:100dvh){.lb{height:100dvh}}
+.lb .x{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));border:0;border-radius:99px;background:var(--lime);color:#0b0b0a;font:700 14px var(--body);padding:8px 14px;cursor:pointer}
+@media (max-width:520px){.brief dl{grid-template-columns:1fr} .fc{grid-template-columns:90px 1fr}}
+@media (prefers-reduced-motion:no-preference){.tb img{transition:transform .2s} .tb:hover img{transform:scale(1.04)}}
+
+.pill.p1{background:var(--lime);color:#0b0b0a} .pill.p2{background:var(--lime-soft);color:var(--ink)} .pill.p3{background:var(--mist);color:var(--ink);border:1px solid var(--line)}
+.lp{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;border-top:1px solid var(--line);padding-top:28px;align-items:start}
+.tb.shot{width:200px;height:auto;aspect-ratio:450/760;border-radius:14px;border:1px solid var(--line);position:sticky;top:calc(16px + env(safe-area-inset-top,0px))}
+.lpb{display:grid;gap:14px;min-width:0}
+.lpk{font-size:13px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.kind{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:var(--mist);border:1px solid var(--line);border-radius:99px;padding:2px 10px}
+.lp h3{font-size:22px;line-height:1.15}
+.fr{font-style:normal}
+.facts{margin:0;display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 14px;font-size:14px}
+.facts dt{color:var(--mute);font-size:12.5px;font-weight:600;padding-top:2px}
+.facts dd{margin:0;max-width:78ch}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.mlist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.mlist li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:start;font-size:13.5px}
+.ph-tb{display:block;cursor:default}
+.cons{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.con{border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;align-content:start;min-width:0}
+.con h4{margin:0;font-family:var(--display);font-size:15px}
+.con dl{margin:0;display:grid;grid-template-columns:76px minmax(0,1fr);gap:6px 10px;font-size:13.5px}
+.con dt{color:var(--mute);font-size:12px;font-weight:600;padding-top:1px}
+.con dd{margin:0;min-width:0}
+.con dd.fr{font-weight:600}
+.rules{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.rules li{border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:4px;font-size:14px}
+.rules b{font-family:var(--display)}
+.fix{display:grid;gap:0;border-top:1px solid var(--line);margin:0;padding:0;list-style:none}
+.fix li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.fix .what{font-weight:600}
+@media (max-width:720px){.lp{grid-template-columns:1fr}.tb.shot{position:static;width:160px}.fix li{grid-template-columns:1fr;gap:4px}}
+@media (max-width:520px){.facts{grid-template-columns:1fr}.con dl{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="kicker">Pomad Paris · Meta ads and landing pages</div>
+<h1>Every ad should look like the page it opens</h1>
+<p class="dek">Which ads to send to each page Pomad has built, and the ads still missing. Prepared for the call with Neil.</p>
+<div class="meta"><span><b>Pages</b> the quiz and the 10 funnel pages, checked on a phone on 2 Nov</span><span><b>Ads</b> all 244 live ads, read 2 Nov</span><span><b>Numbers</b> Meta Ads Manager, click attribution, to 1 Nov</span><span><b>Target</b> ROAS (1-day click) of 1.3 or more</span></div>
+<p class="fn">Built from Meta Ads Manager data for the POMAD PARIS 2024 account (purchases from clicks only) and from the live pages. Shopify orders are not included. "Last week" is 26 Oct – 1 Nov. Where an ad set holds several ads, its numbers are the ad set's.</p>
+</header>
+
+<ol class="five">
+<li><span class="num">1</span><span><b>243 of the 244 live ads send people to the homepage.</b> One sends them to the quiz. None go to the 10 articles and listicles Pomad has built.</span></li>
+<li><span class="num">2</span><span><b>The quiz page sells, even with an ad that doesn't match it.</b> Last week clicks to /diagnostic turned into purchases 37% more often than clicks to the homepage, at the same cost per click. The ad is a before/after photo with a "Commander" button.</span></li>
+<li><span class="num">3</span><span><b>A matching ad says what the page says, shows what the page shows, and asks for the same action.</b> For the quiz that means "10 questions, a Cure for your skin", the quiz on screen, and "En savoir plus".</span></li>
+<li><span class="num">4</span><span><b>Three pages already have a proven ad with the same message.</b> Bienfaits goes to the cream listicle, the price ads to the hidden-costs listicle, and the before/after ads to the before/after article. No production needed.</span></li>
+<li><span class="num">5</span><span><b>A few things on the pages don't match each other.</b> The quiz count, the number of questions, the price per day and the star rating change from page to page. The list for Neil is at the end.</span></li>
+</ol>
+
+<section id="rules">
+<div class="kicker">What "matching" means</div>
+<h2>Four checks for every ad before it goes to a page</h2>
+<ul class="rules">
+<li><b>Same first line</b><span>The ad's headline or opening words repeat the page's headline. The visitor knows they are in the right place in one second.</span></li>
+<li><b>Same picture</b><span>Use the page's hero photo, or a scene from it. Every page below already has one ready.</span></li>
+<li><b>Same action</b><span>The button promises what the page does. "Commander" fits a product page. A quiz or an article needs "En savoir plus".</span></li>
+<li><b>Same numbers</b><span>Price per day, number of questions, number of people and the star rating are the same on the ad and on the page.</span></li>
+</ul>
+<p class="fn">Meta does not allow ads that say or imply the viewer has a health condition ("vous avez de l'eczéma", "votre eczéma"). The lines below speak in the first person, about the skin in general, or about "mon enfant".</p>
+</section>
+
+<section id="pages">
+<div class="kicker">The pages, one by one</div>
+<h2>What each page says, what runs there, what to make</h2>
+<p class="lead">Click a phone screenshot to see the page's first screen full size. Click an ad to see it or play it. French lines are first drafts for the team to adjust.</p>
+<div class="grp"><span class="pill p1">Priority 1</span><span class="sub">This week: the quiz and the two pages that lead to it</span></div><article class="lp" id="diagnostic">
+<button class="tb shot" type="button" data-media="media/lp/diagnostic.jpg" data-kind="image" aria-label="Open the /pages/diagnostic screenshot"><img src="media/lp/diagnostic.jpg" alt="First screen of /pages/diagnostic on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Quiz</span> <a href="https://pomad.paris/pages/diagnostic" target="_blank" rel="noopener">pomad.paris/pages/diagnostic</a></div>
+<h3 class="fr">Bienvenue sur le diagnostic Pomad</h3>
+<dl class="facts"><dt>The page</dt><dd>Ten questions to understand your skin, then a Cure recommendation. Opens with &quot;Pour qui ? Moi / Un proche / Enfant&quot;, then age. Shows &quot;221 732 personnes ont rempli ce formulaire&quot;.</dd><dt>Ads today</dt><dd>1 live ad: Statique_Avant Après_Img2, a before/after photo. Last week €688 at 2.36 (1-day click), 2.73 (7-day click), 18 purchases. Clicks here turned into purchases 37% more often than clicks to the homepage (1.34 vs 0.98 per 100 clicks), at the same cost per click.</dd><dt>The gap</dt><dd>The ad shows a result. The page asks you to take a test. Nothing in the ad says there is a quiz, and the button says &quot;Commander&quot;. Only about half of the clicks load the page (account: 57%). With one ad at frequency 2.7 a week, this page cannot take more budget yet.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/full/120245628268820138.jpg" data-kind="image" aria-label="Open Statique_Avant Après_Img2 (runs here today)"><img src="media/t/120245628268820138.jpg" alt="" loading="lazy" decoding="async"></button><div><div><span class="code c-int">INT</span> <b>Statique_Avant Après_Img2 (runs here today)</b></div><div class="nums">Last week €688 · 1-day click <span class="r good">2.36</span> · 7-day click <span class="r good">2.73</span> · since 1 Aug <span class="r low">0.96</span></div><div class="sub">Live, €100/day</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>Quiz card</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« Eczéma, psoriasis : quelle cure pour votre peau ? 10 questions, 2 minutes. »</dd><dt>Visual</dt><dd>A phone showing question 1 with its three answers (Moi / Un proche / Mon enfant). The page already has this shot: the hero of /raisons/diagnostics.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>One per reader</h4><dl><dt>Format</dt><dd>3 images</dd><dt>First line</dt><dd class="fr">« Pour mon enfant : 10 questions pour trouver sa routine. » Same line for « Pour moi » and « Pour un proche ».</dd><dt>Visual</dt><dd>Same phone, the matching answer tapped. Parent version shows a child&#x27;s hand next to the phone.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>I took the test</h4><dl><dt>Format</dt><dd>Video 9:16, 20–30 s</dd><dt>First line</dt><dd class="fr">« J&#x27;ai fait le diagnostic Pomad. Voilà ce qu&#x27;il m&#x27;a conseillé. »</dd><dt>Visual</dt><dd>Saskia or a customer answering 3 questions on screen, ending on the recommendation screen.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>Three of the ten</h4><dl><dt>Format</dt><dd>Carousel, 4 cards</dd><dt>First line</dt><dd class="fr">« Depuis quand ? Où ? Sous cortisone ? Vos réponses décident de votre cure. »</dd><dt>Visual</dt><dd>One question per card, as it looks in the quiz. Last card: « Les 7 autres sont dans le diagnostic ».</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>221 732 people</h4><dl><dt>Format</dt><dd>Image 1:1</dd><dt>First line</dt><dd class="fr">« 221 732 personnes ont fait le diagnostic. Votre tour. »</dd><dt>Visual</dt><dd>The number big, the quiz start screen under it.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="histoire-saskia">
+<button class="tb shot" type="button" data-media="media/lp/histoire-saskia.jpg" data-kind="image" aria-label="Open the /pages/histoire/saskia screenshot"><img src="media/lp/histoire-saskia.jpg" alt="First screen of /pages/histoire/saskia on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Founder story → quiz</span> <a href="https://pomad.paris/pages/histoire/saskia" target="_blank" rel="noopener">pomad.paris/pages/histoire/saskia</a></div>
+<h3 class="fr">J&#x27;ai 7 ans, c&#x27;est l&#x27;été, et je supplie mes parents de me mettre des manches longues.</h3>
+<dl class="facts"><dt>The page</dt><dd>Saskia&#x27;s story from age 7 to the M6 show, with a 2-minute video. Every button goes to the quiz: « Faire mon diagnostic », « Pour moi », « Pour mon enfant », « Pour un proche ».</dd><dt>Ads today</dt><dd>No ad sends people here. The founder message is the best seller in the account: Lettre Saskia returned 2.36 (1-day click) on €3,665 in the last 30 days.</dd><dt>The gap</dt><dd>This page is the warm way into the quiz: founder ad, story, quiz. Today every founder ad lands on the homepage instead. The page says the quiz has 7 questions; the quiz says 10.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/full/120245622306200138.jpg" data-kind="image" aria-label="Open Statique_Lettre Saskia_Img2"><img src="media/t/120245622306200138.jpg" alt="" loading="lazy" decoding="async"></button><div><div><span class="code c-int">INT</span> <b>Statique_Lettre Saskia_Img2</b></div><div class="nums">Last 30 days €3,665 · 1-day click <span class="r good">2.36</span> · 7-day click <span class="r good">3.02</span> · 92 purchases</div><div class="sub">Live, homepage</div></div></li><li><button class="tb" type="button" data-media="media/v/120245585145230138.mp4" data-kind="video" aria-label="Play [CL] Coûte cher (Hook 3) V3, from Saskia&#x27;s own page"><img src="media/t/120245585145230138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-cl">CL</span> <b>[CL] Coûte cher (Hook 3) V3, from Saskia&#x27;s own page</b></div><div class="nums">1 Aug – 1 Nov, 4 copies €2,447 · 1-day click <span class="r good">1.80</span> · 41 purchases</div><div class="sub">Off</div></div></li><li><span class="tb ph-tb" aria-hidden="true"><span class="ph"></span></span><div><div><span class="code c-adt">ADT</span> <b>PMADT-26-10-23 · Saskia answers a comment</b></div><div class="nums">Last 30 days €734 · 1-day click <span class="r good">1.76</span> · 7-day click <span class="r good">2.67</span></div><div class="sub">Live, homepage</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>Long sleeves</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« J&#x27;ai 7 ans, c&#x27;est l&#x27;été, et je supplie mes parents de me mettre des manches longues. »</dd><dt>Visual</dt><dd>A childhood photo of Saskia in long sleeves. The page opens on the same sentence.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>The 2-minute video, cut to 30 s</h4><dl><dt>Format</dt><dd>Video 9:16</dd><dt>First line</dt><dd class="fr">« Ça c&#x27;est moi quand mon eczéma me gâchait… »</dd><dt>Visual</dt><dd>Cut from the video already on the page, same first frame and subtitle.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>Letter, new ending</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">Lettre Saskia as it is, last line: « Faites le diagnostic que j&#x27;aurais aimé faire à 7 ans. »</dd><dt>Visual</dt><dd>The current winning letter. Only the last line and the link change.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="raisons-diagnostics">
+<button class="tb shot" type="button" data-media="media/lp/raisons-diagnostics.jpg" data-kind="image" aria-label="Open the /pages/raisons/diagnostics screenshot"><img src="media/lp/raisons-diagnostics.jpg" alt="First screen of /pages/raisons/diagnostics on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Listicle → quiz</span> <a href="https://pomad.paris/pages/raisons/diagnostics" target="_blank" rel="noopener">pomad.paris/pages/raisons/diagnostics</a></div>
+<h3 class="fr">8 vérités que 200 000 diagnostics révèlent sur votre peau</h3>
+<dl class="facts"><dt>The page</dt><dd>Eight findings from the quiz answers: plaque stages, zones, how long people have had it, cortisone, children and pregnancy. Ends with « Faites votre diagnostic en 60 secondes ».</dd><dt>Ads today</dt><dd>No ad sends people here, and no live ad carries this message.</dd><dt>The gap</dt><dd>Nothing to route yet. The page hero (a phone showing the quiz, in a bedroom) is a ready-made ad image. The page says 200 000 and 202 476; the quiz says 221 732.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/v/120246926156780138.mp4" data-kind="video" aria-label="Play Education_Eczema (closest message: education)"><img src="media/t/120246926156780138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-int">INT</span> <b>Education_Eczema (closest message: education)</b></div><div class="nums">Last 30 days €1,277 · 1-day click <span class="r good">1.51</span> · 7-day click <span class="r good">1.78</span></div><div class="sub">Off, AI look: new page only</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>The eight truths</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« 8 vérités que 200 000 diagnostics révèlent sur la peau. » Truths 1–3 visible, the rest blurred.</dd><dt>Visual</dt><dd>Numbered list on the page&#x27;s own beige and lime. Same headline as the page.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>One truth per ad</h4><dl><dt>Format</dt><dd>4 images</dd><dt>First line</dt><dd class="fr">« Vérité n°4 : une peau qui gratte depuis 10 ans ne se répare pas en 30 jours. »</dd><dt>Visual</dt><dd>One heading of the page per ad. Each one links to the same page.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article><article class="con"><h4>Phone in the bedroom</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« Ta peau est unique. Ta cure devrait l&#x27;être aussi. »</dd><dt>Visual</dt><dd>The page&#x27;s hero photo as it is.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article>
+<div class="grp"><span class="pill p2">Priority 2</span><span class="sub">Ready now: a proven ad already carries the page&#x27;s message</span></div><article class="lp" id="raisons-creme">
+<button class="tb shot" type="button" data-media="media/lp/raisons-creme.jpg" data-kind="image" aria-label="Open the /pages/raisons/creme screenshot"><img src="media/lp/raisons-creme.jpg" alt="First screen of /pages/raisons/creme on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Listicle</span> <a href="https://pomad.paris/pages/raisons/creme" target="_blank" rel="noopener">pomad.paris/pages/raisons/creme</a></div>
+<h3 class="fr">5 raisons pour lesquelles votre crème seule ne suffit pas</h3>
+<dl class="facts"><dt>The page</dt><dd>A cream works where the flare shows, the Cure adds the inside. Five reasons, results after 12 weeks, the price of adding the Cure.</dd><dt>Ads today</dt><dd>No ad sends people here. One switched-off ad carries exactly this message.</dd><dt>The gap</dt><dd>Bienfaits cureVScreme is the same message (cure vs cream) and sold well until it was switched off in August. Route it here: no production needed.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/full/120245781685480138.jpg" data-kind="image" aria-label="Open Statique_Bienfaits cureVScreme_Img2"><img src="media/t/120245781685480138.jpg" alt="" loading="lazy" decoding="async"></button><div><div><span class="code c-int">INT</span> <b>Statique_Bienfaits cureVScreme_Img2</b></div><div class="nums">1 Aug – 29 Oct €2,466 · 1-day click <span class="r good">2.02</span> · 7-day click <span class="r good">2.20</span> · 61 purchases</div><div class="sub">Off since August</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>Half the match</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« La crème agit là où la crise se voit. Pas là où elle se prépare. »</dd><dt>Visual</dt><dd>The page&#x27;s hero: a used cream tube on the sink next to the three products.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="raisons-taxe">
+<button class="tb shot" type="button" data-media="media/lp/raisons-taxe.jpg" data-kind="image" aria-label="Open the /pages/raisons/taxe screenshot"><img src="media/lp/raisons-taxe.jpg" alt="First screen of /pages/raisons/taxe on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Listicle</span> <a href="https://pomad.paris/pages/raisons/taxe" target="_blank" rel="noopener">pomad.paris/pages/raisons/taxe</a></div>
+<h3 class="fr">6 coûts cachés de l&#x27;eczéma que vous payez sans vous en rendre compte</h3>
+<dl class="facts"><dt>The page</dt><dd>Dermatologist visits, the shelf of creams, the costs nobody counts, sleep. Then the Cure at 1,99 € a day and the 30-day guarantee.</dd><dt>Ads today</dt><dd>No ad sends people here. The price ads that sell best carry the same idea.</dd><dt>The gap</dt><dd>Price ads (Statique Offre, BOFU, objection prix) fit this page better than the homepage. One fix first: the page says 1,99 € a day, Lettre Saskia says 2,10 € a day.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/full/120245527136200138.jpg" data-kind="image" aria-label="Open Statique Offre"><img src="media/t/120245527136200138.jpg" alt="" loading="lazy" decoding="async"></button><div><div><span class="code c-int">INT</span> <b>Statique Offre</b></div><div class="nums">Last 30 days €3,549 · 1-day click <span class="r good">1.65</span> · 7-day click <span class="r good">1.95</span> · 85 purchases</div><div class="sub">Live, homepage</div></div></li><li><button class="tb" type="button" data-media="media/full/120245622497070138.jpg" data-kind="image" aria-label="Open Statique_BOFU_Img5"><img src="media/t/120245622497070138.jpg" alt="" loading="lazy" decoding="async"></button><div><div><span class="code c-int">INT</span> <b>Statique_BOFU_Img5</b></div><div class="nums">Test créa last week €210 · 1-day click <span class="r good">5.10</span></div><div class="sub">Live, homepage</div></div></li><li><button class="tb" type="button" data-media="media/full/120246743509370138.jpg" data-kind="image" aria-label="Open Objection prix listicle (PMADT_STC_013)"><img src="media/t/120246743509370138.jpg" alt="" loading="lazy" decoding="async"></button><div><div><span class="code c-adt">ADT</span> <b>Objection prix listicle (PMADT_STC_013)</b></div><div class="nums">Test créa last week €208 · 1-day click <span class="r good">4.29</span></div><div class="sub">Live, homepage</div></div></li><li><button class="tb" type="button" data-media="media/v/120246079468810138.mp4" data-kind="video" aria-label="Play V2W Substance taxe financière"><img src="media/t/120246079468810138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-v2w">V2W</span> <b>V2W Substance taxe financière</b></div><div class="nums">1 Aug – 1 Nov, 3 copies €948 · 1-day click <span class="r low">0.82</span> (best copy 1.92)</div><div class="sub">Off</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>The bill</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« L&#x27;eczéma coûte plus cher que vous ne le pensez. Faites l&#x27;addition. »</dd><dt>Visual</dt><dd>A till receipt with the six lines of the page, total crossed out, « 1,99 €/jour » circled.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="article-avant-apres">
+<button class="tb shot" type="button" data-media="media/lp/article-avant-apres.jpg" data-kind="image" aria-label="Open the /pages/article/avant-apres screenshot"><img src="media/lp/article-avant-apres.jpg" alt="First screen of /pages/article/avant-apres on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Advertorial</span> <a href="https://pomad.paris/pages/article/avant-apres" target="_blank" rel="noopener">pomad.paris/pages/article/avant-apres</a></div>
+<h3 class="fr">Eczéma, psoriasis : six peaux avant, les mêmes après, sans une retouche</h3>
+<dl class="facts"><dt>The page</dt><dd>Six pairs of unretouched customer photos, each with the zone, the skin and the time on the Cure.</dd><dt>Ads today</dt><dd>No ad sends people here. The before/after ads all go to the homepage or to the quiz.</dd><dt>The gap</dt><dd>This is the right home for the before/after ads, including the one now sending traffic to the quiz. Test the same ad on both pages and keep the page that sells more.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/full/120245628268820138.jpg" data-kind="image" aria-label="Open Statique_Avant Après_Img2"><img src="media/t/120245628268820138.jpg" alt="" loading="lazy" decoding="async"></button><div><div><span class="code c-int">INT</span> <b>Statique_Avant Après_Img2</b></div><div class="nums">Last 30 days €3,875 · 1-day click <span class="r mid">1.26</span> · 7-day click <span class="r good">1.63</span></div><div class="sub">Live, to /diagnostic</div></div></li><li><button class="tb" type="button" data-media="media/v/120246079468820138.mp4" data-kind="video" aria-label="Play Before/after GIF"><img src="media/t/120246079468820138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-v2w">V2W</span> <b>Before/after GIF</b></div><div class="nums">1 Aug – 29 Oct €413 · 1-day click <span class="r good">2.23</span></div><div class="sub">Test créa, switched off 2 Nov</div></div></li><li><button class="tb" type="button" data-media="media/v/120244268745050138.mp4" data-kind="video" aria-label="Play UGC Eva avant/après"><img src="media/t/120244268745050138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-int">INT</span> <b>UGC Eva avant/après</b></div><div class="nums">1 Aug – 29 Oct €303 · 1-day click <span class="r good">2.65</span> · small sample</div><div class="sub">Off</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>Two Polaroids</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« Six peaux avant. Les mêmes après. Sans une retouche. »</dd><dt>Visual</dt><dd>The page&#x27;s hero: Béatrice&#x27;s two photos side by side.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article>
+<div class="grp"><span class="pill p3">Priority 3</span><span class="sub">Later: needs new ads first</span></div><article class="lp" id="comparatif-cortisone">
+<button class="tb shot" type="button" data-media="media/lp/comparatif-cortisone.jpg" data-kind="image" aria-label="Open the /pages/comparatif/cortisone screenshot"><img src="media/lp/comparatif-cortisone.jpg" alt="First screen of /pages/comparatif/cortisone on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Comparison</span> <a href="https://pomad.paris/pages/comparatif/cortisone" target="_blank" rel="noopener">pomad.paris/pages/comparatif/cortisone</a></div>
+<h3 class="fr">Votre tube fait très bien son travail. Le reste du travail, personne ne s&#x27;en occupe.</h3>
+<dl class="facts"><dt>The page</dt><dd>Cortisone, cream and the Cure side by side on 12 criteria. From 79 €, 30-day guarantee on the 3-month Cure.</dd><dt>Ads today</dt><dd>No ad sends people here.</dd><dt>The gap</dt><dd>No ad shows a comparison table. Timeline dépendance cortisone has the closest message and sells.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/v/120245935297820138.mp4" data-kind="video" aria-label="Play [CL] Timeline dépendance cortisone"><img src="media/t/120245935297820138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-cl">CL</span> <b>[CL] Timeline dépendance cortisone</b></div><div class="nums">Last 30 days €2,283 · 1-day click <span class="r good">1.53</span> · 7-day click <span class="r good">1.89</span></div><div class="sub">Live, homepage</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>Three columns</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« Votre tube fait très bien son travail. Le reste, personne ne s&#x27;en occupe. »</dd><dt>Visual</dt><dd>Four of the twelve rows in three columns, the cortisone tube on the left. Same headline as the page.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="raisons-cortisone">
+<button class="tb shot" type="button" data-media="media/lp/raisons-cortisone.jpg" data-kind="image" aria-label="Open the /pages/raisons/cortisone screenshot"><img src="media/lp/raisons-cortisone.jpg" alt="First screen of /pages/raisons/cortisone on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Listicle</span> <a href="https://pomad.paris/pages/raisons/cortisone" target="_blank" rel="noopener">pomad.paris/pages/raisons/cortisone</a></div>
+<h3 class="fr">6 signes que la cortisone ne suffira jamais seule</h3>
+<dl class="facts"><dt>The page</dt><dd>Six signs, results after 12 weeks, &quot;keep your tube, take care of the ground&quot;.</dd><dt>Ads today</dt><dd>No ad sends people here. The cortisone ads that run today are weak.</dd><dt>The gap</dt><dd>3 reasons why cortisone took €6,157 at 0.63 in 30 days on the homepage. Before cutting the message, test it here. The page headline uses &quot;92 % ont réduit ou arrêté la cortisone&quot; (self-assessment, 89 people): check it before any ad repeats it.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><span class="tb ph-tb" aria-hidden="true"><span class="ph"></span></span><div><div><span class="code c-cl">CL</span> <b>3 reasons why cortisone</b></div><div class="nums">Last 30 days €6,157 · 1-day click <span class="r low">0.63</span> · 7-day click <span class="r low">0.86</span></div><div class="sub">Live, homepage</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>The basket of tubes</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« 6 signes que la cortisone ne suffira jamais seule. » Signs 1–3 visible.</dd><dt>Visual</dt><dd>The page&#x27;s hero: a basket of empty cortisone tubes next to the Cure.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="article-cortisone">
+<button class="tb shot" type="button" data-media="media/lp/article-cortisone.jpg" data-kind="image" aria-label="Open the /pages/article/cortisone screenshot"><img src="media/lp/article-cortisone.jpg" alt="First screen of /pages/article/cortisone on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Advertorial</span> <a href="https://pomad.paris/pages/article/cortisone" target="_blank" rel="noopener">pomad.paris/pages/article/cortisone</a></div>
+<h3 class="fr">Trois ans sous cortisone : le jour où j&#x27;ai compris que je pouvais en avoir moins besoin</h3>
+<dl class="facts"><dt>The page</dt><dd>Marine&#x27;s first-person story: prescription, calm, relapse, then the Cure without stopping anything on her own.</dd><dt>Ads today</dt><dd>No ad sends people here.</dd><dt>The gap</dt><dd>No first-person cortisone story runs as an ad. Timeline dépendance cortisone is the closest.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><button class="tb" type="button" data-media="media/v/120245935297820138.mp4" data-kind="video" aria-label="Play [CL] Timeline dépendance cortisone"><img src="media/t/120245935297820138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-cl">CL</span> <b>[CL] Timeline dépendance cortisone</b></div><div class="nums">Last 30 days €2,283 · 1-day click <span class="r good">1.53</span></div><div class="sub">Live, homepage</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>Marine&#x27;s forearm</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« Trois ans sous cortisone. Le jour où j&#x27;ai compris que je pouvais en avoir moins besoin. »</dd><dt>Visual</dt><dd>The page&#x27;s hero photo of Marine&#x27;s forearm, the headline as a quote.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="article-tout-essaye">
+<button class="tb shot" type="button" data-media="media/lp/article-tout-essaye.jpg" data-kind="image" aria-label="Open the /pages/article/tout-essaye screenshot"><img src="media/lp/article-tout-essaye.jpg" alt="First screen of /pages/article/tout-essaye on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Advertorial</span> <a href="https://pomad.paris/pages/article/tout-essaye" target="_blank" rel="noopener">pomad.paris/pages/article/tout-essaye</a></div>
+<h3 class="fr">J&#x27;ai tout essayé contre mon eczéma. Voici pourquoi tout a échoué, sauf une chose</h3>
+<dl class="facts"><dt>The page</dt><dd>Fifteen years of creams, spa cures, diets and advice, told by a sceptic.</dd><dt>Ads today</dt><dd>No ad sends people here. Creator and UGC videos tell the same story.</dd><dt>The gap</dt><dd>The &quot;last hope&quot; ads sell when Saskia tells them (PMADT-26-10-23). The page opens on a drawer full of creams: that photo is the ad.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><span class="tb ph-tb" aria-hidden="true"><span class="ph"></span></span><div><div><span class="code c-adt">ADT</span> <b>PMADT-26-10-23 · « preuve dernier espoir »</b></div><div class="nums">Last 30 days €734 · 1-day click <span class="r good">1.76</span> · 7-day click <span class="r good">2.67</span></div><div class="sub">Live, homepage</div></div></li><li><button class="tb" type="button" data-media="media/v/120246130708300138.mp4" data-kind="video" aria-label="Play woow.bloom_Vid3"><img src="media/t/120246130708300138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-cr">CR</span> <b>woow.bloom_Vid3</b></div><div class="nums">1 Aug – 29 Oct €719 · 1-day click <span class="r good">1.92</span></div><div class="sub">Off, claim to check</div></div></li><li><button class="tb" type="button" data-media="media/v/120245363630370138.mp4" data-kind="video" aria-label="Play UGC4_YAPPER_Vid3"><img src="media/t/120245363630370138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-int">INT</span> <b>UGC4_YAPPER_Vid3</b></div><div class="nums">1 Aug – 1 Nov, 2 copies €2,237 · 1-day click <span class="r good">1.31</span></div><div class="sub">Off</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>The drawer</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« J&#x27;ai tout essayé. Voici pourquoi tout a échoué, sauf une chose. »</dd><dt>Visual</dt><dd>The page&#x27;s hero: the drawer full of creams.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article><article class="lp" id="article-intestin-peau">
+<button class="tb shot" type="button" data-media="media/lp/article-intestin-peau.jpg" data-kind="image" aria-label="Open the /pages/article/intestin-peau screenshot"><img src="media/lp/article-intestin-peau.jpg" alt="First screen of /pages/article/intestin-peau on a phone" loading="lazy" decoding="async"></button>
+<div class="lpb">
+<div class="lpk"><span class="kind">Advertorial</span> <a href="https://pomad.paris/pages/article/intestin-peau" target="_blank" rel="noopener">pomad.paris/pages/article/intestin-peau</a></div>
+<h3 class="fr">Pourquoi les crèmes ne suffisent pas : six semaines d&#x27;enquête sur l&#x27;axe intestin-peau</h3>
+<dl class="facts"><dt>The page</dt><dd>A journalist-style investigation into the gut and the skin, interviews, a real test.</dd><dt>Ads today</dt><dd>No ad sends people here. The gut-and-skin videos run to the homepage and lose money.</dd><dt>The gap</dt><dd>FGC_Médecine Fonctionnelle has the same message and took €7,275 at 0.74 in 30 days on the homepage. Send it here before the next cut: if it sells better on its own page, the message was fine and the page was wrong.</dd></dl>
+<div class="lbl">Ads that already match</div><ul class="mlist"><li><span class="tb ph-tb" aria-hidden="true"><span class="ph"></span></span><div><div><span class="code c-int">INT</span> <b>FGC_Médecine Fonctionnelle</b></div><div class="nums">Last 30 days €7,275 · 1-day click <span class="r low">0.74</span> · 7-day click <span class="r low">0.87</span></div><div class="sub">Live, homepage</div></div></li><li><button class="tb" type="button" data-media="media/v/120243736806890138.mp4" data-kind="video" aria-label="Play POD Substance huile (podcast)"><img src="media/t/120243736806890138.jpg" alt="" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></button><div><div><span class="code c-int">INT</span> <b>POD Substance huile (podcast)</b></div><div class="nums">1 Aug – 29 Oct €428 · 1-day click <span class="r good">1.90</span></div><div class="sub">Off</div></div></li></ul>
+<div class="lbl">Ads to make</div><div class="cons"><article class="con"><h4>Six weeks of notes</h4><dl><dt>Format</dt><dd>Image 4:5</dd><dt>First line</dt><dd class="fr">« Six semaines d&#x27;enquête : pourquoi les crèmes ne suffisent pas. »</dd><dt>Visual</dt><dd>The page&#x27;s hero: the desk, the notebook, the lamp.</dd><dt>Button</dt><dd>En savoir plus</dd></dl></article></div>
+</div></article>
+</section>
+
+<section id="test">
+<div class="kicker">How to test it</div>
+<h2>One ad set per page, same rules as Test créa</h2>
+<div class="rule"><b>Setup.</b> Each page gets its own ad set in Test créa at €50/day, with the button set to "En savoir plus". The same creative keeps running to the homepage in Ventes_Testing, so we compare the same ad on two pages. Switch off if there is no add-to-cart after €150. A page wins at ROAS (1-day click) of 1.3 or more after €270, and at a lower cost per purchase than the homepage copy.</div>
+<div class="cols">
+<div class="card"><h3>This week</h3><ul><li>Quiz ads: "Quiz card" and "One per reader" (images, fastest to make)</li><li>Founder path: Lettre Saskia with the new last line, to /histoire/saskia</li><li>Avant Après Img2 to /article/avant-apres, next to the quiz copy</li></ul></div>
+<div class="card"><h3>Next week</h3><ul><li>Quiz video "I took the test" and the carousel</li><li>Bienfaits to /raisons/creme</li><li>Statique Offre or BOFU to /raisons/taxe once the price per day is the same</li></ul></div>
+<div class="card"><h3>When the quiz holds</h3><ul><li>Quiz ads at 1.3 or more move to their own Diagnostic campaign</li><li>Budget comes from the ad sets cut under 0.80</li><li>Priority 3 pages get new ads one at a time</li></ul></div>
+</div>
+</section>
+
+<section id="fixes">
+<div class="kicker">For Neil</div>
+<h2>Things on the pages to line up first</h2>
+<ul class="fix">
+<li><span class="what">How many people took the quiz</span><span>221 732 on the quiz, 202 476 and "200 000" on /raisons/diagnostics. Pick one number and use it everywhere, ads included.</span></li>
+<li><span class="what">How many questions</span><span>The quiz asks 10. /histoire/saskia says "7 questions, un tap par question".</span></li>
+<li><span class="what">Price per day</span><span>/raisons/taxe says 1,99 € a day. Lettre Saskia, the best ad, says 2,10 € a day.</span></li>
+<li><span class="what">Star rating</span><span>4,35 / 5 and 4,4 / 5 (3 042 avis) on the same quiz page; 4,4 / 5 on the articles.</span></li>
+<li><span class="what">Which Cure is picked</span><span>The pages push the 3-month Cure (the only one with the 30-day guarantee), but the offer block opens on the 1-month Cure.</span></li>
+<li><span class="what">Quiz page loading</span><span>About half of the clicks to /diagnostic load the page; across the account it is 57%. Worth checking the load time on a phone.</span></li>
+<li><span class="what">Quiz tracking</span><span>Does the quiz send "started" and "finished" to Meta? Without it we can't see where people stop.</span></li>
+<li><span class="what">The 92 % claim</span><span>"92 % ont réduit ou arrêté la cortisone" comes from a self-assessment of 89 people and sits at the top of 9 pages. Check it before an ad repeats it.</span></li>
+</ul>
+</section>
+
+<div class="note"><b>How this was read</b>
+<p>Landing pages of live ads were read from each ad's creative in Meta on 2 Nov. Numbers count purchases from clicks only (1-day and 7-day click); Meta can over-count, so a winner is confirmed in Shopify through utm_content before more budget goes on it. The /diagnostic comparison uses last week's ad-level clicks, checkouts and purchases (7-day click) for all prospecting ads, with the one quiz ad taken out of the homepage group. Page text and screenshots are from pomad.paris on a 375 px phone screen.</p></div>
+</div>
+<div class="lb" id="lb" hidden><button class="x" id="lbx" type="button">Close</button><div id="lbc"></div></div>
+<script>
+(function(){
+  var lb=document.getElementById('lb'),box=document.getElementById('lbc'),last=null;
+  function close(){box.innerHTML='';lb.hidden=true;if(last)last.focus();}
+  document.addEventListener('click',function(ev){
+    var b=ev.target.closest('button.tb');
+    if(b&&b.dataset.media){
+      last=b;box.innerHTML='';
+      var el;
+      if(b.dataset.kind==='video'){el=document.createElement('video');el.src=b.dataset.media;el.controls=true;el.autoplay=true;el.playsInline=true;el.preload='metadata';var t=b.querySelector('img');if(t)el.poster=t.src;}
+      else{el=document.createElement('img');el.src=b.dataset.media;el.alt='';}
+      box.appendChild(el);lb.hidden=false;document.getElementById('lbx').focus();return;
+    }
+    if(ev.target===lb)close();
+  });
+  document.getElementById('lbx').addEventListener('click',close);
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!lb.hidden)close();});
+})();
+</script>
+
+</body>
+</html>
