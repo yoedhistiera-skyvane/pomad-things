@@ -5,17 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
-<title>Pomad Paris 2024 Change Log</title>
+<title>Pomad Ad Account Change Log</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: an account ledger. Sticky date rail on the left, one row per change, status chip on the right. Pomad lime marks the account bar only. */
+/* Layout: a ledger you scan, then open. Header facts, an at-a-glance block, then one compact row per change grouped by day; each row opens to the reason, what to watch and the before/after read. Colour marks direction (up, down, paused), not type. */
 :root{
   --bg:#fafaf6; --surface:#ffffff; --ink:#17180f; --muted:#5f6254; --rule:#e2e3d8; --tint:#f1f2e8;
   --lime:#ccff00; --lime-ink:#17180f; --accent:#4d6300;
-  --done:#1f7a3d; --done-bg:#e3f3e8; --plan:#2c5aa0; --plan-bg:#e6eefa; --conf:#9a5b00; --conf-bg:#fbefd9; --stop:#b3261e;
+  --up:#1f7a3d; --up-bg:#e3f3e8; --down:#a8461a; --down-bg:#fbe9df; --pause:#5f6254; --pause-bg:#eceee4;
+  --resume:#2c5aa0; --resume-bg:#e6eefa; --launch:#4d6300; --launch-bg:#eef9c2;
+  --good:#1f7a3d; --mid:#8a6400; --bad:#b3261e;
   --f-display:"Helvetica Neue",Helvetica,Arial,sans-serif;
   --f-body:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;
   --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -23,76 +25,118 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#121310; --surface:#1a1c16; --ink:#eceee3; --muted:#a2a696; --rule:#2d3027; --tint:#22251d;
   --lime:#ccff00; --lime-ink:#121310; --accent:#c6f02a;
-  --done:#6fd08f; --done-bg:#183322; --plan:#8fb4f0; --plan-bg:#1a2639; --conf:#f0b860; --conf-bg:#3a2b12; --stop:#f28b82; color-scheme:dark}}
+  --up:#6fd08f; --up-bg:#183322; --down:#f2a37a; --down-bg:#3a2216; --pause:#b4b8a8; --pause-bg:#2a2d24;
+  --resume:#8fb4f0; --resume-bg:#1a2639; --launch:#c6f02a; --launch-bg:#2b3412;
+  --good:#6fd08f; --mid:#e8c060; --bad:#f28b82; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121310; --surface:#1a1c16; --ink:#eceee3; --muted:#a2a696; --rule:#2d3027; --tint:#22251d;
   --lime:#ccff00; --lime-ink:#121310; --accent:#c6f02a;
-  --done:#6fd08f; --done-bg:#183322; --plan:#8fb4f0; --plan-bg:#1a2639; --conf:#f0b860; --conf-bg:#3a2b12; --stop:#f28b82; color-scheme:dark}
+  --up:#6fd08f; --up-bg:#183322; --down:#f2a37a; --down-bg:#3a2216; --pause:#b4b8a8; --pause-bg:#2a2d24;
+  --resume:#8fb4f0; --resume-bg:#1a2639; --launch:#c6f02a; --launch-bg:#2b3412;
+  --good:#6fd08f; --mid:#e8c060; --bad:#f28b82; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14.5px;line-height:1.55;
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14.5px;line-height:1.55;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .bar{background:var(--lime);color:var(--lime-ink);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
   margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)));
   display:flex;flex-wrap:wrap;gap:4px 18px}
 .bar span{font-family:var(--f-mono);font-weight:500;letter-spacing:0;text-transform:none}
-.wrap{max-width:1040px;margin:0 auto;padding-block:28px 64px;display:flex;flex-direction:column;gap:24px}
+.wrap{max-width:980px;margin:0 auto;padding-block:28px 64px;display:flex;flex-direction:column;gap:22px}
 h1,h2{font-family:var(--f-display);margin:0;line-height:1.15;text-wrap:balance}
-h1{font-size:clamp(28px,4.4vw,40px);font-weight:700;letter-spacing:-.02em}
-.lead{color:var(--muted);max-width:70ch;margin:0}
-.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
-.top>div{min-width:0;display:flex;flex-direction:column;gap:10px}
+h1{font-size:clamp(26px,4.2vw,38px);font-weight:700;letter-spacing:-.02em}
+h2{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px}
+.top>div{min-width:0;display:flex;flex-direction:column;gap:8px}
+.facts{display:flex;flex-wrap:wrap;gap:4px 0;font-size:13.5px;color:var(--muted);margin:0}
+.facts span+span::before{content:"·";margin:0 9px;color:var(--rule)}
+.facts b{color:var(--ink);font-weight:600}
 button{font:inherit;font-size:13px;font-weight:600;border-radius:4px;cursor:pointer;padding:8px 14px;border:1px solid var(--rule);background:var(--surface);color:var(--ink)}
 button.primary{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
-.stat{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
-.stat b{font-family:var(--f-display);font-size:24px;font-variant-numeric:tabular-nums}
-.stat span{font-size:12px;color:var(--muted)}
-@media (max-width:560px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.chip{padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:500}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* at a glance */
+.glance{display:flex;flex-direction:column;gap:12px}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.tile{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tile b{font-family:var(--f-display);font-size:26px;line-height:1.1;font-variant-numeric:tabular-nums}
+.tile span{font-size:12px;color:var(--muted)}
+.tile small{font-size:11.5px;color:var(--muted)}
+.tile.up b{color:var(--up)} .tile.down b{color:var(--down)} .tile.pause b{color:var(--pause)}
+@media (max-width:600px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.moves{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13.5px}
+.moves li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.moves .lbl{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);min-width:132px}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;top:0;z-index:2;background:var(--bg);padding-block:8px;border-bottom:1px solid var(--rule)}
 .filters select,.filters input{font:inherit;font-size:13px;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:7px 10px;min-width:0}
 .filters input{flex:1 1 200px}
-.legend{font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px}
-.day{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0 20px;border-top:1px solid var(--rule);padding-top:14px}
-.date{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-block:2px}
-.date b{font-family:var(--f-display);font-size:18px;display:block}
-.date span{font-size:12px;color:var(--muted)}
-.rows{display:flex;flex-direction:column;gap:10px;min-width:0}
-.row{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px}
-.row .main{min-width:0;display:flex;flex-direction:column;gap:6px}
-.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--muted)}
-.type{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:var(--tint);color:var(--ink)}
-.type.Pause{color:var(--stop)}
-.camp{font-family:var(--f-mono);font-size:12px;color:var(--ink)}
-.item{font-weight:600;font-size:15px;overflow-wrap:anywhere}
-.change{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;font-size:13.5px}
-.change .from{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
-.change .arrow{color:var(--muted)}
-.change .to{font-weight:500}
-.why,.watch{font-size:13.5px;margin:0;max-width:78ch;overflow-wrap:anywhere}
-.why b,.watch b{font-weight:600;color:var(--muted);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;margin-right:6px}
-.side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.status{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
-.status.done{color:var(--done);background:var(--done-bg)}
-.status.planned{color:var(--plan);background:var(--plan-bg)}
-.status.confirm{color:var(--conf);background:var(--conf-bg)}
-.by{font-size:11.5px;color:var(--muted)}
+.filters .count{font-size:12px;color:var(--muted);margin-left:auto}
+
+/* days */
+.day{display:flex;flex-direction:column;gap:8px}
+.dayhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding-top:6px}
+.dayhead b{font-family:var(--f-display);font-size:19px}
+.dayhead .wd{font-size:12.5px;color:var(--muted)}
+.dayhead .sum{font-size:12.5px;color:var(--muted)}
+.rows{display:flex;flex-direction:column;gap:6px}
+
+/* rows */
+details.row{background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--c,var(--rule));border-radius:6px}
+details.row[data-dir="up"]{--c:var(--up);--cb:var(--up-bg)}
+details.row[data-dir="down"]{--c:var(--down);--cb:var(--down-bg)}
+details.row[data-dir="pause"]{--c:var(--pause);--cb:var(--pause-bg)}
+details.row[data-dir="resume"]{--c:var(--resume);--cb:var(--resume-bg)}
+details.row[data-dir="launch"]{--c:var(--launch);--cb:var(--launch-bg)}
+details.row[data-dir="note"]{--c:var(--rule);--cb:var(--tint)}
+summary{list-style:none;cursor:pointer;padding:10px 12px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+.badge{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:var(--cb,var(--tint));color:var(--c,var(--ink));white-space:nowrap}
+details.row[data-dir="note"] .badge{color:var(--muted)}
+.what{min-width:0;display:flex;flex-direction:column;gap:2px}
+.name{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:12px;color:var(--muted);align-items:center}
+.sub .camp{font-family:var(--f-mono);font-size:11.5px}
+.move{display:inline-flex;gap:6px;align-items:baseline;font-size:12.5px;color:var(--ink)}
+.move s{color:var(--muted);text-decoration-thickness:1px}
+.move b{font-weight:600;color:var(--c,var(--ink))}
+.read{font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.read small{display:block;font-size:11px;color:var(--muted)}
+.chev{display:inline-block;margin-left:8px;color:var(--muted);transition:transform .15s}
+details[open] .chev{transform:rotate(90deg)}
+.r-good{color:var(--good);font-weight:600}.r-mid{color:var(--mid);font-weight:600}.r-bad{color:var(--bad);font-weight:600}
+@media (max-width:600px){summary{grid-template-columns:minmax(0,1fr) auto}.badge{grid-column:1/-1;justify-self:start}.name{white-space:normal;overflow-wrap:anywhere}}
+
+/* opened row */
+.body{border-top:1px solid var(--rule);padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px}
+.full{font-size:13px;color:var(--muted);overflow-wrap:anywhere;margin:0}
+.why,.watch{font-size:13.5px;margin:0;max-width:80ch;overflow-wrap:anywhere}
+.why b,.watch b,.since h3{font-weight:600;color:var(--muted);font-size:11px;letter-spacing:.05em;text-transform:uppercase;margin:0 8px 0 0}
+.since{display:flex;flex-direction:column;gap:6px}
+.since h3{margin:0}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.win{background:var(--tint);border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.win>span{font-size:11.5px;color:var(--muted)}
+.win b{font-family:var(--f-display);font-size:18px;font-variant-numeric:tabular-nums}
+.win em{font-style:normal;font-size:12.5px;color:var(--muted)}
+.foot2{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted)}
+.foot2 a{color:var(--accent);font-weight:600;text-decoration:none}
+.foot2 a:hover{text-decoration:underline}
 .acts{display:flex;gap:6px}
 .acts button{padding:4px 9px;font-size:12px}
-@media (max-width:640px){.day{grid-template-columns:1fr}.date{position:static;padding-bottom:8px}.row{grid-template-columns:1fr}.side{flex-direction:row;align-items:center;justify-content:space-between}}
+
 .empty{border:1px dashed var(--rule);border-radius:6px;padding:28px;text-align:center;color:var(--muted)}
 form.panel{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--muted);min-width:0}
 label.wide{grid-column:1/-1}
 form input,form select,form textarea{font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:4px;padding:8px 10px;width:100%;min-width:0}
 form textarea{min-height:64px;resize:vertical}
 .formacts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .msg{font-size:12.5px;color:var(--muted)}
-.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px}
+.foot{font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.foot p{margin:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
@@ -103,32 +147,37 @@ form textarea{min-height:64px;resize:vertical}
 <main class="wrap">
   <header class="top">
     <div>
-      <h1>Account change log</h1>
-      <p class="lead">Every change made to the Meta ad account, with the reason and what to watch. Updated 3 Nov 2026. Use it to trace a move in performance back to the change that caused it.</p>
+      <h1>Pomad Ad Account Change Log</h1>
+      <p class="facts" id="facts"><span>Loading…</span></p>
     </div>
     <button class="primary" id="addBtn" type="button" hidden>Add change</button>
   </header>
 
-  <section class="stats" aria-label="Summary">
-    <div class="stat"><b id="sTotal">–</b><span>Changes logged</span></div>
-    <div class="stat"><b id="sDone">–</b><span>Done</span></div>
-    <div class="stat" hidden><b id="sPlan">–</b><span>Planned</span></div>
-    <div class="stat" hidden><b id="sConf">–</b><span>To confirm</span></div>
+  <section class="glance" id="glance" aria-label="At a glance" hidden>
+    <h2>At a glance</h2>
+    <div class="tiles" id="tiles"></div>
+    <ul class="moves" id="moves"></ul>
   </section>
 
   <form class="panel" id="form" hidden>
-    <h2 id="formTitle" style="font-size:18px">Add change</h2>
+    <h2 id="formTitle">Add change</h2>
     <div class="grid">
       <label for="fDate">Date<input id="fDate" type="date" required></label>
+      <label for="fTime">Time (Paris)<input id="fTime" type="text" placeholder="08:36" autocomplete="off"></label>
       <label for="fType">Type<select id="fType"></select></label>
-      <label for="fStatus">Status<select id="fStatus">
-        <option value="done">Done</option><option value="planned">Planned</option><option value="confirm">To confirm</option></select></label>
-      <label for="fBy">Done by<input id="fBy" type="text" value="Yoedhistiera" autocomplete="off"></label>
+      <label for="fDir">Direction<select id="fDir">
+        <option value="up">Up</option><option value="down">Down</option><option value="pause">Paused</option>
+        <option value="resume">Restarted</option><option value="launch">Launched</option><option value="note">Note</option></select></label>
       <label for="fCamp">Campaign<input id="fCamp" type="text" placeholder="Ventes_Testing" autocomplete="off"></label>
       <label for="fLevel">Level<select id="fLevel"><option>Account</option><option>Campaign</option><option>Ad set</option><option>Ad</option></select></label>
-      <label class="wide" for="fItem">What changed<input id="fItem" type="text" required placeholder="Ad set &quot;3 reasons why cortisone&quot;" autocomplete="off"></label>
-      <label for="fBefore">Before<input id="fBefore" type="text" placeholder="Active · €2,500/day" autocomplete="off"></label>
-      <label for="fAfter">After<input id="fAfter" type="text" placeholder="Paused · €2,100/day" autocomplete="off"></label>
+      <label for="fName">Short name<input id="fName" type="text" placeholder="Statique_Avant Après 2" autocomplete="off"></label>
+      <label for="fEntity">Meta ID<input id="fEntity" type="text" inputmode="numeric" placeholder="120245781841750138" autocomplete="off"></label>
+      <label class="wide" for="fItem">What changed (full)<input id="fItem" type="text" required placeholder="Ad set &quot;3 reasons why cortisone&quot; (1202…)" autocomplete="off"></label>
+      <label for="fFromS">From (short)<input id="fFromS" type="text" placeholder="Min €120" autocomplete="off"></label>
+      <label for="fToS">To (short)<input id="fToS" type="text" placeholder="Min €200" autocomplete="off"></label>
+      <label for="fBefore">Before (detail)<input id="fBefore" type="text" autocomplete="off"></label>
+      <label for="fAfter">After (detail)<input id="fAfter" type="text" autocomplete="off"></label>
+      <label for="fBy">Done by<input id="fBy" type="text" value="Yoedhistiera" autocomplete="off"></label>
       <label class="wide" for="fWhy">Why<textarea id="fWhy"></textarea></label>
       <label class="wide" for="fWatch">What to watch<textarea id="fWatch"></textarea></label>
     </div>
@@ -140,106 +189,206 @@ form textarea{min-height:64px;resize:vertical}
   </form>
 
   <section class="filters" aria-label="Filters">
-    <button type="button" class="chip" data-st="all" aria-pressed="true" hidden>All</button>
-    <button type="button" class="chip" data-st="done" aria-pressed="false" hidden>Done</button>
-    <button type="button" class="chip" data-st="planned" aria-pressed="false" hidden>Planned</button>
-    <button type="button" class="chip" data-st="confirm" aria-pressed="false" hidden>To confirm</button>
-    <select id="typeSel" aria-label="Type"><option value="">All types</option></select>
+    <select id="typeSel" aria-label="Type of change"><option value="">All changes</option></select>
     <select id="campSel" aria-label="Campaign"><option value="">All campaigns</option></select>
     <input id="q" type="search" placeholder="Search ad set, ad or reason" aria-label="Search" autocomplete="off">
+    <button type="button" id="openAll" aria-pressed="false">Open all</button>
+    <span class="count" id="count"></span>
   </section>
 
   <section id="log" aria-live="polite">
-    <div class="empty" id="empty">No changes logged yet.</div>
+    <div class="empty">Loading the change log…</div>
   </section>
 
-  <p class="foot">Dates follow the ad account's time zone (Paris), as in Ads Manager history. Results quoted in a change use Purchase ROAS (1-day click) unless stated. Budget rule (1-day click): 1.30+ scale · 1.00–1.30 hold · under 1.00 lower by 20% · under 0.80 for 3 days cut. Live ads keep their names; new ads follow the Pomad naming standard.</p>
+  <footer class="foot">
+    <p>Dates and times follow the ad account's time zone (Paris), as in Ads Manager history. ROAS is Purchase ROAS on 1-day click unless stated.</p>
+    <p>Before / after: the 3 full days before a change against up to 3 full days after it (a change made after midday counts from the next day). ROAS colour follows the budget rule: <span class="r-good">1.30+ scale</span> · <span class="r-mid">1.00–1.30 hold</span> · <span class="r-bad">under 1.00 lower by 20%</span> · under 0.80 for 3 days cut.</p>
+    <p>Live ads keep their names; new ads follow the Pomad naming standard.</p>
+  </footer>
 </main>
 
 <script>
 (function(){
+  var ACT='758788266310239';
   var TYPES=['Launch','Budget','Pause','Resume','Creative','Test','Tracking','Naming','Note'];
-  var state={entries:[],st:'all',type:'',camp:'',q:'',canWrite:false,editing:null,confirmDel:null};
+  var DIR={up:'Budget up',down:'Budget down',pause:'Paused',resume:'Restarted',launch:'Launched',note:'Note'};
+  var DIRSUM={pause:'paused',up:'budget up',down:'budget down',resume:'restarted',launch:'launched',note:'note'};
+  var state={entries:[],type:'',camp:'',q:'',openAll:false,open:{},canWrite:false,editing:null,confirmDel:null};
   var db=null;
   function $(id){return document.getElementById(id);}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
   var tsel=$('fType'),tf=$('typeSel');
-  TYPES.forEach(function(t){var o=el('option',null,t);o.value=t;tsel.appendChild(o);var o2=el('option',null,t);o2.value=t;tf.appendChild(o2);});
-  var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  function fmtDate(s){var p=(s||'').split('-');if(p.length!==3)return {d:s||'No date',w:''};var dt=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));return {d:+p[2]+' '+MONTHS[+p[1]-1]+' '+p[0],w:DAYS[dt.getUTCDay()]};}
-  var ST={done:'Done',planned:'Planned',confirm:'To confirm'};
+  TYPES.forEach(function(t){var o=el('option',null,t);o.value=t;tsel.appendChild(o);});
+  [['pause','Paused'],['up','Budget up'],['down','Budget down'],['resume','Restarted'],['launch','Launched'],['note','Notes']].forEach(function(p){var o=el('option',null,p[1]);o.value=p[0];tf.appendChild(o);});
+  var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  function parts(s){var p=(s||'').split('-');return p.length===3?{y:+p[0],m:+p[1],d:+p[2]}:null;}
+  function dShort(s){var p=parts(s);return p?p.d+' '+MONTHS[p.m-1]:'';}
+  function dLong(s){var p=parts(s);if(!p)return s||'';return (p.d<10?'0':'')+p.d+' '+['January','February','March','April','May','June','July','August','September','October','November','December'][p.m-1]+' '+p.y;}
+  function wday(s){var p=parts(s);return p?DAYS[new Date(Date.UTC(p.y,p.m-1,p.d)).getUTCDay()]:'';}
+  function range(a,b){if(a===b)return dShort(a);var pa=parts(a),pb=parts(b);if(pa&&pb&&pa.m===pb.m)return pa.d+'–'+dShort(b);return dShort(a)+' – '+dShort(b);}
+  function money(n){return '€'+Math.round(n).toLocaleString('en-GB');}
+  function band(r){if(r==null)return '';return r>=1.3?'r-good':(r>=1?'r-mid':'r-bad');}
+  function roasEl(r){var s=el('span',band(r),r==null?'–':r.toFixed(2));return s;}
+  function dirOf(e){if(e.dir)return e.dir;var t=e.type;return t==='Pause'?'pause':t==='Resume'?'resume':t==='Launch'?'launch':t==='Budget'?'up':'note';}
+  function amLink(e){
+    if(!e.entityId)return '';
+    var lvl=e.entityLevel==='campaign'?['campaigns','campaign']:e.entityLevel==='ad'?['ads','ad']:['adsets','adset'];
+    return 'https://adsmanager.facebook.com/adsmanager/manage/'+lvl[0]+'?act='+ACT+'&selected_'+lvl[1]+'_ids='+encodeURIComponent(e.entityId);
+  }
 
   function filtered(){
     var q=state.q.toLowerCase();
     return state.entries.filter(function(e){
-      if(state.st!=='all'&&e.status!==state.st)return false;
-      if(state.type&&e.type!==state.type)return false;
+      if(state.type&&dirOf(e)!==state.type)return false;
       if(state.camp&&e.campaign!==state.camp)return false;
-      if(q){var hay=[e.item,e.campaign,e.why,e.watch,e.before,e.after].join(' ').toLowerCase();if(hay.indexOf(q)<0)return false;}
+      if(q){var hay=[e.name,e.item,e.campaign,e.why,e.watch,e.before,e.after,e.entityId].join(' ').toLowerCase();if(hay.indexOf(q)<0)return false;}
       return true;
     });
   }
+
+  function header(all){
+    var f=$('facts');f.textContent='';
+    if(!all.length){f.appendChild(el('span',null,'No changes logged yet'));return;}
+    var dates=all.map(function(e){return e.date;}).filter(Boolean).sort();
+    var a=el('span');a.appendChild(document.createTextNode('Last update: '));a.appendChild(el('b',null,dLong(dates[dates.length-1])));f.appendChild(a);
+    f.appendChild(el('span',null,range(dates[0],dates[dates.length-1])));
+    f.appendChild(el('span',null,all.length+' changes'));
+    f.appendChild(el('span',null,'Paris time'));
+  }
+
+  function glance(all){
+    var g=$('glance');g.hidden=!all.length;if(!all.length)return;
+    var c={pause:0,up:0,down:0,resume:0,launch:0,note:0},lv={ad:0,adset:0,campaign:0};
+    all.forEach(function(e){var d=dirOf(e);c[d]=(c[d]||0)+1;if(d==='pause')lv[e.entityLevel||'adset']++;});
+    var days={};all.forEach(function(e){days[e.date]=1;});
+    var T=$('tiles');T.textContent='';
+    function tile(cls,n,label,small){var t=el('div','tile '+cls);t.appendChild(el('b',null,String(n)));t.appendChild(el('span',null,label));if(small)t.appendChild(el('small',null,small));T.appendChild(t);}
+    tile('',all.length,'Changes',Object.keys(days).length+' days with changes');
+    var ps=[];if(lv.adset)ps.push(lv.adset+' ad set'+(lv.adset>1?'s':''));if(lv.ad)ps.push(lv.ad+' ad'+(lv.ad>1?'s':''));
+    tile('pause',c.pause,'Paused',ps.join(' · ')+(c.resume?' · '+c.resume+' restarted':''));
+    tile('up',c.up,'Budget raised','budgets and min spend');
+    tile('down',c.down,'Budget lowered','campaign and ad set budgets');
+    // campaign budget moves and launches, oldest first
+    var M=$('moves');M.textContent='';
+    var asc=all.slice().sort(function(a,b){return (a.date+(a.order||''))<(b.date+(b.order||''))?-1:1;});
+    var camps={},corder=[];
+    asc.forEach(function(e){var d=dirOf(e);if(e.entityLevel==='campaign'&&(d==='up'||d==='down')){if(!camps[e.name]){camps[e.name]={from:e.fromShort,to:e.toShort,steps:[e.fromShort]};corder.push(e.name);}camps[e.name].to=e.toShort;camps[e.name].steps.push(e.toShort+' ('+dShort(e.date)+')');}});
+    corder.forEach(function(n){var li=el('li');li.appendChild(el('span','lbl','Campaign budget'));var m=el('span');m.appendChild(el('b',null,n+' '));m.appendChild(document.createTextNode(camps[n].steps.join(' → ')));li.appendChild(m);M.appendChild(li);});
+    asc.forEach(function(e){if(dirOf(e)!=='launch')return;var li=el('li');li.appendChild(el('span','lbl','Launched'));var m=el('span');m.appendChild(el('b',null,e.name||e.item));m.appendChild(document.createTextNode(' · '+(e.toShort||'')+' · '+dShort(e.date)));
+      var s=e.since&&e.since.after;if(s){m.appendChild(document.createTextNode(' · since launch '+money(s.spend)+' at ROAS '));m.appendChild(roasEl(s.roas));}
+      li.appendChild(m);M.appendChild(li);});
+    M.hidden=!M.children.length;
+  }
+
   function render(){
     var all=state.entries;
-    $('sTotal').textContent=all.length;
-    $('sDone').textContent=all.filter(function(e){return e.status==='done';}).length;
-    $('sPlan').textContent=all.filter(function(e){return e.status==='planned';}).length;
-    $('sConf').textContent=all.filter(function(e){return e.status==='confirm';}).length;
+    header(all);glance(all);
     var cs=$('campSel'),cur=state.camp,camps={};all.forEach(function(e){if(e.campaign)camps[e.campaign]=1;});
     cs.textContent='';var o0=el('option',null,'All campaigns');o0.value='';cs.appendChild(o0);
     Object.keys(camps).sort().forEach(function(c){var o=el('option',null,c);o.value=c;if(c===cur)o.selected=true;cs.appendChild(o);});
     var log=$('log');log.textContent='';
     var list=filtered();
+    $('count').textContent=list.length===all.length?'':list.length+' of '+all.length+' shown';
     if(!list.length){log.appendChild(el('div','empty',all.length?'No change matches these filters.':(state.canWrite?'No changes logged yet. Use "Add change" to log the first one.':'No changes logged yet.')));return;}
     var groups=[],byDate={};
     list.forEach(function(e){var k=e.date||'';if(!byDate[k]){byDate[k]=[];groups.push(k);}byDate[k].push(e);});
     groups.forEach(function(k){
-      var day=el('div','day'),f=fmtDate(k),dc=el('div','date');
-      dc.appendChild(el('b',null,f.d));dc.appendChild(el('span',null,f.w));day.appendChild(dc);
-      var rows=el('div','rows');
-      byDate[k].forEach(function(e){rows.appendChild(rowEl(e));});
+      var day=el('section','day'),h=el('div','dayhead');
+      h.appendChild(el('b',null,dShort(k)));h.appendChild(el('span','wd',wday(k)));
+      var n={};byDate[k].forEach(function(e){var d=dirOf(e);n[d]=(n[d]||0)+1;});
+      var bits=[byDate[k].length+' change'+(byDate[k].length>1?'s':'')];
+      ['pause','up','down','resume','launch','note'].forEach(function(d){if(n[d])bits.push(n[d]+' '+DIRSUM[d]+(d==='note'&&n[d]>1?'s':''));});
+      h.appendChild(el('span','sum',bits.join(' · ')));
+      day.appendChild(h);
+      var rows=el('div','rows');byDate[k].forEach(function(e){rows.appendChild(rowEl(e));});
       day.appendChild(rows);log.appendChild(day);
     });
   }
+
+  function miniRead(e){
+    var s=e.since,box=el('div','read');if(!s)return box;
+    var d=dirOf(e);
+    if(d==='launch'&&s.after){box.appendChild(roasEl(s.after.roas));box.appendChild(el('small',null,'since launch'));return box;}
+    if(!s.before){return box;}
+    var line=el('span');line.appendChild(roasEl(s.before.roas));
+    if(s.after){line.appendChild(document.createTextNode(' → '));line.appendChild(roasEl(s.after.roas));box.appendChild(line);box.appendChild(el('small',null,'ROAS before → after'));}
+    else{box.appendChild(line);box.appendChild(el('small',null,d==='pause'?'ROAS, 3 days before':'before · after too early'));}
+    return box;
+  }
+  function win(title,w,note){
+    var b=el('div','win');b.appendChild(el('span',null,title+(w?' · '+range(w.from,w.to):'')));
+    if(w){var r=el('b');r.appendChild(roasEl(w.roas));b.appendChild(r);b.appendChild(el('em',null,money(w.perDay)+'/day · '+money(w.spend)+' over '+w.days+' day'+(w.days>1?'s':'')));}
+    else{b.appendChild(el('em',null,note||'–'));}
+    return b;
+  }
   function rowEl(e){
-    var r=el('article','row'),m=el('div','main');
-    var meta=el('div','meta');meta.appendChild(el('span','type '+(e.type||''),e.type||'Note'));
-    if(e.campaign)meta.appendChild(el('span','camp',e.campaign));
-    if(e.level)meta.appendChild(el('span',null,'· '+e.level));
-    m.appendChild(meta);
-    m.appendChild(el('div','item',e.item||''));
-    if(e.before||e.after){var c=el('div','change');if(e.before)c.appendChild(el('span','from',e.before));if(e.before&&e.after)c.appendChild(el('span','arrow','→'));if(e.after)c.appendChild(el('span','to',e.after));m.appendChild(c);}
-    if(e.why){var w=el('p','why');w.appendChild(el('b',null,'Why'));w.appendChild(document.createTextNode(e.why));m.appendChild(w);}
-    if(e.watch){var t=el('p','watch');t.appendChild(el('b',null,'Watch'));t.appendChild(document.createTextNode(e.watch));m.appendChild(t);}
-    r.appendChild(m);
-    var s=el('div','side');s.appendChild(el('span','status '+(e.status||'confirm'),ST[e.status]||'To confirm'));
-    if(e.by)s.appendChild(el('span','by',e.by));
+    var d=dirOf(e),r=el('details','row');r.setAttribute('data-dir',d);
+    r.open=state.openAll||!!state.open[e._id];
+    r.addEventListener('toggle',function(){state.open[e._id]=r.open;});
+    var s=el('summary');
+    s.appendChild(el('span','badge',DIR[d]));
+    var w=el('div','what');
+    w.appendChild(el('div','name',e.name||e.item||''));
+    var sub=el('div','sub');
+    if(e.campaign)sub.appendChild(el('span','camp',e.campaign));
+    if(e.time)sub.appendChild(el('span',null,e.time));
+    if(e.fromShort||e.toShort){var mv=el('span','move');if(e.fromShort&&e.fromShort!=='New')mv.appendChild(el('s',null,e.fromShort));if(e.fromShort&&e.fromShort!=='New')mv.appendChild(document.createTextNode('→'));mv.appendChild(el('b',null,e.toShort||''));sub.appendChild(mv);}
+    w.appendChild(sub);s.appendChild(w);
+    var right=miniRead(e);var ch=el('span','chev','›');ch.setAttribute('aria-hidden','true');right.appendChild(ch);
+    s.appendChild(right);
+    r.appendChild(s);
+
+    var b=el('div','body');
+    if(e.item&&e.item!==e.name)b.appendChild(el('p','full',e.item));
+    if(e.before||e.after){var p=el('p','full');p.textContent=(e.before||'')+(e.before&&e.after?'  →  ':'')+(e.after||'');b.appendChild(p);}
+    if(e.why){var y=el('p','why');y.appendChild(el('b',null,'Why'));y.appendChild(document.createTextNode(e.why));b.appendChild(y);}
+    if(e.watch){var t=el('p','watch');t.appendChild(el('b',null,'Watch'));t.appendChild(document.createTextNode(e.watch));b.appendChild(t);}
+    var sv=e.since;
+    if(sv&&(sv.before||sv.after)){
+      var sc=el('div','since');sc.appendChild(el('h3',null,'Before / after'+(sv.basis?' · '+sv.basis.toLowerCase()+' level':'')));
+      var cols=el('div','cols');
+      if(d==='launch'){cols.appendChild(win('Since launch',sv.after));}
+      else{cols.appendChild(win('Before',sv.before));cols.appendChild(win('After',sv.after,sv.afterNote));}
+      sc.appendChild(cols);b.appendChild(sc);
+    }
+    var f=el('div','foot2'),left=el('span');
+    var link=amLink(e);
+    if(link){var a=el('a',null,'Open in Ads Manager ↗');a.href=link;a.target='_blank';a.rel='noopener noreferrer';left.appendChild(a);}
+    if(e.entityId){left.appendChild(document.createTextNode((link?'  ·  ':'')+'ID '+e.entityId));}
+    f.appendChild(left);
+    var rt=el('span');rt.textContent=e.by?'By '+e.by:'';f.appendChild(rt);
     if(state.canWrite){
-      var a=el('div','acts');
+      var ac=el('div','acts');
       if(state.confirmDel===e._id){
-        var y=el('button',null,'Delete');y.type='button';y.style.color='var(--stop)';y.onclick=function(){del(e._id);};
-        var n=el('button',null,'Keep');n.type='button';n.onclick=function(){state.confirmDel=null;render();};
-        a.appendChild(y);a.appendChild(n);
+        var yb=el('button',null,'Delete');yb.type='button';yb.style.color='var(--bad)';yb.onclick=function(){del(e._id);};
+        var nb=el('button',null,'Keep');nb.type='button';nb.onclick=function(){state.confirmDel=null;render();};
+        ac.appendChild(yb);ac.appendChild(nb);
       }else{
         var ed=el('button',null,'Edit');ed.type='button';ed.onclick=function(){openForm(e);};
-        var dl=el('button',null,'Delete');dl.type='button';dl.onclick=function(){state.confirmDel=e._id;render();};
-        a.appendChild(ed);a.appendChild(dl);
+        var dl=el('button',null,'Delete');dl.type='button';dl.onclick=function(){state.confirmDel=e._id;state.open[e._id]=true;render();};
+        ac.appendChild(ed);ac.appendChild(dl);
       }
-      s.appendChild(a);
+      f.appendChild(ac);
     }
-    r.appendChild(s);return r;
+    b.appendChild(f);
+    r.appendChild(b);
+    return r;
   }
+
   // filters
-  document.querySelectorAll('.chip').forEach(function(b){b.addEventListener('click',function(){state.st=b.getAttribute('data-st');document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});render();});});
   $('typeSel').addEventListener('change',function(){state.type=this.value;render();});
   $('campSel').addEventListener('change',function(){state.camp=this.value;render();});
   var qt;$('q').addEventListener('input',function(){var v=this.value;clearTimeout(qt);qt=setTimeout(function(){state.q=v;render();},150);});
-  // form
-  var F=['Date','Type','Status','By','Camp','Level','Item','Before','After','Why','Watch'],K=['date','type','status','by','campaign','level','item','before','after','why','watch'];
+  $('openAll').addEventListener('click',function(){state.openAll=!state.openAll;state.open={};this.setAttribute('aria-pressed',String(state.openAll));this.textContent=state.openAll?'Close all':'Open all';render();});
+
+  // form: edits merge into the stored entry so fields the form does not show (before/after reads) are kept
+  var F=['Date','Time','Type','Dir','Camp','Level','Name','Entity','Item','FromS','ToS','Before','After','By','Why','Watch'],
+      K=['date','time','type','dir','campaign','level','name','entityId','item','fromShort','toShort','before','after','by','why','watch'];
   function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
   function openForm(e){
     state.editing=e?e._id:null;$('formTitle').textContent=e?'Edit change':'Add change';$('formMsg').textContent='';
-    F.forEach(function(f,i){var v=e?(e[K[i]]||''):'';if(!e){if(f==='Date')v=today();if(f==='Type')v='Pause';if(f==='Status')v='done';if(f==='By')v='Yoedhistiera';if(f==='Level')v='Ad set';}$('f'+f).value=v;});
+    F.forEach(function(f,i){var v=e?(e[K[i]]||''):'';if(!e){if(f==='Date')v=today();if(f==='Type')v='Pause';if(f==='Dir')v='pause';if(f==='By')v='Yoedhistiera';if(f==='Level')v='Ad set';}$('f'+f).value=v;});
+    if(e&&!e.dir)$('fDir').value=dirOf(e);
     $('form').hidden=false;$('fItem').focus();
   }
   $('addBtn').addEventListener('click',function(){openForm(null);});
@@ -248,17 +397,25 @@ form textarea{min-height:64px;resize:vertical}
     ev.preventDefault();if(!db)return;
     var o={};F.forEach(function(f,i){o[K[i]]=$('f'+f).value.trim();});
     if(!o.date||!o.item){$('formMsg').textContent='Add a date and what changed.';return;}
+    o.status='done';
+    o.entityLevel=o.level==='Campaign'?'campaign':o.level==='Ad'?'ad':o.level==='Ad set'?'adset':'';
     var old=state.editing?state.entries.find(function(x){return x._id===state.editing;}):null;
-    o.created=old&&old.created?old.created:new Date().toISOString();o.updated=new Date().toISOString();
+    var doc=Object.assign({},old||{},o);delete doc._id;
+    if(!doc.name)doc.name=o.item;
+    doc.created=old&&old.created?old.created:new Date().toISOString();doc.updated=new Date().toISOString();
+    if(!old){var same=state.entries.filter(function(x){return x.date===o.date;}).length;doc.order=String(same+1).padStart(2,'0');}
     var id=state.editing||(o.date+'-'+Date.now().toString(36));
     $('saveBtn').disabled=true;$('formMsg').textContent='Saving…';
-    try{await db.collection('changes').doc(id).set(o);$('form').hidden=true;state.editing=null;}
+    try{await db.collection('changes').doc(id).set(doc);$('form').hidden=true;state.editing=null;}
     catch(err){$('formMsg').textContent=err&&err.code==='invalid_argument'?'Only editors of this page can save changes.':'Could not save. Try again in a moment.';}
     $('saveBtn').disabled=false;
   });
   async function del(id){try{await db.collection('changes').doc(id).delete();}catch(err){} state.confirmDel=null;render();}
 
-  state.entries=[{"date": "2026-11-03", "order": "01", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"PMADT-26-09-22\" (120247044379710138, Adtitude)", "before": "Active · about €272/day (last 3 days)", "after": "Paused", "why": "Budget rule: under 0.80 for 3 days. 31 Oct – 2 Nov: €816 at Purchase ROAS (1-day click) 0.44. Last 7 days €1,769 at 0.40 (7-day click 0.60). The biggest loss in the account.", "watch": "Its budget returns to the Ventes_Testing CBO.", "_id": "2026-11-03-01"}, {"date": "2026-11-03", "order": "02", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"PMADT-26-10-24\" (120246907012440138, Adtitude)", "before": "Active · about €40/day", "after": "Paused", "why": "Budget rule (1-day click): under 0.80 for 3 days. 31 Oct – 2 Nov: €120 at Purchase ROAS (1-day click) 0.00; last 7 days €283 at 0.00.", "watch": "For reference only: 7-day click over the last 7 days is 3.44, so some buyers come back later. If the ad set is needed again, it can be switched back on.", "_id": "2026-11-03-02"}, {"date": "2026-11-03", "order": "03", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"UGC1_YAPPER\" (120245629910840138)", "before": "Active · about €46/day", "after": "Paused", "why": "Budget rule: under 0.80 for 3 days. Last 7 days €347 at Purchase ROAS (1-day click) 0.00, 7-day click 0.57.", "watch": "", "_id": "2026-11-03-03"}, {"date": "2026-11-03", "order": "04", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"Statique_Recherche Google\" (120245934806520138)", "before": "Active · about €47/day", "after": "Paused", "why": "Budget rule (1-day click): under 0.80 for 3 days. 31 Oct – 2 Nov: €141 at Purchase ROAS (1-day click) 0.00; last 7 days 0.72.", "watch": "For reference only: 7-day click over the last 7 days is 1.18.", "_id": "2026-11-03-04"}, {"date": "2026-11-03", "order": "05", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"PMADT-26-09-21\" (120246785202530138, Adtitude)", "before": "Active · about €48/day", "after": "Paused", "why": "Budget rule (1-day click): under 0.80 for 3 days. 31 Oct – 2 Nov: €145 at Purchase ROAS (1-day click) 0.23; last 7 days 0.56.", "watch": "For reference only: 7-day click over the last 7 days is 1.05.", "_id": "2026-11-03-05"}, {"date": "2026-11-03", "order": "06", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"Statique_Avant Après 2\" (120245781841750138), the only ad to /pages/diagnostic", "before": "Min spend €100/day · actual about €144/day", "after": "Min spend €120/day", "why": "Budget rule band 1.30+ = scale: 31 Oct – 2 Nov at about €144/day returned Purchase ROAS (1-day click) 2.22. Mehdi wants to scale the diagnostic page.", "watch": "Single ad, already seen about 2.7 times a week. If 3 days stay at 1.30+ (1-day click), raise again by about 20%.", "_id": "2026-11-03-06"}, {"date": "2026-11-03", "order": "07", "type": "Resume", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"PMADT-26-10-24\" (120246907012440138, Adtitude) switched back on", "before": "Paused earlier today", "after": "Active", "why": "Exception to the 1-day click rule, agreed today: no purchases on 1-day click over 7 days (€283), but ROAS (7-day click) over the same 7 days is 3.44, so its buyers come back a few days after the click.", "watch": "About €40/day. Re-check on 6 Nov on both windows. If 7-day click also drops under 1.00, pause it under the normal rule.", "_id": "2026-11-03-07"}, {"date": "2026-11-03", "order": "08", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"ADT_resultats_fini-le-yoyo_IMG_28Oct26\" (120247075170250138)", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa read at €270: €271 spent since 29 Oct at Purchase ROAS (1-day click) 0.62, under the 0.80 cut line.", "watch": "Frees a slot for Batch 2 (5 Nov).", "_id": "2026-11-03-08"}, {"date": "2026-11-03", "order": "09", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"INT_temoignage_tests-pediatriques_IMG_28Oct26\" (120247075330330138)", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa read at €270: €272 spent since 29 Oct at Purchase ROAS (1-day click) 0.27, under the 0.80 cut line.", "watch": "Frees a slot for Batch 2 (5 Nov).", "_id": "2026-11-03-09"}, {"date": "2026-11-03", "order": "10", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"INT_offre_bofu-offre_IMG_28Oct26\" (120247075332600138)", "before": "€60/day (ABO)", "after": "€80/day", "why": "Test créa winner at the €270 read: €287 since 29 Oct at Purchase ROAS (1-day click) 4.52. 2 Nov, the first day at €60, held 2.95.", "watch": "A +33% step, larger than the usual +20%. Re-check after 3 days (6 Nov). Back to €60 if it falls under 1.30.", "_id": "2026-11-03-10"}, {"date": "2026-11-03", "order": "11", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"ADT_offre_objection-prix_MIX_28Oct26\" (120247075338410138)", "before": "€60/day (ABO)", "after": "€70/day", "why": "Test créa winner at the €270 read: €285 since 29 Oct at Purchase ROAS (1-day click) 3.13.", "watch": "2 Nov, the first day at €60, had 0 purchases. Re-check on 6 Nov; back to €60 if it falls under 1.30. The same image (PMADT_STC_013_0926) also runs in Batch Statiques 12_10_26.", "_id": "2026-11-03-11"}, {"date": "2026-11-03", "order": "12", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"FGC_Honte\" (120245629843600138)", "before": "Min spend €50/day · actual about €49/day", "after": "Min spend €60/day", "why": "Budget rule band 1.30+ = scale: Purchase ROAS (1-day click) 3.89 over 31 Oct – 2 Nov and 3.34 over the last 7 days.", "watch": "Re-check on 6 Nov. +20% again if it holds 1.30+.", "_id": "2026-11-03-12"}, {"date": "2026-11-03", "order": "13", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"PMADT-26-10-7\" (120247043384160138, Adtitude)", "before": "Min spend €50/day · actual about €94/day (last 3 days)", "after": "Min spend €110/day", "why": "Budget rule band 1.30+ = scale: Purchase ROAS (1-day click) 2.66 over 31 Oct – 2 Nov and 1.98 over the last 7 days.", "watch": "About +17% on actual spend, +120% on the old minimum. Re-check on 6 Nov; lower the minimum if it falls under 1.30.", "_id": "2026-11-03-13"}, {"date": "2026-11-03", "order": "14", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"Statique_Avant Après 2\" (120245781841750138), the only ad to /pages/diagnostic", "before": "Min spend €120/day (set earlier today) · actual about €144/day", "after": "Min spend €200/day", "why": "Budget rule band 1.30+ = scale: Purchase ROAS (1-day click) 2.22 over 31 Oct – 2 Nov. Mehdi wants to scale the diagnostic page.", "watch": "About +39% on actual spend, on a single ad already seen about 2.7 times a week. If 2 days in a row fall under 1.30 (1-day click), go back to €150.", "_id": "2026-11-03-14"}, {"date": "2026-11-02", "order": "03", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"INT_offre_bofu-offre_IMG_28Oct26\" (120247075332600138)", "before": "€50/day (ABO)", "after": "€60/day", "why": "Budget rule band 1.30+ = scale. 29 Oct–1 Nov: €208, 10 purchases, Purchase ROAS (1-day click) 5.14. Cost per Add to Cart €9.5 and Cost per Initiate Checkout €2.7, both better than the account benchmarks of about €11 and €4.", "watch": "Re-check after 3 days (5 Nov). If still 1.30+, +20% again.", "_id": "2026-11-02-03"}, {"date": "2026-11-02", "order": "04", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"ADT_offre_objection-prix_MIX_28Oct26\" (120247075338410138)", "before": "€50/day (ABO)", "after": "€60/day", "why": "Budget rule band 1.30+ = scale. 29 Oct–1 Nov: €207, 10 purchases, Purchase ROAS (1-day click) 4.32 (7-day click 4.59). Cost per Add to Cart €6.5 and Cost per Initiate Checkout €3.3.", "watch": "Re-check on 5 Nov. Frequency was already 2.83 on 29–31 Oct, so watch it. The same image (PMADT_STC_013_0926) also runs in Ventes_Testing ad set Batch Statiques 12_10_26.", "_id": "2026-11-02-04"}, {"date": "2026-11-01", "order": "03", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"Statique_Lettre Saskia\" (120245622306180138)", "before": "Actual spend about €121/day (last 7 days)", "after": "Min spend €145/day", "why": "Budget rule band 1.30+ = scale, in all three windows: last 3 days 2.38, last 7 days 3.43 (24 purchases), last 14 days 3.24 (49 purchases), Purchase ROAS (1-day click).", "watch": "Re-check on 4 Nov. If the last 3 days are still 1.30+, raise to €175/day.", "_id": "2026-11-01-03"}, {"date": "2026-11-01", "order": "04", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"Statique Offre\" (120245527136210138)", "before": "Actual spend about €24/day (last 7 days)", "after": "Min spend €50/day", "why": "Budget rule band 1.30+ = scale: last 7 days 7.42 (10 purchases), last 14 days 4.13 (24 purchases), Purchase ROAS (1-day click). The CBO was giving it almost no budget, so the step is larger than 20%.", "watch": "Re-check on 4 Nov. Small-budget ROAS often drops when spend doubles; hold if it stays at 1.30+.", "_id": "2026-11-01-04"}, {"date": "2026-11-01", "order": "05", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"Statics_Vu à la tv\" (120245037145440138)", "before": "Actual spend about €4/day (last 7 days)", "after": "Min spend €30/day", "why": "Last 14 days €419 at Purchase ROAS (1-day click) 1.34, but it got only €28 in the last 7 days. Test whether it holds when it gets budget.", "watch": "Re-check on 4 Nov. Remove the min spend if it falls under 1.00.", "_id": "2026-11-01-05"}, {"date": "2026-11-01", "order": "06", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Whitelisting", "level": "Ad set", "item": "Ad set \"Spark_woow.bloom\" (120246170306590138)", "before": "Actual spend about €41/day (last 7 days)", "after": "Min spend €50/day", "why": "Budget rule band 1.30+ = scale: last 3 days 1.41, last 7 days 2.47, last 14 days 2.47 (11 purchases), Purchase ROAS (1-day click).", "watch": "+20% every 3 days while it stays at 1.30+. Next check 4 Nov.", "_id": "2026-11-01-06"}, {"date": "2026-11-01", "order": "07", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"ADT_education_mains-qui-brulent_VID_28Oct26\" (120247075346840138, 3 ads)", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa rule: €150 with no result = turn off. 29 Oct–1 Nov: €212, 0 purchases (1-day and 7-day click), Cost per Add to Cart €70.8 and Cost per Initiate Checkout €7.9, against account benchmarks of about €11 and €4.", "watch": "The original copies in Ventes_Testing ad set PMADT-26-09-3 stay on: last 7 days ROAS (7-day click) 2.55.", "_id": "2026-11-01-07"}, {"date": "2026-11-01", "order": "08", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "item": "Ad set \"INT_resultats_avant-apres-gif_VID_28Oct26\" (120247075323560138)", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa rule: €150 with no result = turn off. 29 Oct–1 Nov: €214, 0 purchases (1-day and 7-day click), Cost per Add to Cart €71.5 and Cost per Initiate Checkout €11.9, against account benchmarks of about €11 and €4.", "watch": "The same video keeps running in Ventes_Retention (ROAS 2.36), so it works on warm audiences, not cold ones. Test créa spend drops by €100/day after both pauses; the free slots can go to TestCrea Phase 2 (planned 5 Nov).", "_id": "2026-11-01-08"}, {"date": "2026-10-31", "order": "01", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"Statique_Avant Après 2\" (120245781841750138), the only live ad to /pages/diagnostic", "before": "No minimum spend", "after": "Min spend €100/day", "why": "Mehdi asked for more budget on the diagnostic page. Budget rule band 1.30+ = scale: last 7 days (24–30 Oct) €557 at Purchase ROAS (1-day click) 2.65.", "watch": "Frequency is already 2.7–2.8 a week, so no further raise until it is re-checked on 3 Nov.", "_id": "2026-10-31-01"}, {"date": "2026-10-31", "order": "02", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad", "item": "Ad \"Timeline - Cortisone (Hook 3) Court - Itération\" (120246926156720138), the only ad in ad set \"Timeline cortisone\" (120246926132500138)", "before": "Active · about €49/day", "after": "Ad paused · ad set stays Active with no delivery", "why": "Budget rule: under 0.80 for 3 days. 29–31 Oct: €161 at Purchase ROAS (1-day click) 0.00. Since launch on 20 Oct: €360, 0 purchases on 1-day click and 1 on 7-day click (ROAS 0.50).", "watch": "The budget goes back to the Ventes_Testing CBO. Check that the current winners (Statique Offre, Lettre Saskia, Statique_Avant Après 2) pick it up. The ad set itself is still Active: no delivery since the ad was paused, nothing to do.", "_id": "2026-10-31-02"}, {"date": "2026-10-31", "order": "03", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "item": "Ad set \"PMADT-26-09-17\" (120246906953890138, 3 ads, Adtitude)", "before": "Active · about €43/day", "after": "Paused", "why": "Budget rule: under 0.80 for 3 days. 29–31 Oct: €90 at Purchase ROAS (1-day click) 0.00. Trend is down, not a one-week dip: 0.84 on 18–24 Oct, then 0.12 on 25–31 Oct (7-day click the same). Since launch on 19 Oct: €603 at 0.48.", "watch": "This ad set held one of the 3 live copies of PMADT_STC_007_0926_V1. The copy in Batch Statiques 09_10_26 (120246736296470138) stays as the one home.", "_id": "2026-10-31-03"}, {"date": "2026-10-30", "order": "01", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Campaign", "item": "Campaign budget, Ventes_Testing (CBO)", "before": "€2,100/day", "after": "€2,400/day", "why": "Budget rule band 1.30+ = scale. Last 3 days with data (27–29 Oct): Purchase ROAS (1-day click) 1.35 on €7,274, 105 purchases. The cut to €2,100 did not lift ROAS: 28–29 Oct gave 1.17 with 32 and 28 purchases a day, against 1.34 and about 39 a day over 21–27 Oct at €2,554/day. Still €100 under the €2,500 it ran at before Test créa; Test créa keeps its own €400/day.", "watch": "After the raise: 30 Oct 0.91, 31 Oct 0.64, then 1 Nov 1.32 and 2 Nov 2.10. 31 Oct – 2 Nov: 1.38 at about €2,437/day. If the 3-day read falls under 1.00 (1-day click), lower by 20% per the budget rule.", "_id": "2026-10-30-01"}, {"date": "2026-10-28", "order": "01", "type": "Note", "status": "done", "by": "Yoedhistiera", "campaign": "All campaigns", "level": "Account", "item": "Baseline before changes (21–27 Oct, 7-day click)", "before": "", "after": "Account: €28,670 spent, cost per purchase €50.39, ROAS 1.77 · Ventes_Testing: €17,867 spent, cost per purchase €57.26, ROAS 1.50", "why": "Reference point to compare every change below against.", "watch": "Guardrail: if Ventes_Testing cost per purchase (7-day click) stays above €65.85 (+15%) for 3 days in a row, slow the testing ramp-up.", "_id": "2026-10-28-01"}, {"date": "2026-10-28", "order": "02", "type": "Launch", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28OCT26", "level": "Campaign", "item": "New creative testing campaign (Phase 1)", "before": "", "after": "8 ad sets × €50/day = €400/day · ABO, Purchase, Klaviyo Purchase 90J excluded · live from 29 Oct", "why": "In Ventes_Testing most budget went to a few older ads, so new concepts never got enough spend to be judged. Each concept now gets a fixed budget and a decision point: €150 (under 3 add-to-carts = stop), €270 (1.30+ moves to Ventes_Testing, under 0.80 stops), €540.", "watch": "Each ad set at €150 (about 1 Nov) and €270 (about 4 Nov). Account cost per purchase vs the baseline.", "_id": "2026-10-28-02"}, {"date": "2026-10-28", "order": "04", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Whitelisting", "level": "Ad set", "item": "Ad set \"Spark_crazyalyy_2\" (120246170306440138, 2 ads)", "before": "Active", "after": "Paused", "why": "Duplicate clean-up: second Spark ad set for the same creator (Spark_crazyalyy stays live), so the two were splitting delivery. 21–27 Oct: €766 at Purchase ROAS (1-day click) 0.74, under the 0.80 cut line.", "watch": "Spark_crazyalyy (120246130708260138) carries the creator alone.", "_id": "2026-10-28-04"}, {"date": "2026-10-28", "order": "05", "type": "Pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Retention", "level": "Ad", "item": "Ad \"[CL]_3RY_Cortisone_22-08-2026_2.mp4 - Copie 2\" (120246667130160138) in ad set \"SingleAdset\"", "before": "Active", "after": "Paused", "why": "Duplicate clean-up: a copy (\"Copie 2\") of a video already in the account, splitting delivery with the original. 21–27 Oct: €335 at Purchase ROAS (1-day click) 0.94.", "watch": "Retention spend moves to the other ads in SingleAdset.", "_id": "2026-10-28-05"}, {"date": "2026-10-28", "order": "06", "type": "Budget", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Campaign", "item": "Campaign budget, Ventes_Testing (CBO)", "before": "€2,500/day", "after": "€2,100/day", "why": "Pays for TestCrea_Mix_ABO_28Oct26, launched the same day at €400/day (8 ad sets × €50). The −€400 matches the test budget exactly, so the account total stays at €4,000/day: the test is funded from Ventes_Testing, not added on top. Ventes_Testing had held Purchase ROAS (1-day click) 1.34 over 21–27 Oct at about €2,554/day.", "watch": "Whether the lower cap costs purchases in Ventes_Testing.", "_id": "2026-10-28-06"}, {"date": "2026-10-28", "order": "07", "type": "Naming", "status": "done", "by": "Yoedhistiera", "campaign": "All campaigns", "level": "Account", "item": "Naming standard for every new campaign, ad set and ad", "before": "Free-form names", "after": "Campaign: Purpose_Product_Structure_DDMMMYY · Ad set: Source_angle_concept_Format · Ad: Source_concept_angle_audience_Format_Version_Date", "why": "Lets weekly reports group results by creative source, angle and concept, and keeps utm_content clean in Shopify.", "watch": "Live ads keep their old names, since renaming would split their Shopify history.", "_id": "2026-10-28-07"}];
+  function sortEntries(list){
+    return list.sort(function(a,b){if(a.date!==b.date)return a.date<b.date?1:-1;return String(a.order||a.created||'').localeCompare(String(b.order||b.created||''));});
+  }
+  state.entries=sortEntries([{"date": "2026-11-03", "order": "01", "time": "07:37", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "PMADT-26-09-22", "item": "Ad set \"PMADT-26-09-22\" (120247044379710138, Adtitude)", "fromShort": "Active", "toShort": "Paused", "before": "Active · about €272/day (last 3 days)", "after": "Paused", "why": "Budget rule: under 0.80 for 3 days. 31 Oct – 2 Nov: €816 at Purchase ROAS (1-day click) 0.44. Last 7 days €1,769 at 0.40 (7-day click 0.60). The biggest loss in the account.", "watch": "Its budget returns to the Ventes_Testing CBO.", "entityLevel": "adset", "entityId": "120247044379710138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 272, "roas": 0.44, "spend": 816, "to": "2026-11-02"}}, "_id": "2026-11-03-01"}, {"date": "2026-11-03", "order": "02", "time": "07:42", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "PMADT-26-10-24", "item": "Ad set \"PMADT-26-10-24\" (120246907012440138, Adtitude)", "fromShort": "Active", "toShort": "Paused", "before": "Active · about €40/day", "after": "Paused", "why": "Budget rule (1-day click): under 0.80 for 3 days. 31 Oct – 2 Nov: €120 at Purchase ROAS (1-day click) 0.00; last 7 days €283 at 0.00.", "watch": "For reference only: 7-day click over the last 7 days is 3.44, so some buyers come back later. If the ad set is needed again, it can be switched back on.", "entityLevel": "adset", "entityId": "120246907012440138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 40, "roas": 0, "spend": 120, "to": "2026-11-02"}}, "_id": "2026-11-03-02"}, {"date": "2026-11-03", "order": "03", "time": "07:43", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "UGC1_YAPPER", "item": "Ad set \"UGC1_YAPPER\" (120245629910840138)", "fromShort": "Active", "toShort": "Paused", "before": "Active · about €46/day", "after": "Paused", "why": "Budget rule: under 0.80 for 3 days. Last 7 days €347 at Purchase ROAS (1-day click) 0.00, 7-day click 0.57.", "watch": "", "entityLevel": "adset", "entityId": "120245629910840138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 46, "roas": 0, "spend": 139, "to": "2026-11-02"}}, "_id": "2026-11-03-03"}, {"date": "2026-11-03", "order": "04", "time": "07:45", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "Statique_Recherche Google", "item": "Ad set \"Statique_Recherche Google\" (120245934806520138)", "fromShort": "Active", "toShort": "Paused", "before": "Active · about €47/day", "after": "Paused", "why": "Budget rule (1-day click): under 0.80 for 3 days. 31 Oct – 2 Nov: €141 at Purchase ROAS (1-day click) 0.00; last 7 days 0.72.", "watch": "For reference only: 7-day click over the last 7 days is 1.18.", "entityLevel": "adset", "entityId": "120245934806520138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 47, "roas": 0, "spend": 141, "to": "2026-11-02"}}, "_id": "2026-11-03-04"}, {"date": "2026-11-03", "order": "05", "time": "07:45", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "PMADT-26-09-21", "item": "Ad set \"PMADT-26-09-21\" (120246785202530138, Adtitude)", "fromShort": "Active", "toShort": "Paused", "before": "Active · about €48/day", "after": "Paused", "why": "Budget rule (1-day click): under 0.80 for 3 days. 31 Oct – 2 Nov: €145 at Purchase ROAS (1-day click) 0.23; last 7 days 0.56.", "watch": "For reference only: 7-day click over the last 7 days is 1.05.", "entityLevel": "adset", "entityId": "120246785202530138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 48, "roas": 0.23, "spend": 145, "to": "2026-11-02"}}, "_id": "2026-11-03-05"}, {"date": "2026-11-03", "order": "06", "time": "07:51", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "Statique_Avant Après 2", "item": "Ad set \"Statique_Avant Après 2\" (120245781841750138), the only ad to /pages/diagnostic", "fromShort": "Min €100", "toShort": "Min €120", "before": "Min spend €100/day · actual about €144/day", "after": "Min spend €120/day", "why": "Budget rule band 1.30+ = scale: 31 Oct – 2 Nov at about €144/day returned Purchase ROAS (1-day click) 2.22. Mehdi wants to scale the diagnostic page.", "watch": "Single ad, already seen about 2.7 times a week. If 3 days stay at 1.30+ (1-day click), raise again by about 20%.", "entityLevel": "adset", "entityId": "120245781841750138", "since": {"after": null, "afterNote": "Too early: first full day is 3 Nov", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 144, "roas": 2.22, "spend": 433, "to": "2026-11-02"}}, "_id": "2026-11-03-06"}, {"date": "2026-11-03", "order": "07", "time": "07:58", "type": "Resume", "dir": "resume", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "PMADT-26-10-24", "item": "Ad set \"PMADT-26-10-24\" (120246907012440138, Adtitude) switched back on", "fromShort": "Paused", "toShort": "Active", "before": "Paused earlier today", "after": "Active", "why": "Exception to the 1-day click rule, agreed today: no purchases on 1-day click over 7 days (€283), but ROAS (7-day click) over the same 7 days is 3.44, so its buyers come back a few days after the click.", "watch": "About €40/day. Re-check on 6 Nov on both windows. If 7-day click also drops under 1.00, pause it under the normal rule.", "entityLevel": "adset", "entityId": "120246907012440138", "since": {"after": null, "afterNote": "Too early: first full day is 3 Nov", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 40, "roas": 0, "spend": 120, "to": "2026-11-02"}}, "_id": "2026-11-03-07"}, {"date": "2026-11-03", "order": "08", "time": "08:12", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "ADT_resultats_fini-le-yoyo_IMG_28Oct26", "item": "Ad set \"ADT_resultats_fini-le-yoyo_IMG_28Oct26\" (120247075170250138)", "fromShort": "Active", "toShort": "Paused", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa read at €270: €271 spent since 29 Oct at Purchase ROAS (1-day click) 0.62, under the 0.80 cut line.", "watch": "Frees a slot for Batch 2 (5 Nov).", "entityLevel": "adset", "entityId": "120247075170250138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 55, "roas": 1.02, "spend": 165, "to": "2026-11-02"}}, "_id": "2026-11-03-08"}, {"date": "2026-11-03", "order": "09", "time": "08:12", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "INT_temoignage_tests-pediatriques_IMG_28Oct26", "item": "Ad set \"INT_temoignage_tests-pediatriques_IMG_28Oct26\" (120247075330330138)", "fromShort": "Active", "toShort": "Paused", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa read at €270: €272 spent since 29 Oct at Purchase ROAS (1-day click) 0.27, under the 0.80 cut line.", "watch": "Frees a slot for Batch 2 (5 Nov).", "entityLevel": "adset", "entityId": "120247075330330138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 54, "roas": 0.11, "spend": 162, "to": "2026-11-02"}}, "_id": "2026-11-03-09"}, {"date": "2026-11-03", "order": "10", "time": "08:17", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "INT_offre_bofu-offre_IMG_28Oct26", "item": "Ad set \"INT_offre_bofu-offre_IMG_28Oct26\" (120247075332600138)", "fromShort": "€60/day", "toShort": "€80/day", "before": "€60/day (ABO)", "after": "€80/day", "why": "Test créa winner at the €270 read: €287 since 29 Oct at Purchase ROAS (1-day click) 4.52. 2 Nov, the first day at €60, held 2.95.", "watch": "A +33% step, larger than the usual +20%. Re-check after 3 days (6 Nov). Back to €60 if it falls under 1.30.", "entityLevel": "adset", "entityId": "120247075332600138", "since": {"after": null, "afterNote": "Too early: first full day is 3 Nov", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 60, "roas": 2.81, "spend": 181, "to": "2026-11-02"}}, "_id": "2026-11-03-10"}, {"date": "2026-11-03", "order": "11", "time": "08:29", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "ADT_offre_objection-prix_MIX_28Oct26", "item": "Ad set \"ADT_offre_objection-prix_MIX_28Oct26\" (120247075338410138)", "fromShort": "€60/day", "toShort": "€70/day", "before": "€60/day (ABO)", "after": "€70/day", "why": "Test créa winner at the €270 read: €285 since 29 Oct at Purchase ROAS (1-day click) 3.13.", "watch": "2 Nov, the first day at €60, had 0 purchases. Re-check on 6 Nov; back to €60 if it falls under 1.30. The same image (PMADT_STC_013_0926) also runs in Batch Statiques 12_10_26.", "entityLevel": "adset", "entityId": "120247075338410138", "since": {"after": null, "afterNote": "Too early: first full day is 3 Nov", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 60, "roas": 3.11, "spend": 179, "to": "2026-11-02"}}, "_id": "2026-11-03-11"}, {"date": "2026-11-03", "order": "12", "time": "08:36", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "FGC_Honte", "item": "Ad set \"FGC_Honte\" (120245629843600138)", "fromShort": "Min €50", "toShort": "Min €60", "before": "Min spend €50/day · actual about €49/day", "after": "Min spend €60/day", "why": "Budget rule band 1.30+ = scale: Purchase ROAS (1-day click) 3.89 over 31 Oct – 2 Nov and 3.34 over the last 7 days.", "watch": "Re-check on 6 Nov. +20% again if it holds 1.30+.", "entityLevel": "adset", "entityId": "120245629843600138", "since": {"after": null, "afterNote": "Too early: first full day is 3 Nov", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 49, "roas": 3.89, "spend": 146, "to": "2026-11-02"}}, "_id": "2026-11-03-12"}, {"date": "2026-11-03", "order": "13", "time": "08:36", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "PMADT-26-10-7", "item": "Ad set \"PMADT-26-10-7\" (120247043384160138, Adtitude)", "fromShort": "Min €50", "toShort": "Min €110", "before": "Min spend €50/day · actual about €94/day (last 3 days)", "after": "Min spend €110/day", "why": "Budget rule band 1.30+ = scale: Purchase ROAS (1-day click) 2.66 over 31 Oct – 2 Nov and 1.98 over the last 7 days.", "watch": "About +17% on actual spend, +120% on the old minimum. Re-check on 6 Nov; lower the minimum if it falls under 1.30.", "entityLevel": "adset", "entityId": "120247043384160138", "since": {"after": null, "afterNote": "Too early: first full day is 3 Nov", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 94, "roas": 2.66, "spend": 283, "to": "2026-11-02"}}, "_id": "2026-11-03-13"}, {"date": "2026-11-03", "order": "14", "time": "08:36", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "Statique_Avant Après 2", "item": "Ad set \"Statique_Avant Après 2\" (120245781841750138), the only ad to /pages/diagnostic", "fromShort": "Min €120", "toShort": "Min €200", "before": "Min spend €120/day (set earlier today) · actual about €144/day", "after": "Min spend €200/day", "why": "Budget rule band 1.30+ = scale: Purchase ROAS (1-day click) 2.22 over 31 Oct – 2 Nov. Mehdi wants to scale the diagnostic page.", "watch": "About +39% on actual spend, on a single ad already seen about 2.7 times a week. If 2 days in a row fall under 1.30 (1-day click), go back to €150.", "entityLevel": "adset", "entityId": "120245781841750138", "since": {"after": null, "afterNote": "Too early: first full day is 3 Nov", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-31", "perDay": 144, "roas": 2.22, "spend": 433, "to": "2026-11-02"}}, "_id": "2026-11-03-14"}, {"date": "2026-11-02", "order": "03", "time": "00:09", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "INT_offre_bofu-offre_IMG_28Oct26", "item": "Ad set \"INT_offre_bofu-offre_IMG_28Oct26\" (120247075332600138)", "fromShort": "€50/day", "toShort": "€60/day", "before": "€50/day (ABO)", "after": "€60/day", "why": "Budget rule band 1.30+ = scale. 29 Oct–1 Nov: €208, 10 purchases, Purchase ROAS (1-day click) 5.14. Cost per Add to Cart €9.5 and Cost per Initiate Checkout €2.7, both better than the account benchmarks of about €11 and €4.", "watch": "Re-check after 3 days (5 Nov). If still 1.30+, +20% again.", "entityLevel": "adset", "entityId": "120247075332600138", "since": {"after": {"days": 1, "from": "2026-11-02", "perDay": 77, "roas": 2.95, "spend": 77, "to": "2026-11-02"}, "afterNote": "", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 51, "roas": 3, "spend": 152, "to": "2026-11-01"}}, "_id": "2026-11-02-03"}, {"date": "2026-11-02", "order": "04", "time": "00:10", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "ADT_offre_objection-prix_MIX_28Oct26", "item": "Ad set \"ADT_offre_objection-prix_MIX_28Oct26\" (120247075338410138)", "fromShort": "€50/day", "toShort": "€60/day", "before": "€50/day (ABO)", "after": "€60/day", "why": "Budget rule band 1.30+ = scale. 29 Oct–1 Nov: €207, 10 purchases, Purchase ROAS (1-day click) 4.32 (7-day click 4.59). Cost per Add to Cart €6.5 and Cost per Initiate Checkout €3.3.", "watch": "Re-check on 5 Nov. Frequency was already 2.83 on 29–31 Oct, so watch it. The same image (PMADT_STC_013_0926) also runs in Ventes_Testing ad set Batch Statiques 12_10_26.", "entityLevel": "adset", "entityId": "120247075338410138", "since": {"after": {"days": 1, "from": "2026-11-02", "perDay": 77, "roas": 0, "spend": 77, "to": "2026-11-02"}, "afterNote": "", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 50, "roas": 3.7, "spend": 151, "to": "2026-11-01"}}, "_id": "2026-11-02-04"}, {"date": "2026-11-01", "order": "03", "time": "22:44", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "Statique_Lettre Saskia", "item": "Ad set \"Statique_Lettre Saskia\" (120245622306180138)", "fromShort": "No min", "toShort": "Min €145", "before": "Actual spend about €121/day (last 7 days)", "after": "Min spend €145/day", "why": "Budget rule band 1.30+ = scale, in all three windows: last 3 days 2.38, last 7 days 3.43 (24 purchases), last 14 days 3.24 (49 purchases), Purchase ROAS (1-day click).", "watch": "Re-check on 4 Nov. If the last 3 days are still 1.30+, raise to €175/day.", "entityLevel": "adset", "entityId": "120245622306180138", "since": {"after": {"days": 1, "from": "2026-11-02", "perDay": 177, "roas": 3.81, "spend": 177, "to": "2026-11-02"}, "afterNote": "", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 147, "roas": 1.26, "spend": 440, "to": "2026-11-01"}}, "_id": "2026-11-01-03"}, {"date": "2026-11-01", "order": "04", "time": "22:44", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "Statique Offre", "item": "Ad set \"Statique Offre\" (120245527136210138)", "fromShort": "No min", "toShort": "Min €50", "before": "Actual spend about €24/day (last 7 days)", "after": "Min spend €50/day", "why": "Budget rule band 1.30+ = scale: last 7 days 7.42 (10 purchases), last 14 days 4.13 (24 purchases), Purchase ROAS (1-day click). The CBO was giving it almost no budget, so the step is larger than 20%.", "watch": "Re-check on 4 Nov. Small-budget ROAS often drops when spend doubles; hold if it stays at 1.30+.", "entityLevel": "adset", "entityId": "120245527136210138", "since": {"after": {"days": 1, "from": "2026-11-02", "perDay": 52, "roas": 6.51, "spend": 52, "to": "2026-11-02"}, "afterNote": "", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 13, "roas": 4.18, "spend": 38, "to": "2026-11-01"}}, "_id": "2026-11-01-04"}, {"date": "2026-11-01", "order": "05", "time": "22:44", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "Statics_Vu à la tv", "item": "Ad set \"Statics_Vu à la tv\" (120245037145440138)", "fromShort": "No min", "toShort": "Min €30", "before": "Actual spend about €4/day (last 7 days)", "after": "Min spend €30/day", "why": "Last 14 days €419 at Purchase ROAS (1-day click) 1.34, but it got only €28 in the last 7 days. Test whether it holds when it gets budget.", "watch": "Re-check on 4 Nov. Remove the min spend if it falls under 1.00.", "entityLevel": "adset", "entityId": "120245037145440138", "since": {"after": {"days": 1, "from": "2026-11-02", "perDay": 32, "roas": 7.41, "spend": 32, "to": "2026-11-02"}, "afterNote": "", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 6, "roas": 16.39, "spend": 17, "to": "2026-11-01"}}, "_id": "2026-11-01-05"}, {"date": "2026-11-01", "order": "06", "time": "22:44", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Whitelisting", "level": "Ad set", "name": "Spark_woow.bloom", "item": "Ad set \"Spark_woow.bloom\" (120246170306590138)", "fromShort": "No min", "toShort": "Min €50", "before": "Actual spend about €41/day (last 7 days)", "after": "Min spend €50/day", "why": "Budget rule band 1.30+ = scale: last 3 days 1.41, last 7 days 2.47, last 14 days 2.47 (11 purchases), Purchase ROAS (1-day click).", "watch": "+20% every 3 days while it stays at 1.30+. Next check 4 Nov.", "entityLevel": "adset", "entityId": "120246170306590138", "since": {"after": {"days": 1, "from": "2026-11-02", "perDay": 66, "roas": 0, "spend": 66, "to": "2026-11-02"}, "afterNote": "", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 61, "roas": 0.3, "spend": 183, "to": "2026-11-01"}}, "_id": "2026-11-01-06"}, {"date": "2026-11-01", "order": "07", "time": "23:17", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "ADT_education_mains-qui-brulent_VID_28Oct26", "item": "Ad set \"ADT_education_mains-qui-brulent_VID_28Oct26\" (120247075346840138, 3 ads)", "fromShort": "Active", "toShort": "Paused", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa rule: €150 with no result = turn off. 29 Oct–1 Nov: €212, 0 purchases (1-day and 7-day click), Cost per Add to Cart €70.8 and Cost per Initiate Checkout €7.9, against account benchmarks of about €11 and €4.", "watch": "The original copies in Ventes_Testing ad set PMADT-26-09-3 stay on: last 7 days ROAS (7-day click) 2.55.", "entityLevel": "adset", "entityId": "120247075346840138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 52, "roas": 0, "spend": 155, "to": "2026-11-01"}}, "_id": "2026-11-01-07"}, {"date": "2026-11-01", "order": "08", "time": "23:17", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28Oct26", "level": "Ad set", "name": "INT_resultats_avant-apres-gif_VID_28Oct26", "item": "Ad set \"INT_resultats_avant-apres-gif_VID_28Oct26\" (120247075323560138)", "fromShort": "Active", "toShort": "Paused", "before": "Active · €50/day (ABO)", "after": "Paused", "why": "Test créa rule: €150 with no result = turn off. 29 Oct–1 Nov: €214, 0 purchases (1-day and 7-day click), Cost per Add to Cart €71.5 and Cost per Initiate Checkout €11.9, against account benchmarks of about €11 and €4.", "watch": "The same video keeps running in Ventes_Retention (ROAS 2.36), so it works on warm audiences, not cold ones. Test créa spend drops by €100/day after both pauses; the free slots can go to TestCrea Phase 2 (planned 5 Nov).", "entityLevel": "adset", "entityId": "120247075323560138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-30", "perDay": 51, "roas": 0.23, "spend": 153, "to": "2026-11-01"}}, "_id": "2026-11-01-08"}, {"date": "2026-10-31", "order": "01", "time": "03:40", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "Statique_Avant Après 2", "item": "Ad set \"Statique_Avant Après 2\" (120245781841750138), the only live ad to /pages/diagnostic", "fromShort": "No min", "toShort": "Min €100", "before": "No minimum spend", "after": "Min spend €100/day", "why": "Mehdi asked for more budget on the diagnostic page. Budget rule band 1.30+ = scale: last 7 days (24–30 Oct) €557 at Purchase ROAS (1-day click) 2.65.", "watch": "Frequency is already 2.7–2.8 a week, so no further raise until it is re-checked on 3 Nov.", "entityLevel": "adset", "entityId": "120245781841750138", "since": {"after": {"days": 3, "from": "2026-10-31", "perDay": 144, "roas": 2.22, "spend": 433, "to": "2026-11-02"}, "afterNote": "", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-28", "perDay": 81, "roas": 4.25, "spend": 243, "to": "2026-10-30"}}, "_id": "2026-10-31-01"}, {"date": "2026-10-31", "order": "02", "time": "23:17", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad", "name": "Timeline - Cortisone (Hook 3) Court - Itération", "item": "Ad \"Timeline - Cortisone (Hook 3) Court - Itération\" (120246926156720138), the only ad in ad set \"Timeline cortisone\" (120246926132500138)", "fromShort": "Active", "toShort": "Paused", "before": "Active · about €49/day", "after": "Ad paused · ad set stays Active with no delivery", "why": "Budget rule: under 0.80 for 3 days. 29–31 Oct: €161 at Purchase ROAS (1-day click) 0.00. Since launch on 20 Oct: €360, 0 purchases on 1-day click and 1 on 7-day click (ROAS 0.50).", "watch": "The budget goes back to the Ventes_Testing CBO. Check that the current winners (Statique Offre, Lettre Saskia, Statique_Avant Après 2) pick it up. The ad set itself is still Active: no delivery since the ad was paused, nothing to do.", "entityLevel": "ad", "entityId": "120246926156720138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-29", "perDay": 54, "roas": 0, "spend": 161, "to": "2026-10-31"}}, "_id": "2026-10-31-02"}, {"date": "2026-10-31", "order": "03", "time": "23:19", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Ad set", "name": "PMADT-26-09-17", "item": "Ad set \"PMADT-26-09-17\" (120246906953890138, 3 ads, Adtitude)", "fromShort": "Active", "toShort": "Paused", "before": "Active · about €43/day", "after": "Paused", "why": "Budget rule: under 0.80 for 3 days. 29–31 Oct: €90 at Purchase ROAS (1-day click) 0.00. Trend is down, not a one-week dip: 0.84 on 18–24 Oct, then 0.12 on 25–31 Oct (7-day click the same). Since launch on 19 Oct: €603 at 0.48.", "watch": "This ad set held one of the 3 live copies of PMADT_STC_007_0926_V1. The copy in Batch Statiques 09_10_26 (120246736296470138) stays as the one home.", "entityLevel": "adset", "entityId": "120246906953890138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-29", "perDay": 30, "roas": 0, "spend": 91, "to": "2026-10-31"}}, "_id": "2026-10-31-03"}, {"date": "2026-10-30", "order": "01", "time": "00:01", "type": "Budget", "dir": "up", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Campaign", "name": "Ventes_Testing", "item": "Campaign budget, Ventes_Testing (CBO)", "fromShort": "€2,100/day", "toShort": "€2,400/day", "before": "€2,100/day", "after": "€2,400/day", "why": "Budget rule band 1.30+ = scale. Last 3 days with data (27–29 Oct): Purchase ROAS (1-day click) 1.35 on €7,274, 105 purchases. The cut to €2,100 did not lift ROAS: 28–29 Oct gave 1.17 with 32 and 28 purchases a day, against 1.34 and about 39 a day over 21–27 Oct at €2,554/day. Still €100 under the €2,500 it ran at before Test créa; Test créa keeps its own €400/day.", "watch": "After the raise: 30 Oct 0.91, 31 Oct 0.64, then 1 Nov 1.32 and 2 Nov 2.10. 31 Oct – 2 Nov: 1.38 at about €2,437/day. If the 3-day read falls under 1.00 (1-day click), lower by 20% per the budget rule.", "entityLevel": "campaign", "entityId": "120245037145450138", "since": {"after": {"days": 3, "from": "2026-10-30", "perDay": 2514, "roas": 0.98, "spend": 7542, "to": "2026-11-01"}, "afterNote": "", "basis": "Campaign", "before": {"days": 3, "from": "2026-10-27", "perDay": 2425, "roas": 1.35, "spend": 7274, "to": "2026-10-29"}}, "_id": "2026-10-30-01"}, {"date": "2026-10-28", "order": "01", "time": "", "type": "Note", "dir": "note", "status": "done", "by": "Yoedhistiera", "campaign": "All campaigns", "level": "Account", "name": "Baseline 21–27 Oct", "item": "Baseline before changes (21–27 Oct, 7-day click)", "fromShort": "", "toShort": "", "before": "", "after": "Account: €28,670 spent, cost per purchase €50.39, ROAS 1.77 · Ventes_Testing: €17,867 spent, cost per purchase €57.26, ROAS 1.50", "why": "Reference point to compare every change below against.", "watch": "Guardrail: if Ventes_Testing cost per purchase (7-day click) stays above €65.85 (+15%) for 3 days in a row, slow the testing ramp-up.", "entityLevel": "", "entityId": "", "_id": "2026-10-28-01"}, {"date": "2026-10-28", "order": "02", "time": "09:27", "type": "Launch", "dir": "launch", "status": "done", "by": "Yoedhistiera", "campaign": "TestCrea_Mix_ABO_28OCT26", "level": "Campaign", "name": "TestCrea_Mix_ABO_28Oct26", "item": "New creative testing campaign (Phase 1)", "fromShort": "New", "toShort": "€400/day", "before": "", "after": "8 ad sets × €50/day = €400/day · ABO, Purchase, Klaviyo Purchase 90J excluded · live from 29 Oct", "why": "In Ventes_Testing most budget went to a few older ads, so new concepts never got enough spend to be judged. Each concept now gets a fixed budget and a decision point: €150 (under 3 add-to-carts = stop), €270 (1.30+ moves to Ventes_Testing, under 0.80 stops), €540.", "watch": "Each ad set at €150 (about 1 Nov) and €270 (about 4 Nov). Account cost per purchase vs the baseline.", "entityLevel": "campaign", "entityId": "120247075170270138", "since": {"after": {"days": 5, "from": "2026-10-29", "perDay": 418, "roas": 1.6, "spend": 2090, "to": "2026-11-02"}, "afterNote": "", "basis": "Campaign", "before": null}, "_id": "2026-10-28-02"}, {"date": "2026-10-28", "order": "04", "time": "10:21", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Whitelisting", "level": "Ad set", "name": "Spark_crazyalyy_2", "item": "Ad set \"Spark_crazyalyy_2\" (120246170306440138, 2 ads)", "fromShort": "Active", "toShort": "Paused", "before": "Active", "after": "Paused", "why": "Duplicate clean-up: second Spark ad set for the same creator (Spark_crazyalyy stays live), so the two were splitting delivery. 21–27 Oct: €766 at Purchase ROAS (1-day click) 0.74, under the 0.80 cut line.", "watch": "Spark_crazyalyy (120246130708260138) carries the creator alone.", "entityLevel": "adset", "entityId": "120246170306440138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad set", "before": {"days": 3, "from": "2026-10-25", "perDay": 112, "roas": 0, "spend": 336, "to": "2026-10-27"}}, "_id": "2026-10-28-04"}, {"date": "2026-10-28", "order": "05", "time": "10:21", "type": "Pause", "dir": "pause", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Retention", "level": "Ad", "name": "[CL]_3RY_Cortisone_22-08-2026_2 · Copie 2", "item": "Ad \"[CL]_3RY_Cortisone_22-08-2026_2.mp4 - Copie 2\" (120246667130160138) in ad set \"SingleAdset\"", "fromShort": "Active", "toShort": "Paused", "before": "Active", "after": "Paused", "why": "Duplicate clean-up: a copy (\"Copie 2\") of a video already in the account, splitting delivery with the original. 21–27 Oct: €335 at Purchase ROAS (1-day click) 0.94.", "watch": "Retention spend moves to the other ads in SingleAdset.", "entityLevel": "ad", "entityId": "120246667130160138", "since": {"after": null, "afterNote": "Paused", "basis": "Ad", "before": {"days": 3, "from": "2026-10-25", "perDay": 58, "roas": 0, "spend": 175, "to": "2026-10-27"}}, "_id": "2026-10-28-05"}, {"date": "2026-10-28", "order": "06", "time": "10:22", "type": "Budget", "dir": "down", "status": "done", "by": "Yoedhistiera", "campaign": "Ventes_Testing", "level": "Campaign", "name": "Ventes_Testing", "item": "Campaign budget, Ventes_Testing (CBO)", "fromShort": "€2,500/day", "toShort": "€2,100/day", "before": "€2,500/day", "after": "€2,100/day", "why": "Pays for TestCrea_Mix_ABO_28Oct26, launched the same day at €400/day (8 ad sets × €50). The −€400 matches the test budget exactly, so the account total stays at €4,000/day: the test is funded from Ventes_Testing, not added on top. Ventes_Testing had held Purchase ROAS (1-day click) 1.34 over 21–27 Oct at about €2,554/day.", "watch": "Whether the lower cap costs purchases in Ventes_Testing.", "entityLevel": "campaign", "entityId": "120245037145450138", "since": {"after": {"days": 2, "from": "2026-10-28", "perDay": 2246, "roas": 1.17, "spend": 4491, "to": "2026-10-29"}, "afterNote": "", "basis": "Campaign", "before": {"days": 3, "from": "2026-10-25", "perDay": 2713, "roas": 1.41, "spend": 8139, "to": "2026-10-27"}}, "_id": "2026-10-28-06"}, {"date": "2026-10-28", "order": "07", "time": "", "type": "Naming", "dir": "note", "status": "done", "by": "Yoedhistiera", "campaign": "All campaigns", "level": "Account", "name": "Naming standard", "item": "Naming standard for every new campaign, ad set and ad", "fromShort": "", "toShort": "", "before": "Free-form names", "after": "Campaign: Purpose_Product_Structure_DDMMMYY · Ad set: Source_angle_concept_Format · Ad: Source_concept_angle_audience_Format_Version_Date", "why": "Lets weekly reports group results by creative source, angle and concept, and keeps utm_content clean in Shopify.", "watch": "Live ads keep their old names, since renaming would split their Shopify history.", "entityLevel": "", "entityId": "", "_id": "2026-10-28-07"}]);
   render();
 })();
 </script>
