@@ -312,12 +312,12 @@ form textarea{min-height:64px;resize:vertical}
     if(!s.before){return box;}
     var line=el('span');line.appendChild(roasEl(s.before.roas));
     if(s.after){line.appendChild(document.createTextNode(' → '));line.appendChild(roasEl(s.after.roas));box.appendChild(line);box.appendChild(el('small',null,'ROAS before → after'));}
-    else{box.appendChild(line);box.appendChild(el('small',null,d==='pause'?'ROAS, 3 days before':'before · after too early'));}
+    else{box.appendChild(line);box.appendChild(el('small',null,d==='pause'?(s.before.roas===0?money(s.before.spend)+' spent, no sales · 3 days before':'ROAS, 3 days before'):'before · after too early'));}
     return box;
   }
   function win(title,w,note){
     var b=el('div','win');b.appendChild(el('span',null,title+(w?' · '+range(w.from,w.to):'')));
-    if(w){var r=el('b');r.appendChild(roasEl(w.roas));b.appendChild(r);b.appendChild(el('em',null,money(w.perDay)+'/day · '+money(w.spend)+' over '+w.days+' day'+(w.days>1?'s':'')));}
+    if(w){var r=el('b');r.appendChild(roasEl(w.roas));b.appendChild(r);b.appendChild(el('em',null,money(w.perDay)+'/day · '+money(w.spend)+' over '+w.days+' day'+(w.days>1?'s':'')+(w.roas===0&&w.spend>0?' · no sales on 1-day click':'')));}
     else{b.appendChild(el('em',null,note||'–'));}
     return b;
   }
