@@ -5,3 +5,4 @@
 - [Creative Direction](https://yoedhistiera-skyvane.github.io/pomad-things/creative-direction.html) (30 Oct 2026)
 - [Ad–Page Match](https://yoedhistiera-skyvane.github.io/pomad-things/ad-page-match.html) (2 Nov 2026)
 - [Account Change Log](https://yoedhistiera-skyvane.github.io/pomad-things/change-log.html) (updated 3 Nov 2026)
+- [Customer Review Mining](https://yoedhistiera-skyvane.github.io/pomad-things/review-mining.html) (5 Nov 2026)
