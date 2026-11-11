@@ -68,6 +68,21 @@ select:focus-visible,button:focus-visible{outline:2px solid var(--good);outline-
 .tab .n{font-weight:500;color:var(--faint);margin-left:4px}
 .panel{display:flex;flex-direction:column;gap:14px}
 .lead{max-width:76ch}
+.sumrow{display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline}
+.sumrow div{display:flex;flex-direction:column}
+.sumrow .k{font-size:12.5px;color:var(--muted)}
+.sumrow .v{font-size:20px;font-weight:600}
+.sumnote{font-size:13.5px;color:var(--muted);max-width:80ch}
+.sumnote b{color:var(--ink);font-weight:600}
+.mini{border-collapse:collapse;width:auto;min-width:0;font-size:13.5px}
+.mini th,.mini td{padding:4px 14px 4px 0;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+.mini th{font-size:12px;font-weight:500;color:var(--muted)}
+.mini th:first-child,.mini td:first-child{text-align:left;padding-right:18px}
+.mini td:first-child{color:var(--muted)}
+.mini tr:last-child td{border-bottom:0}
+.mini td:last-child,.mini th:last-child{padding-right:0}
+.mini td b{font-weight:600}
+.minibox{overflow-x:auto;max-width:100%}
 .filters{display:flex;flex-wrap:wrap;gap:6px}
 .chipbtn{border:1px solid var(--rule);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer}
 .chipbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
@@ -145,8 +160,16 @@ tr.cur td{background:var(--tint);font-weight:600}
   .acct{grid-template-columns:repeat(2,minmax(0,1fr))}
   .acct>div:nth-child(3){border-left:0}
   .acct>div:nth-child(n+3){border-top:1px solid var(--rule)}
-  .card{grid-template-columns:72px minmax(0,1fr);padding:12px}
-  .thumb{width:72px}
+  .card{display:block;padding:12px}
+  .card::after{content:"";display:block;clear:both}
+  .thumb{width:72px;float:left;margin:0 12px 6px 0}
+  .body{display:block}
+  .body>*+*{margin-top:8px}
+  .minibox{clear:both}
+  .side{margin-top:12px;clear:both}
+  .mini{font-size:12.5px}
+  .mini th,.mini td{padding-right:8px}
+  .mini .rev{display:none}
   .note{grid-template-columns:minmax(0,1fr)}
   .note dt{margin-top:4px}
   .tab{padding:10px 10px;font-size:14px}
@@ -289,6 +312,12 @@ function streakBadge(r){
 }
 const thumbBtn = (r, i) => `<button class="thumb" data-lb="${i}" aria-label="${r.video ? 'Play' : 'Open'} ${esc(r.title)}">${r.thumb ? `<img src="${r.thumb}" alt="" loading="lazy">` : '<span class="none">No preview</span>'}${r.video ? '<span class="play"><span>▶</span></span>' : ''}</button>`;
 const secTxt = r => r.tag === 'NEW' ? (r.secs || [r.sec]).join(' + ') : r.sec;
+function numsTable(lines, withStreak){
+  return `<div class="minibox"><table class="mini"><thead><tr><th>${withStreak ? 'Last week' : ''}</th><th>ROAS</th><th>Purchases</th><th class="rev">Revenue</th><th>Spend</th>${withStreak ? '<th title="Weeks in a row at ROAS 1.30+">Streak</th>' : ''}</tr></thead><tbody>
+    ${lines.map(l => `<tr><td>${l.label}</td><td><b class="${l.muted ? '' : rc(l.x.roas)}">${r2(l.x.roas)}</b></td><td>${int(l.x.p)}</td><td class="rev">${eur(l.x.v)}</td><td>${eur(l.x.s)}</td>${withStreak ? `<td>${l.streak}</td>` : ''}</tr>`).join('')}
+  </tbody></table></div>`;
+}
+const streakTxt = x => x.streak > 1 ? `${x.streak >= x.hist.length ? x.streak + '+' : x.streak} in a row` : 'this week';
 function card(r, i, kind, grp){
   const multi = grp && grp.rows.length > 1, bestR = grp ? grp.best[0] : r;
   const w = r.w, t = r.td, yr = r.launched.slice(0, 4) !== W.end.slice(0, 4) ? ' ' + r.launched.slice(0, 4) : '';
@@ -296,10 +325,11 @@ function card(r, i, kind, grp){
   return `<article class="card" id="card-${i}">
     ${thumbBtn(r, i)}
     <div class="body">
-      <div class="titleline"><h3 class="title">${esc(r.title)}</h3>${kind === 'win' ? streakBadge(bestR) + (multi ? `<span class="badge b-plain">in ${bestR.sec}</span>` : '') : ''}${kind === 'win' && w.p < 3 ? `<span class="badge b-plain">Only ${w.p} sale${w.p === 1 ? '' : 's'}</span>` : ''}${r.tag === 'NEW' ? '<span class="badge b-new">New</span>' : ''}${r.iter ? '<span class="badge b-plain">Iteration</span>' : ''}${kind === 'lose' && t && t.s < 270 ? `<span class="badge b-plain">Early, ${eur(t.s)} so far</span>` : ''}</div>
-      <p class="facts"><b>${esc(r.exec)}</b> · ${esc(r.angle)} · ${multi ? grp.rows.map(([x]) => x.sec).join(' + ') : secTxt(r)} · launched ${dt(r.launched)}${yr}</p>
-      ${multi ? grp.rows.map(([x]) => `<div class="nums"><span><b>${x.sec}</b></span><span><span class="lbl">ROAS</span> <b class="${rc(x.w.roas)}">${r2(x.w.roas)}</b></span><span><span class="lbl">Purchases</span> <b>${int(x.w.p)}</b></span><span><span class="lbl">Revenue</span> <b>${eur(x.w.v)}</b></span><span><span class="lbl">Spend</span> <b>${eur(x.w.s)}</b></span><span class="lbl">${x.streak > 1 ? `${x.streak >= x.hist.length ? x.streak + '+' : x.streak} weeks in a row` : 'first week'}</span></div>`).join('') : `<div class="nums"><span><span class="lbl">ROAS</span> <b class="${rc(w.roas)}">${r2(w.roas)}</b></span><span><span class="lbl">Purchases</span> <b>${int(w.p)}</b></span><span><span class="lbl">Revenue</span> <b>${eur(w.v)}</b></span><span><span class="lbl">Spend</span> <b>${eur(w.s)}</b></span></div>`}
-      ${t && r.tag === 'NEW' ? `<p class="since">Since launch: ROAS ${r2(t.roas)} · ${int(t.p)} purchases · ${eur(t.v)} revenue · ${eur(t.s)} spend</p>` : ''}
+      <div class="titleline"><h3 class="title">${esc(r.title)}</h3>${kind === 'win' ? streakBadge(bestR) : ''}${kind === 'win' && w.p < 3 ? `<span class="badge b-plain">Only ${w.p} sale${w.p === 1 ? '' : 's'}</span>` : ''}${r.tag === 'NEW' ? '<span class="badge b-new">New</span>' : ''}${r.iter ? '<span class="badge b-plain">Iteration</span>' : ''}${kind === 'lose' && t && t.s < 270 ? `<span class="badge b-plain">Early, ${eur(t.s)} so far</span>` : ''}</div>
+      <p class="facts"><b>${esc(r.exec)}</b> · ${esc(r.angle)} · ${kind === 'win' ? '' : secTxt(r) + ' · '}launched ${dt(r.launched)}${yr}</p>
+      ${kind === 'win'
+        ? numsTable((multi ? grp.rows.map(([x]) => x) : [r]).map(x => ({label: x.sec, x: x.w, streak: streakTxt(x)})), true)
+        : numsTable([{label: 'Last week', x: w}].concat(t && r.tag === 'NEW' ? [{label: 'Since launch', x: t}] : []), false)}
       ${noteHtml(kind === 'win' ? winNote(r) : loseNote(r))}
       ${funLine(r)}
     </div>
@@ -345,14 +375,17 @@ function renderWin(){
   const F = [['all', 'All'], ['streak', '4+ weeks in a row'], ['new', 'New'], ['Prospecting', 'Prospecting'], ['Retention', 'Retention'], ['Whitelisting', 'Whitelisting']];
   const pass = (g, k) => k === 'all' || (k === 'streak' ? g.streak >= 4 : k === 'new' ? g.main[0].tag === 'NEW' : g.rows.some(([r]) => r.sec === k));
   const shown = G.filter(g => pass(g, filt));
-  $('#p-win').innerHTML = `<p class="lead">${G.length} assets were at 1.30 or better last week: ${eur(sp)} spend, ${eur(rv)} revenue, ROAS ${r2(rv / sp)}.${top && top.streak >= 4 ? ` Longest run: ${esc(top.title)} in ${top.sec}, ${top.streak >= top.hist.length ? top.streak + '+' : top.streak} weeks in a row.` : ''} Sorted by how many weeks in a row they've held it. An asset that wins in more than one campaign shows once, with a line per campaign.</p>
+  $('#p-win').innerHTML = `<div class="sumrow"><div><span class="k">Assets at 1.30+</span><span class="v">${G.length}</span></div><div><span class="k">Spend</span><span class="v">${eur(sp)}</span></div><div><span class="k">Revenue</span><span class="v">${eur(rv)}</span></div><div><span class="k">ROAS</span><span class="v g">${r2(rv / sp)}</span></div></div>
+    <p class="sumnote">${top && top.streak >= 4 ? `Longest run: <b>${esc(top.title)}</b>, ${top.streak >= top.hist.length ? top.streak + '+' : top.streak} weeks in a row in ${top.sec}. ` : ''}Longest runs first. If an asset wins in two campaigns, both show in its card.</p>
     <div class="filters">${F.map(([k, l]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${filt === k}">${l} (${G.filter(g => pass(g, k)).length})</button>`).join('')}</div>
     <div class="cards">${shown.length ? shown.map(g => card(g.main[0], g.main[1], 'win', g)).join('') : '<p class="empty">Nothing here this week.</p>'}</div>`;
   $$('.chipbtn').forEach(b => b.onclick = () => { filt = b.dataset.f; render(); });
 }
 function renderLose(){
   const all = LOSE();
-  $('#p-lose').innerHTML = `<p class="lead">${all.length} new assets spent €50+ last week and stayed under 1.30. Each one says where people drop off and what to change in the next version.</p>
+  const lsp = all.reduce((t, [r]) => t + r.w.s, 0), lrv = all.reduce((t, [r]) => t + r.w.v, 0);
+  $('#p-lose').innerHTML = `<div class="sumrow"><div><span class="k">New assets under 1.30</span><span class="v">${all.length}</span></div><div><span class="k">Spend</span><span class="v">${eur(lsp)}</span></div><div><span class="k">Revenue</span><span class="v">${eur(lrv)}</span></div><div><span class="k">ROAS</span><span class="v ${rc(lsp ? lrv / lsp : 0)}">${r2(lsp ? lrv / lsp : 0)}</span></div></div>
+    <p class="sumnote">New assets with €50+ spend last week. Each card says where people drop off and what to change in the next version.</p>
     <div class="cards">${all.length ? all.map(([r, i]) => card(r, i, 'lose')).join('') : '<p class="empty">Every new asset was above 1.30 last week.</p>'}</div>`;
 }
 function renderAng(){
