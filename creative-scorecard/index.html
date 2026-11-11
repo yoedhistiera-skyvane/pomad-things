@@ -409,7 +409,6 @@ function renderAng(){
 
 function renderTop(){
   const read = new Date(W.read_at);
-  $('#h1').textContent = `Creative scorecard, ${span(W.start)}`;
   $('#sub').textContent = `Pomad Meta ads. All numbers are 1-day click, pulled on ${read.getDate()} ${MON[read.getMonth()]} ${read.getFullYear()}.`;
   $('#weekpick').innerHTML = [...DATA.weeks].reverse().map(w => `<option value="${w.code}" ${w === W ? 'selected' : ''}>${span(w.start)} ${w.end.slice(0, 4)}</option>`).join('');
   const wt = W.week_totals || [], prev = wt[wt.length - 2], A = W.account, pa = prev && prev.Account;
