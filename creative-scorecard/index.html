@@ -72,6 +72,9 @@ select:focus-visible,button:focus-visible{outline:2px solid var(--good);outline-
 .sumrow div{display:flex;flex-direction:column}
 .sumrow .k{font-size:12.5px;color:var(--muted)}
 .sumrow .v{font-size:20px;font-weight:600}
+.defs{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 16px;margin:0;max-width:80ch}
+.defs dt{font-weight:600}
+.defs dd{margin:0}
 .sumnote{font-size:13.5px;color:var(--muted);max-width:80ch}
 .sumnote b{color:var(--ink);font-weight:600}
 .mini{border-collapse:collapse;width:auto;min-width:0;font-size:13.5px}
@@ -180,13 +183,13 @@ tr.cur td{background:var(--tint);font-weight:600}
 <main class="wrap">
   <header class="head">
     <div>
-      <h1>Pomad creative scorecard</h1>
+      <h1 id="h1">Creative scorecard</h1>
       <p class="sub" id="sub"></p>
     </div>
     <label class="pick">Report <select id="weekpick"></select></label>
   </header>
 
-  <p class="intro">Which creatives are working and which new ones aren't, so the team knows what to make more of and what to change. The bar is <b>ROAS 1.30</b> on Meta 1-day click, on €50+ spend last week. <b>New</b> means the creative never ran before; copies and re-uploads count as the original.</p>
+  <p class="intro">Every Monday we look at which creatives earned their spend last week and which new ones didn't, so we know what to make more of and what to change. An ad counts as working at <b>ROAS 1.30</b> or better with at least €50 spent in the week. <b>New</b> means the creative had never run before. Copies and re-uploads count as the original.</p>
 
   <section aria-label="Account last week" style="display:flex;flex-direction:column;gap:10px">
     <div class="acct" id="acct"></div>
@@ -326,7 +329,7 @@ function card(r, i, kind, grp){
     ${thumbBtn(r, i)}
     <div class="body">
       <div class="titleline"><h3 class="title">${esc(r.title)}</h3>${kind === 'win' ? streakBadge(bestR) : ''}${kind === 'win' && w.p < 3 ? `<span class="badge b-plain">Only ${w.p} sale${w.p === 1 ? '' : 's'}</span>` : ''}${r.tag === 'NEW' ? '<span class="badge b-new">New</span>' : ''}${r.iter ? '<span class="badge b-plain">Iteration</span>' : ''}${kind === 'lose' && t && t.s < 270 ? `<span class="badge b-plain">Early, ${eur(t.s)} so far</span>` : ''}</div>
-      <p class="facts"><b>${esc(r.exec)}</b> · ${esc(r.angle)} · ${kind === 'win' ? '' : secTxt(r) + ' · '}launched ${dt(r.launched)}${yr}</p>
+      <p class="facts">Format <b>${esc(r.exec)}</b>&ensp;Angle <b>${esc(r.angle)}</b>&ensp;${kind === 'win' ? '' : `Campaign <b>${secTxt(r)}</b>&ensp;`}Launched <b>${dt(r.launched)}${yr}</b></p>
       ${kind === 'win'
         ? numsTable((multi ? grp.rows.map(([x]) => x) : [r]).map(x => ({label: x.sec, x: x.w, streak: streakTxt(x)})), true)
         : numsTable([{label: 'Last week', x: w}].concat(t && r.tag === 'NEW' ? [{label: 'Since launch', x: t}] : []), false)}
@@ -376,7 +379,7 @@ function renderWin(){
   const pass = (g, k) => k === 'all' || (k === 'streak' ? g.streak >= 4 : k === 'new' ? g.main[0].tag === 'NEW' : g.rows.some(([r]) => r.sec === k));
   const shown = G.filter(g => pass(g, filt));
   $('#p-win').innerHTML = `<div class="sumrow"><div><span class="k">Assets at 1.30+</span><span class="v">${G.length}</span></div><div><span class="k">Spend</span><span class="v">${eur(sp)}</span></div><div><span class="k">Revenue</span><span class="v">${eur(rv)}</span></div><div><span class="k">ROAS</span><span class="v g">${r2(rv / sp)}</span></div></div>
-    <p class="sumnote">${top && top.streak >= 4 ? `Longest run: <b>${esc(top.title)}</b>, ${top.streak >= top.hist.length ? top.streak + '+' : top.streak} weeks in a row in ${top.sec}. ` : ''}Longest runs first. If an asset wins in two campaigns, both show in its card.</p>
+    <p class="sumnote">${top && top.streak >= 4 ? `<b>${esc(top.title)}</b> has held 1.30+ the longest: ${top.streak >= top.hist.length ? top.streak + ' weeks or more' : top.streak + ' weeks'} in a row in ${top.sec}. ` : ''}The list starts with the longest runs.</p>
     <div class="filters">${F.map(([k, l]) => `<button class="chipbtn" data-f="${k}" aria-pressed="${filt === k}">${l} (${G.filter(g => pass(g, k)).length})</button>`).join('')}</div>
     <div class="cards">${shown.length ? shown.map(g => card(g.main[0], g.main[1], 'win', g)).join('') : '<p class="empty">Nothing here this week.</p>'}</div>`;
   $$('.chipbtn').forEach(b => b.onclick = () => { filt = b.dataset.f; render(); });
@@ -385,14 +388,17 @@ function renderLose(){
   const all = LOSE();
   const lsp = all.reduce((t, [r]) => t + r.w.s, 0), lrv = all.reduce((t, [r]) => t + r.w.v, 0);
   $('#p-lose').innerHTML = `<div class="sumrow"><div><span class="k">New assets under 1.30</span><span class="v">${all.length}</span></div><div><span class="k">Spend</span><span class="v">${eur(lsp)}</span></div><div><span class="k">Revenue</span><span class="v">${eur(lrv)}</span></div><div><span class="k">ROAS</span><span class="v ${rc(lsp ? lrv / lsp : 0)}">${r2(lsp ? lrv / lsp : 0)}</span></div></div>
-    <p class="sumnote">New assets with €50+ spend last week. Each card says where people drop off and what to change in the next version.</p>
+    <p class="sumnote">New assets that spent at least €50 last week and finished under 1.30. Each card shows where people dropped off and what to change in the next version.</p>
     <div class="cards">${all.length ? all.map(([r, i]) => card(r, i, 'lose')).join('') : '<p class="empty">Every new asset was above 1.30 last week.</p>'}</div>`;
 }
 function renderAng(){
   const order = {keep: 0, try: 1, early: 2, pause: 3};
   const rows = W.angle_fmt.filter(a => a.s >= 200).map(a => ({a, st: /Other|unclear/.test(a.angle) ? {...angleStatus(a), v:'early', label:'Angle unknown', next:[]} : angleStatus(a)})).sort((x, y) => order[x.st.v] - order[y.st.v] || y.a.s - x.a.s);
   const list = (cells, cls) => cells.length ? cells.map(c => `<span class="fl">${esc(c.fmt)} <span class="${cls}">${r2(c.roas)}</span> <span class="x">${eur(c.s)}</span></span>`).join('') : '<span class="muted">–</span>';
-  $('#p-ang').innerHTML = `<p class="lead">The <b>angle</b> is the message (price, root cause, founder story). The <b>format</b> is the layout (offer first, before/after, talking head...). A format that fails doesn't mean the angle fails, so an angle is only paused after it has lost in 3 formats. Last 8 weeks, Prospecting, ROAS on 1-day click; a format needs €270 to count.</p>
+  $('#p-ang').innerHTML = `<dl class="defs"><dt>Angle</dt><dd>What the ad says. Price, root cause, the founder's story.</dd>
+      <dt>Format</dt><dd>How the ad is built. Offer first, before/after, talking head.</dd>
+      <dt>Rule</dt><dd>An angle can fail in one format and still work in another, so we only pause it after it has lost in three.</dd></dl>
+    <p class="sumnote">Prospecting, last 8 weeks, ROAS on 1-day click. A format needs at least €270 of spend before it counts as a win or a loss.</p>
     <div class="tbl"><table class="atable"><thead><tr><th>Angle</th><th>What to do</th><th>Works as</th><th>Didn't work as</th><th>Try next</th></tr></thead><tbody>
     ${rows.map(({a, st}) => `<tr><td class="ang">${/Other|unclear/.test(a.angle) ? 'Angle not in the ad name' : esc(a.angle)}<div class="small muted" style="font-weight:400">${eur(a.s)} · ROAS ${r2(a.roas)}</div></td>
       <td><span class="v v-${st.v}">${st.label}</span></td><td>${list(st.won, 'g')}</td><td>${list(st.lost, 'r')}</td>
@@ -403,7 +409,8 @@ function renderAng(){
 
 function renderTop(){
   const read = new Date(W.read_at);
-  $('#sub').textContent = `Week of ${span(W.start)} ${W.end.slice(0, 4)} · Meta Ads, 1-day click · data read ${read.getDate()} ${MON[read.getMonth()]}`;
+  $('#h1').textContent = `Creative scorecard, ${span(W.start)}`;
+  $('#sub').textContent = `Pomad Meta ads. All numbers are 1-day click, pulled on ${read.getDate()} ${MON[read.getMonth()]} ${read.getFullYear()}.`;
   $('#weekpick').innerHTML = [...DATA.weeks].reverse().map(w => `<option value="${w.code}" ${w === W ? 'selected' : ''}>${span(w.start)} ${w.end.slice(0, 4)}</option>`).join('');
   const wt = W.week_totals || [], prev = wt[wt.length - 2], A = W.account, pa = prev && prev.Account;
   const ch = (a, b) => { if (!b) return ''; const c = (a - b) / b * 100; return `<span class="${c >= 0 ? 'up' : 'dn'}">${c >= 0 ? '+' : ''}${c.toFixed(0)}%</span> vs week before`; };
