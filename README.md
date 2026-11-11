@@ -7,3 +7,4 @@
 - [Account Change Log](https://yoedhistiera-skyvane.github.io/pomad-things/change-log.html) (updated 3 Nov 2026)
 - [Customer Review Mining](https://yoedhistiera-skyvane.github.io/pomad-things/review-mining.html) (5 Nov 2026)
 - [Creative Feedback](https://yoedhistiera-skyvane.github.io/pomad-things/creative-feedback.html) (6 Nov 2026)
+- [Creative Scorecard](https://yoedhistiera-skyvane.github.io/pomad-things/creative-scorecard/) (weekly, first week 2–8 Nov 2026)
